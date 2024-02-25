@@ -21,11 +21,6 @@ public class CalculatorController {
 		public void actionPerformed(ActionEvent e) {
 			
 			int firstNumber, secondNumber = 0;
-			
-			// Surround interactions with the view with
-			// a try block in case numbers weren't
-			// properly entered
-			
 			try{
 			
 				firstNumber = calculatorView.getFirstNumber();
@@ -80,11 +75,6 @@ public class CalculatorController {
 		public void actionPerformed(ActionEvent e) {
 			
 			int firstNumber, secondNumber = 0;
-			
-			// Surround interactions with the view with
-			// a try block in case numbers weren't
-			// properly entered
-			
 			try{
 			
 				firstNumber = calculatorView.getFirstNumber();
@@ -113,10 +103,6 @@ public class CalculatorController {
 			
 			int firstNumber, secondNumber = 0;
 			
-			// Surround interactions with the view with
-			// a try block in case numbers weren't
-			// properly entered
-			
 			try{
 			
 				firstNumber = calculatorView.getFirstNumber();
@@ -135,6 +121,11 @@ public class CalculatorController {
 				calculatorView.displayErrorMessage("You Need to Enter 2 Integers");
 				
 			}
+			catch (ArithmeticException ex) {
+				System.out.println(ex);
+				calculatorView.displayErrorMessage("Cannot divide by zero");
+			}
+			
 			
 		}
 		
@@ -145,9 +136,7 @@ public class CalculatorController {
 			
 			int firstNumber, secondNumber = 0;
 			
-			// Surround interactions with the view with
-			// a try block in case numbers weren't
-			// properly entered
+		
 			
 			try{
 			
@@ -166,6 +155,10 @@ public class CalculatorController {
 				
 				calculatorView.displayErrorMessage("You Need to Enter 2 Integers");
 				
+			}
+			catch (ArithmeticException ex) {
+				System.out.println(ex);
+				calculatorView.displayErrorMessage("Cannot take modulus by zero");
 			}
 			
 		}
