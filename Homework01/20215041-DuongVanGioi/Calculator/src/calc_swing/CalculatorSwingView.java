@@ -1,3 +1,4 @@
+package calc_swing;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
@@ -9,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class CalculatorView extends JFrame{
+public class CalculatorSwingView extends JFrame{
 	private JLabel firstNumberLabel = new JLabel("First Number");
 	private JTextField firstNumber = new JTextField(10);
 	private JLabel secondNumberLabel = new JLabel("Second Number");
@@ -24,7 +25,7 @@ public class CalculatorView extends JFrame{
 	private JButton moduloButton = new JButton("%");
 	private JButton clearButton = new JButton("CLEAR");
 	
-CalculatorView(){
+CalculatorSwingView(){
 		
 		// Sets up the view and adds the components
 		

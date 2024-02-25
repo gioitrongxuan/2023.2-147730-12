@@ -1,5 +1,6 @@
+package calc_swing;
 
-public class CalculatorModel {
+public class CalculatorSwingModel {
     private int calculationValue;
 
     public void addTwoNumbers(int firstNumber, int secondNumber) {
@@ -14,20 +15,12 @@ public class CalculatorModel {
         calculationValue = firstNumber * secondNumber;
     }
 
-    public void divideTwoNumbers(int firstNumber, int secondNumber) {
-        if (secondNumber != 0) {
-            calculationValue = firstNumber / secondNumber;
-        } else {
-            // Handle division by zero error, for example, throw an exception or set calculationValue to a special value.
-        }
+    public void divideTwoNumbers(int firstNumber, int secondNumber) throws ArithmeticException{
+        calculationValue = firstNumber / secondNumber;
     }
 
-    public void moduloTwoNumbers(int firstNumber, int secondNumber) {
-        if (secondNumber != 0) {
-            calculationValue = firstNumber % secondNumber;
-        } else {
-            // Handle division by zero error, for example, throw an exception or set calculationValue to a special value.
-        }
+    public void moduloTwoNumbers(int firstNumber, int secondNumber) throws ArithmeticException{
+        calculationValue = firstNumber % secondNumber;
     }
 
     public int getCalculationValue() {

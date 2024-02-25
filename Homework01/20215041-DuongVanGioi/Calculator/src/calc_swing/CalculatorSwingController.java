@@ -1,11 +1,12 @@
+package calc_swing;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class CalculatorController {
-	private CalculatorModel calculatorModel;
-	private CalculatorView calculatorView;
-	public CalculatorController(CalculatorModel calculatorModel, CalculatorView calculatorView) {
+public class CalculatorSwingController {
+	private CalculatorSwingModel calculatorModel;
+	private CalculatorSwingView calculatorView;
+	public CalculatorSwingController(CalculatorSwingModel calculatorModel, CalculatorSwingView calculatorView) {
 		this.calculatorModel = calculatorModel;
 		this. calculatorView = calculatorView;
 		
