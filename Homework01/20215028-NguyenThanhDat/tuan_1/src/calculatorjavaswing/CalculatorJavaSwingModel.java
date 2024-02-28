@@ -1,6 +1,6 @@
-package calculatorjavafx;
+package calculatorjavaswing;
 
-public class CalculatorJavaFXModel {
+public class CalculatorJavaSwingModel {
     
     private double calculationValue;
 

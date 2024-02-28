@@ -23,32 +23,32 @@ public class CalculatorJavaFXController {
 
     @FXML
     void addButton(ActionEvent event) {
-        double num1 = Double.parseDouble(firstNumber.getText());
-        double num2 = Double.parseDouble(secondNumber.getText());
+    	int num1 = Integer.parseInt(firstNumber.getText());
+		int num2 = Integer.parseInt(secondNumber.getText());
         theModel.addTwoNumbers(num1, num2);
         result.setText(String.valueOf(theModel.getCalculationValue()));
     }
 
     @FXML
     void minusButton(ActionEvent event) {
-        double num1 = Double.parseDouble(firstNumber.getText());
-        double num2 = Double.parseDouble(secondNumber.getText());
+    	int num1 = Integer.parseInt(firstNumber.getText());
+		int num2 = Integer.parseInt(secondNumber.getText());
         theModel.minusTwoNumbers(num1, num2);
         result.setText(String.valueOf(theModel.getCalculationValue()));
     }
 
     @FXML
     void mulButton(ActionEvent event) {
-        double num1 = Double.parseDouble(firstNumber.getText());
-        double num2 = Double.parseDouble(secondNumber.getText());
+    	int num1 = Integer.parseInt(firstNumber.getText());
+		int num2 = Integer.parseInt(secondNumber.getText());
         theModel.mulTwoNumbers(num1, num2);
         result.setText(String.valueOf(theModel.getCalculationValue()));
     }
 
     @FXML
     void divButton(ActionEvent event) {
-        double num1 = Double.parseDouble(firstNumber.getText());
-        double num2 = Double.parseDouble(secondNumber.getText());
+    	int num1 = Integer.parseInt(firstNumber.getText());
+		int num2 = Integer.parseInt(secondNumber.getText());
         try {
             theModel.divTwoNumbers(num1, num2);
             result.setText(String.valueOf(theModel.getCalculationValue()));
@@ -59,8 +59,8 @@ public class CalculatorJavaFXController {
     
     @FXML
     void modButton(ActionEvent event) {
-        double num1 = Double.parseDouble(firstNumber.getText());
-        double num2 = Double.parseDouble(secondNumber.getText());
+    	int num1 = Integer.parseInt(firstNumber.getText());
+		int num2 = Integer.parseInt(secondNumber.getText());
         try {
             theModel.modTwoNumbers(num1, num2);
             result.setText(String.valueOf(theModel.getCalculationValue()));
