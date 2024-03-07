@@ -1,0 +1,26 @@
+- Lưu ý: use-case: 
+	- 1 phải liên tục
+	- Động từ
+	- Phải cụ thể
+
+- Bộ phận bán hàng:
+	- Xem thông tin
+	- Sửa thông tin
+	- Xóa thông tin
+	- Tạo thông tin đặt hànn
+	- Gửi thông tin đặt hàng
+- Bộ phận đặt hàng quốc tế
+	- Tìm site nhập khẩu
+	- Xem thông tin nhập hàng
+	- Xem thông tin hàng trong kho (của site nhập khẩu)
+	- Tạo và lưu thông tin vận chuyển
+	- Tạo danh sách các site nhập khẩu đã đáp ứng
+- Site nhập khẩu (Tự cập nhật thông tin hàng)
+	- Đặt hàng
+	- ( Một số chức năng như xem thông tin )
+- Bộ phận quản lý kho
+	- Kiểm tra và lưu trữ hàng hóa
+	 - Lưu danh sách mặt hàng
+- Hệ thống quản lý kho
+	- Lưu danh sách mặt hàng 
+	
