@@ -1,6 +1,6 @@
 # 2023.2-147730-12
 
-# ==[Quy tắc chung](Homework01/README.md)== 
+# [Quy tắc chung](Homework01/README.md)
 # Nội dung hàng tuần 
 1.  [**Homework01**](Homework01/README.md) (22/02/2024-29/02/2024)
 	• Create an account in github
