@@ -1,26 +1,34 @@
-- Lưu ý: use-case: 
-	- 1 phải liên tục
-	- Động từ
-	- Phải cụ thể
+![[UseCase Diagram.png]]
 
 - Bộ phận bán hàng:
-	- Xem thông tin
-	- Sửa thông tin
-	- Xóa thông tin
-	- Tạo thông tin đặt hànn
+	- Xem thông tin đặt hàng 
+	- Sửa thông tin  đặt hàng
+	- Xóa thông tin đặt hàng
+	- Tạo thông tin đặt hàng
 	- Gửi thông tin đặt hàng
 - Bộ phận đặt hàng quốc tế
-	- Tìm site nhập khẩu
 	- Xem thông tin nhập hàng
-	- Xem thông tin hàng trong kho (của site nhập khẩu)
-	- Tạo và lưu thông tin vận chuyển
-	- Tạo danh sách các site nhập khẩu đã đáp ứng
+	- Xem thông tin site
+	- Xem thông tin đặt hàng.
+	- Đặt hàng : 
+		- Xem các đơn hàng
+		- Chọn các đơn hàng
+		- Gửi yêu cầu đặt hàng
 - Site nhập khẩu (Tự cập nhật thông tin hàng)
-	- Đặt hàng
-	- ( Một số chức năng như xem thông tin )
+	- >Đặt hàng
+	- Tạo thông tin các mặt hàng 
+	- Xem thông tin các mặt hàng
+	- Sửa thông tin các mặt hàng
 - Bộ phận quản lý kho
-	- Kiểm tra và lưu trữ hàng hóa
-	 - Lưu danh sách mặt hàng
+	-  Hiển thị thông tin hàng trong kho
+	-  Tạo thông tin hàng trong kho.
+	-  Sửa thông tin hàng trong kho
 - Hệ thống quản lý kho
-	- Lưu danh sách mặt hàng 
-	
+	- >Tạo thông tin hàng trong kho.
+	- > Sửa thông tin hàng trong kho
+- Lưu ý:
+	- use-case: 
+		- Phải liên tục
+		- Động từ
+		- Phải cụ thể
+		- Tưởng tượng giao diện có thực tế hay không.
