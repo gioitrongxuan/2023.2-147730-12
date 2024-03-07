@@ -3,21 +3,18 @@
 # [Quy tắc chung](Homework01/README.md)
 # Nội dung hàng tuần 
 1.  [**Homework01**](Homework01/README.md) (22/02/2024-29/02/2024)
-	• Create an account in github
-	• Create a private repository in github, join with all members in your
-	group
-	• Naming your project name (check the previous lesson)
-	• Create a sub-directory (Homework01)
-	• Each member in the group does the following tasks
-	• HelloWorld.java: Ask a user to enter his/her name, then display hello to that name
-	• Implement MVCTutorial example
-	• Implement Calculator, using MVC model with 2 version: Swing and JavaFX
-	(use Scene Builder)
-	• Each member must perform all of these GIT actions:
-	• add file, remove file, modify, commit, push, pull, merge (resolve conflict), create
-	branch, merge branch
-	• take a screenshot to prove that you have done all actions
-	• Each member create his/her own report
+	- Create an account in github
+	- Create a private repository in github, join with all members in your group
+	-  Naming your project name (check the previous lesson)
+	- Create a sub-directory (Homework01)
+	-  Each member in the group does the following tasks
+	-  HelloWorld.java: Ask a user to enter his/her name, then display hello to that name
+	-  Implement MVCTutorial example
+	-  Implement Calculator, using MVC model with 2 version: Swing and JavaFX (use Scene Builder)
+	-  Each member must perform all of these GIT actions:
+	-  add file, remove file, modify, commit, push, pull, merge (resolve conflict), create branch merge branch
+	-  take a screenshot to prove that you have done all actions
+	-  Each member create his/her own report
 1. [**Homework02**](Homework02/README.md) (29/02/2024-07/03/2024)
 	- Vẽ biểu đồ use case :![UseCase Diagram](Homework02/UseCase%20Diagram.png)
 2. [**Homework03**](Homework03)(07/03/2024-14/03/2024)
