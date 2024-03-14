@@ -22,3 +22,10 @@
 	- Mỗi thành viên chọn một use case nghiệp vụ (bỏ qua các use case đăng nhập đăng ký) để thực hiện. Cần chỉ rõ ai làm use case nào. Trừ khi không còn use case, sinh viên không được phép chọn các use case dễ (ví dụ use case xóa dữ liệu, xem 1 bản ghi dữ liệu đơn giản). Use case được chọn phải có giao diện người dùng (GUI). Mỗi thành viên sẽ làm việc xuyên suốt với use case này. Trong bài tập này, mỗi thành viên cần đặc tả use case mình phụ trách. Trong đặc tả có thêm biểu đồ hoạt động (activity diagram) cho 1 luồng nào đó ( Vẽ cả càng tốt). Đồng thời cả nhóm hoàn thành tài liệu SRS theo mẫu trong thư mục Google Drive.
 	- Thư mục group: có file doc SRS, file pdf SRS, file project Astah, file ảnh biểu đồ export từ Astah
 	- Mỗi cá nhân nộp báo cáo cá nhân trong thư mục cá nhân
+3. Homework04 ( 14/03/2024 - 21/03/2024)  (Phân tích use case)
+	- Bài tập cá nhân: 
+		- Vẽ các biểu đồ trình tự (mức phân tích) trong use case mình phụ trách. Có thể cần vẽ nhiều biểu đồ, mỗi biểu đồ ứng với một scenario (luồng) trong use case. Cần chọn ít nhất 1 biểu đồ trình tự đã vẽ và vẽ thêm biểu đồ giao tiếp biểu diễn tương đương với biểu đồ trình tự này.
+
+		- Dựa trên các biểu đồ trình tự đã vẽ, vẽ biểu đồ lớp (mức phân tích) cho use case mình phụ trách.
+
+	- Bài tập nhóm: Vẽ biểu đồ lớp (mức phân tích) cho cả nhóm. Lưu ý: các lớp cùng chức năng ở nhiều use case phải dùng thống nhất cùng 1 tên.
