@@ -1,32 +1,44 @@
-	• Create an account in github
-	• Create a private repository in github, join with all members in your
-	group
-	• Naming your project name (check the previous lesson)
-	• Create a sub-directory (Homework01)
-	• Each member in the group does the following tasks
-	• HelloWorld.java: Ask a user to enter his/her name, then display hello to that name
-	• Implement MVCTutorial example
-	• Implement Calculator, using MVC model with 2 version: Swing and JavaFX
-	(use Scene Builder)
-	• Each member must perform all of these GIT actions:
-	• add file, remove file, modify, commit, push, pull, merge (resolve conflict), create
-	branch, merge branch
-	• take a screenshot to prove that you have done all actions
-	• Each member create his/her own report
----
-# Chú ý
-
-- **Mỗi thành viên tạo một nhánh và làm việc trên nhánh đó**
-- **Những công việc chung:**
-  - Xác định nhánh làm việc hiện tại trên thiết bị, pull...
-  - Xác định công việc cần làm và thực hiện
-  - Pull về để cập nhật thay đổi trên git
-  - Push lên và tạo Pull request.
-
-- **Đối với công việc cá nhân:**
-  - Tạo folder riêng
-  - Làm việc trên nhánh riêng
-  - Không thay đổi folder của người khác
-  - Làm xong đều phải merge vào nhánh chính
-
-	
+![UseCase Diagram](UseCase%20Diagram.png)
+- Bộ phận bán hàng:
+	- Xem danh sách hàng đang bán
+		- ? Xem có những loại mặt hàng nào
+	- Xem thông tin đặt hàng 
+	- Sửa thông tin  đặt hàng
+	- Xóa thông tin đặt hàng
+	- Tạo thông tin đặt hàng
+	- Gửi thông tin đặt hàng
+- Bộ phận đặt hàng quốc tế
+	- Xem thông tin nhập hàng
+	- Xem thông tin site
+	- Xem thông tin đặt hàng.
+	- Phản hồi thông tin nhập hàng:
+		- Phản hồi cho bộ phận bán hàng.
+	- Đặt hàng : 
+		- Xem các đơn hàng
+		- Chọn các đơn hàng
+		- Gửi yêu cầu đặt hàng
+- Site nhập khẩu (Tự cập nhật thông tin hàng)
+	- ->Đặt hàng
+	- Xem thông tin đơn hàng.
+		- Xem danh sách đơn hàng.
+		- Xem chi tiết đơn hàng.
+	- Xử lý thông tin đơn hàng
+		- Chấp nhận 
+		- Từ chối
+	- Tạo thông tin các mặt hàng 
+	- Xem thông tin các mặt hàng
+	- Sửa thông tin các mặt hàng
+- Bộ phận quản lý kho
+	- Xem thông tin đơn hàng đ
+	-  Hiển thị thông tin hàng trong kho
+	-  Tạo thông tin hàng trong kho.
+	-  Sửa thông tin hàng trong kho
+- Hệ thống quản lý kho
+	- ->Tạo thông tin hàng trong kho.
+	- -> Sửa thông tin hàng trong kho
+- Lưu ý:
+	- use-case: 
+		- Phải liên tục
+		- Động từ
+		- Phải cụ thể
+		- Tưởng tượng giao diện có thực tế hay không.
