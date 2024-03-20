@@ -16,7 +16,7 @@
 	-  take a screenshot to prove that you have done all actions
 	-  Each member create his/her own report
 1. [**Homework01**](Homework01/README.md) (29/02/2024-07/03/2024)
-	- Vẽ biểu đồ use case :![UseCase Diagram](Homework02/UseCase%20Diagram.png)
+	- Vẽ biểu đồ use case :![UseCase Diagram](Homework01/UseCase%20Diagram.png)
 2. [**Homework02**](Homework02)(07/03/2024-14/03/2024)
 	- Vẽ biểu đồ use case (bao gồm biểu đồ tổng quan và các biểu đồ phân rã nếu có)
 	- Mỗi thành viên chọn một use case nghiệp vụ (bỏ qua các use case đăng nhập đăng ký) để thực hiện. Cần chỉ rõ ai làm use case nào. Trừ khi không còn use case, sinh viên không được phép chọn các use case dễ (ví dụ use case xóa dữ liệu, xem 1 bản ghi dữ liệu đơn giản). Use case được chọn phải có giao diện người dùng (GUI). Mỗi thành viên sẽ làm việc xuyên suốt với use case này. Trong bài tập này, mỗi thành viên cần đặc tả use case mình phụ trách. Trong đặc tả có thêm biểu đồ hoạt động (activity diagram) cho 1 luồng nào đó ( Vẽ cả càng tốt). Đồng thời cả nhóm hoàn thành tài liệu SRS theo mẫu trong thư mục Google Drive.
