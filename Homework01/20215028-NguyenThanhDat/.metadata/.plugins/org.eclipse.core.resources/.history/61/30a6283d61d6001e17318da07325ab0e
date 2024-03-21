@@ -1,0 +1,29 @@
+package calculatorjavaswing;
+
+public class CalculatorSwingModel {
+    private int calculationValue;
+
+    public void addTwoNumbers(double firstNumber, double secondNumber) {
+        calculationValue = firstNumber + secondNumber;
+    }
+
+    public void subtractTwoNumbers(double firstNumber, double secondNumber) {
+        calculationValue = firstNumber - secondNumber;
+    }
+
+    public void multiplyTwoNumbers(double firstNumber, double secondNumber) {
+        calculationValue = firstNumber * secondNumber;
+    }
+
+    public void divideTwoNumbers(double firstNumber, double secondNumber) throws ArithmeticException{
+        calculationValue = firstNumber / secondNumber;
+    }
+
+    public void moduloTwoNumbers(int firstNumber, int secondNumber) throws ArithmeticException{
+        calculationValue = firstNumber % secondNumber;
+    }
+
+    public int getCalculationValue() {
+        return calculationValue;
+    }
+}
