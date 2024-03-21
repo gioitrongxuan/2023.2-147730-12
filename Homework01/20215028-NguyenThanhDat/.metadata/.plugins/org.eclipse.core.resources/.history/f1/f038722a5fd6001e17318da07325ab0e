@@ -1,0 +1,30 @@
+package calculatorjavafx;
+
+import java.awt.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+public class CalculatorJavaFXController {
+    private CalculatorJavaFXModel model = new CalculatorJavaFXModel();
+    
+    @FXML private TextField firstNumber;
+    @FXML private TextField secondNumber;
+    @FXML private TextField result;
+
+    @FXML
+    void calculate(ActionEvent event) {
+        double num1 = Double.parseDouble(firstNumber.getText());
+        double num2 = Double.parseDouble(secondNumber.getText());
+        String operator = ((Button) event.getSource()).getText(); // Lấy toán tử từ nút được nhấn
+        double calculation = model.calculate(num1, num2, operator);
+        result.setText(Double.isInfinite(calculation) ? "Error" : String.valueOf(calculation));
+    }
+
+    @FXML
+    void clear() {
+        firstNumber.clear();
+        secondNumber.clear();
+        result.clear();
+    }
+}
