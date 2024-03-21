@@ -1,0 +1,12 @@
+package calculatorjavaswing;
+
+public class MVCCalculatorJavaSwing {
+    
+    public static void main(String[] args) {
+    	
+    	CalculatorJavaSwingView theView = new CalculatorJavaSwingView();
+        
+    	theView.setVisible(true);
+        
+    }
+}
