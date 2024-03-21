@@ -1,0 +1,12 @@
+INDEX VERSION 1.134+F:\2023.2\ITSS\2023.2-147730-12\Homework01\20215028-NguyenThanhDat\.metadata\.plugins\org.eclipse.jdt.core
+3804406280.index
+3807727246.index
+3413270776.index
+907748775.index
+2687867123.index
+3982870501.index
+1974881080.index
+3342744636.index
+1865797976.index
+1271703909.index
+1916808706.index
