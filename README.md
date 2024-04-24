@@ -36,7 +36,7 @@ UseCase Diagram [Tổng quan]
 		Đặc tả tất cả các màn hình trong use case của mình.
 
 	Thiết kế từng subsystem (nếu có) trong use case của mình (vẽ biểu đồ trình tự cho từng hành vi mà subsystem cung cấp như minh họa trong hình dưới đây, mỗi hành vi một biểu đồ trình tự). Vẽ biểu đồ lớp cho từng subsystem
-	![[capture/Pasted%20image%2020240424115144.png]]
+	![capture/Pasted%20image%2020240424115144.png]
 
 5. [**Homework05**](Homework05)
 	1. Bài tập cá nhân: Vẽ các biểu đồ trình tự (mức thiết kế) trong use case mình phụ trách. Có thể cần vẽ nhiều biểu đồ, mỗi biểu đồ ứng với một scenario trong use case. Sau đó tìm các hành vi và thuộc tính cho các lớp thiết kế và vẽ biểu đồ lớp (mức thiết kế) cho use case mình phụ trách.
