@@ -36,6 +36,10 @@ public class Site {
 	public Site() {
 		super();
 	}
+	public Site(String siteCode) {
+		super();
+		this.siteCode = siteCode;
+	}
 	//
 	//
 	//
