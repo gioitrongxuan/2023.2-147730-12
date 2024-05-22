@@ -13,8 +13,6 @@ module com.jmc.htdh {
     exports com.jmc.htdh.controller;
     exports com.jmc.htdh.controller.admin;
     exports com.jmc.htdh.controller.bpdhqt;
-    exports com.jmc.htdh.model;
-    exports com.jmc.htdh.view;
     exports com.jmc.htdh.model.actor.dhqt;
     exports com.jmc.htdh.view.dhqt;
     exports com.jmc.htdh.subsystemSQLServer;
