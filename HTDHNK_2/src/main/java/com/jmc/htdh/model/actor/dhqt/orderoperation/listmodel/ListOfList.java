@@ -1,8 +1,9 @@
-package model.bpdhqt.orderoperation.listmodel;
+package com.jmc.htdh.model.actor.dhqt.orderoperation.listmodel;
 
 import java.util.ArrayList;
 
-import model.bpdhqt.orderoperation.merchandisemodel.Merchandise;
+import com.jmc.htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
+import com.jmc.htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 
 public class ListOfList {
 	

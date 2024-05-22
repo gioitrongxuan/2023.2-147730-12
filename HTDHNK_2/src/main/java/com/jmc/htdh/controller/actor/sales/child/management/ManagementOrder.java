@@ -7,8 +7,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
-import com.jmc.htdh.model.actor.internationalOrder.orderoperation.listofmerchandisemodel.ListOfMerchandise;
-import com.jmc.htdh.model.actor.internationalOrder.orderoperation.merchandisemodel.Merchandise;
+import com.jmc.htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
+import com.jmc.htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
 
 import java.util.ArrayList;
 

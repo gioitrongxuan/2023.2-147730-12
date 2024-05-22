@@ -1,4 +1,4 @@
-package model.bpdhqt.orderoperation.merchandisemodel;
+package com.jmc.htdh.model.actor.dhqt.orderoperation.merchandisemodel;
 
 import java.util.ArrayList;
 import model.sitemodel.Site;

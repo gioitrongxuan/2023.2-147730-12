@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="430.0">
+         <children>
+            <Label fx:id="siteIDLbl" contentDisplay="BOTTOM" prefHeight="50.0" prefWidth="100.0" text="siteID">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </Label>
+            <ChoiceBox fx:id="unitChoiceBox" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
+            <TextField fx:id="quantityTextField" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </TextField>
+            <ChoiceBox fx:id="meanChoiceBox" prefWidth="100.0" />
+         </children>
+      </HBox>
+   </children>
+</Pane>

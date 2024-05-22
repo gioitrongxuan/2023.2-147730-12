@@ -1,6 +1,6 @@
 package com.jmc.htdh.view.dhqt;
 
-import com.jmc.htdh.controller.bpdhqt.BPDHQTController;
+import com.jmc.htdh.controller.actor.dhqt.DHQTController;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +41,7 @@ public class ViewFactory {
     public AnchorPane getDashboardView() {
        if (dashboardView == null) {
            try{
-                dashboardView = new FXMLLoader(getClass().getResource("/fxml/BPDHQT/Dashboard.fxml")).load();
+                dashboardView = new FXMLLoader(getClass().getResource("/fxml/dhqt/Dashboard.fxml")).load();
            }catch (Exception e) {
                e.printStackTrace();
            }
@@ -51,7 +51,7 @@ public class ViewFactory {
     public AnchorPane getOrderManagement() {
         if (orderManagement == null) {
             try{
-                orderManagement = new FXMLLoader(getClass().getResource("/fxml/BPDHQT/OrderList.fxml")).load();
+                orderManagement = new FXMLLoader(getClass().getResource("/fxml/dhqt/OrderList.fxml")).load();
             }catch (Exception e) {
                 e.printStackTrace();
             }
@@ -64,11 +64,12 @@ public class ViewFactory {
         createStage(loader);
     };
     public void showBPDHQTWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/BPDHQT/Client.fxml"));
-        BPDHQTController clientController = new BPDHQTController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/dhqt/DHQT.fxml"));
+        DHQTController clientController = new DHQTController();
         loader.setController(clientController);
         createStage(loader);
     }
+
     private void createStage(FXMLLoader loader) {
         Scene scene = null;
         try {

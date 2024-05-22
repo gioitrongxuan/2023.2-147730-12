@@ -1,6 +1,7 @@
 package com.jmc.htdh.controller;
 
 import com.jmc.htdh.model.actor.dhqt.Model;
+import com.jmc.htdh.model.actor.sales.ViewModel;
 import com.jmc.htdh.view.dhqt.AccountType;
 import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;
@@ -44,7 +45,10 @@ public class LoginController implements Initializable {
                 }
             }
             case ADMIN -> Model.getInstance().getViewFactory().showLoginWindow();
-            case SALE -> Model.getInstance().getViewFactory().showLoginWindow();
+            case SALE -> {
+                ViewModel.getInstance().getSaleViewFactory().showSaleWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+            }
             case QLK -> Model.getInstance().getViewFactory().showLoginWindow();
             case SITE -> Model.getInstance().getViewFactory().showLoginWindow();
         }

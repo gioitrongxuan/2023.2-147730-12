@@ -1,14 +1,19 @@
-package model.bpdhqt.orderoperation.listmodel;
+package com.jmc.htdh.model.actor.dhqt.orderoperation.listmodel;
 
 import java.util.ArrayList;
 
-import model.bpdhqt.orderoperation.merchandisemodel.Merchandise;
+import com.jmc.htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
 
 public class ListOfMerchandise {
 	private String listOfListID;
 	private String name;
 	private String ID;
 	private ArrayList<Merchandise> merchandises = new ArrayList<Merchandise>();
+
+	public ListOfMerchandise(String mi2001, ArrayList<Merchandise> merchandises) {
+		// TODO Auto-generated constructor stub
+	}
+
 	//
 	//
 	//

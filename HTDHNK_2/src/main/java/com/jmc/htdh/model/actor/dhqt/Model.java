@@ -80,4 +80,8 @@ public class Model {
         }
     }
 
+    /*
+            Sales method section
+             */
+
 }
