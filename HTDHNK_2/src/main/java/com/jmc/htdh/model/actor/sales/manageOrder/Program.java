@@ -12,7 +12,7 @@ public class Program extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        final String PROGRAM_PATH = "/fxml/sales/OrderManagement.fxml";
+        final String PROGRAM_PATH = "/fxml/sales/manage/OrderManagement.fxml";
         URL url = getClass().getResource(PROGRAM_PATH);
         FXMLLoader fxmlLoader = new FXMLLoader(url);
 

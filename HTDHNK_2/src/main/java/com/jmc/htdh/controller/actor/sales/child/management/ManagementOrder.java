@@ -1,5 +1,6 @@
-package com.jmc.htdh.controller.actor.sales;
+package com.jmc.htdh.controller.actor.sales.child.management;
 
+import com.jmc.htdh.controller.actor.sales.parent.OrderPage;
 import javafx.scene.control.TableView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +12,7 @@ import com.jmc.htdh.model.actor.internationalOrder.orderoperation.merchandisemod
 
 import java.util.ArrayList;
 
-public class OrderManagement extends OrderPage {
+public class ManagementOrder extends OrderPage {
 
     @FXML
     private TableView<ListOfMerchandise> table;
