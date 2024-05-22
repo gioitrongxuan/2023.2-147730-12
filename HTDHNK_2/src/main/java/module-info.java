@@ -4,7 +4,6 @@ module com.jmc.htdh {
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
     requires com.microsoft.sqlserver.jdbc;
-    requires java.desktop;
     opens com.jmc.htdh to javafx.fxml;
     opens com.jmc.htdh.view.test to javafx.fxml,javafx.base;
 
@@ -14,8 +13,6 @@ module com.jmc.htdh {
     exports com.jmc.htdh.controller;
     exports com.jmc.htdh.controller.admin;
     exports com.jmc.htdh.controller.bpdhqt;
-//    exports com.jmc.htdh.model;
-//    exports com.jmc.htdh.view;
     exports com.jmc.htdh.model.actor.dhqt;
     exports com.jmc.htdh.view.dhqt;
     exports com.jmc.htdh.subsystemSQLServer;
