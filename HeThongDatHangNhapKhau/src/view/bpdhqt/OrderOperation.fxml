@@ -7,44 +7,107 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1220.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER" prefHeight="102.0" prefWidth="1020.0">
+      <HBox alignment="CENTER" prefHeight="102.0" prefWidth="1200.0">
          <children>
-            <Label fx:id="AIMS" text="Đặt hàng" textFill="#004cff">
+            <Label fx:id="AIMS" text="BPDHQT - Đặt hàng" textFill="#004cff">
                <font>
                   <Font size="50.0" />
                </font>
             </Label>
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="ViewCart" alignment="CENTER" mnemonicParsing="false" onAction="#btnViewCartPressed" prefHeight="50.0" prefWidth="100.0" text="View Cart" textFill="#1d59c2">
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
          </children>
       </HBox>
-      <HBox prefHeight="668.0" prefWidth="1020.0">
+      <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Pane fx:id="windowOptionPane" prefHeight="200.0" prefWidth="150.0">
+            <Region prefHeight="200.0" prefWidth="130.0" />
+            <VBox prefHeight="200.0" prefWidth="220.0" style="-fx-border-color: #0066FF;">
                <children>
-                  <Button layoutX="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Button" />
-                  <Button fx:id="orderOperationBtn" layoutX="10.0" layoutY="83.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Đặt hàng" />
-                  <Button layoutX="10.0" layoutY="120.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Button" />
+                  <Label alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="220.0" text="Danh sách cần đặt từ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_CENTER" prefHeight="200.0" prefWidth="220.0" text="Bộ phận bán hàng">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Pane>
-            <ScrollPane fx:id="listOfListScrollPane" prefHeight="200.0" prefWidth="220.0">
+            </VBox>
+            <Region prefHeight="200.0" prefWidth="10.0" />
+            <Label alignment="CENTER" prefHeight="200.0" prefWidth="220.0" style="-fx-border-color: #0066FF;" text="Danh sách mặt hàng">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Region prefHeight="200.0" prefWidth="10.0" />
+            <VBox prefHeight="200.0" prefWidth="610.0" style="-fx-border-color: #0066FF;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="100.0" prefWidth="610.0" text="Tùy chọn">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="610.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="100.0" prefWidth="270.0" style="-fx-border-color: #0066FF;" text="ID&amp;Tên             Site cung cấp  ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="100.0" prefWidth="115.0" style="-fx-border-color: #0066FF;" text="Đơn vị">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="100.0" prefWidth="110.0" style="-fx-border-color: #0066FF;" text="Số lượng">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="100.0" prefWidth="115.0" style="-fx-border-color: #0066FF;" text="Phương tiện">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="610.0" prefWidth="1199.0">
+         <children>
+            <VBox fx:id="windowOptVBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="120.0" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #bddfff; -fx-border-color: #004cff;" text="Button" textFill="#004cff">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Button>
+                  <Button fx:id="orderOperationBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" style="-fx-border-color: #004cff; -fx-background-color: #bddfff;" text="Đặt hàng" textFill="#004cff">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" style="-fx-border-color: #004cff; -fx-background-color: #bddfff;" text="Button" textFill="#004cff">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Button>
+               </children>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
+            </VBox>
+            <Region prefHeight="200.0" prefWidth="10.0" />
+            <ScrollPane fx:id="listOfListScrollPane" prefHeight="200.0" prefWidth="220.0" style="-fx-border-color: #0066FF;">
                <content>
                   <GridPane fx:id="listOfListGridPane">
                     <columnConstraints>
@@ -52,7 +115,8 @@
                     </columnConstraints>
                   </GridPane>
                </content></ScrollPane>
-            <ScrollPane fx:id="listOfMerchandiseScrollPane" prefHeight="200.0" prefWidth="220.0">
+            <Region prefHeight="200.0" prefWidth="10.0" />
+            <ScrollPane fx:id="listOfMerchandiseScrollPane" prefHeight="200.0" prefWidth="220.0" style="-fx-border-color: #0066FF;">
                <content>
                   <GridPane fx:id="listOfMerchandiseGridPane">
                     <columnConstraints>
@@ -60,7 +124,8 @@
                     </columnConstraints>
                   </GridPane>
                </content></ScrollPane>
-            <ScrollPane fx:id="siteOptionScrollPane" prefHeight="668.0" prefWidth="430.0">
+            <Region prefHeight="200.0" prefWidth="10.0" />
+            <ScrollPane fx:id="siteOptionScrollPane" prefHeight="668.0" prefWidth="610.0" style="-fx-border-color: #0066FF;">
                <content>
                   <GridPane fx:id="siteOptGridPane">
                     <columnConstraints>
@@ -71,8 +136,55 @@
             </ScrollPane>
          </children>
       </HBox>
+      <HBox prefHeight="150.0" prefWidth="100.0">
+         <children>
+            <Region prefHeight="55.0" prefWidth="360.0" />
+            <VBox alignment="CENTER" prefHeight="55.0" prefWidth="220.0" spacing="5.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="25.0" prefWidth="25.0" spacing="5.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" style="-fx-border-color: #004cff; -fx-background-color: #bddfff;" text="Lưu" textFill="#004cff">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #004cff;" text="Hủy" textFill="#004cff">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="215.0" style="-fx-border-color: #004cff; -fx-background-color: #bddfff;" text="Gửi" textFill="#004cff">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin>
+            </VBox>
+            <Region prefHeight="200.0" prefWidth="10.0" />
+            <HBox alignment="TOP_RIGHT" prefHeight="55.0" prefWidth="610.0" spacing="5.0">
+               <children>
+                  <Button fx:id="siteOptSaveBtn" alignment="CENTER" mnemonicParsing="false" onAction="#siteOptSaveBtnClicked" prefHeight="65.0" prefWidth="200.0" style="-fx-background-color: #bddfff; -fx-border-color: #004cff;" text="Lưu" textFill="#004cff">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets top="7.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
    </children>
    <padding>
-      <Insets left="20.0" />
+      <Insets left="10.0" right="10.0" />
    </padding>
 </VBox>

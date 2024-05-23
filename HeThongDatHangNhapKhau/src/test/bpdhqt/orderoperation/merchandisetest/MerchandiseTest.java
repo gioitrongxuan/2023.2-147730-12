@@ -3,17 +3,20 @@ package test.bpdhqt.orderoperation.merchandisetest;
 import java.util.ArrayList;
 
 import controller.bpdhqt.orderoperation.merchandisecontroller.MerchandiseController;
+import controller.bpdhqt.orderoperation.merchandisecontroller.MerchandiseSiteOptController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.bpdhqt.orderoperation.listmodel.ListOfMerchandise;
 import model.bpdhqt.orderoperation.merchandisemodel.Merchandise;
 import model.sitemodel.Site;
 
 public class MerchandiseTest extends Application {
 	
-	private static Merchandise merchandise;
+	private static ListOfMerchandise ListOfMerchandises;
+	private static Merchandise merchandise = new Merchandise();
 	
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
@@ -22,7 +25,7 @@ public class MerchandiseTest extends Application {
 		MerchandiseController merchandiseController = new MerchandiseController(merchandise);
 		fxmlLoader.setController(merchandiseController);
 		Parent root = fxmlLoader.load();
-		merchandiseController.setMerchandiseData(merchandise);
+		merchandiseController.setMerchandiseData(ListOfMerchandises);
 		
 		primaryStage.setTitle("Merchandise");
 		primaryStage.setScene(new Scene(root));
@@ -45,7 +48,28 @@ public class MerchandiseTest extends Application {
         sites.add(site5);
 
         // Tạo đối tượng Merchandise
-        merchandise = new Merchandise("Asus laptop", sites, "M001", "Unit1", 100, "Plane");
+        ArrayList<String> means = new ArrayList<String>(5);
+        means.add("Air");
+        means.add(null);
+        means.add(null);
+        means.add("Ship");
+        means.add("Ship");
+        System.out.println(means);
+        
+        ArrayList<Integer> orderedMerchandiseQuantity = new ArrayList<Integer>(5);
+        
+        orderedMerchandiseQuantity.add(123);
+        orderedMerchandiseQuantity.add(null);
+        orderedMerchandiseQuantity.add(null);
+        orderedMerchandiseQuantity.add(45);
+        orderedMerchandiseQuantity.add(345);
+        System.out.println(orderedMerchandiseQuantity);
+        merchandise = new Merchandise("Asus laptop", sites, "M001", "Unit1", orderedMerchandiseQuantity, means);
+        
+        ArrayList<Merchandise> merchandises = new ArrayList<Merchandise>();
+        merchandises.add(merchandise);
+        
+        ListOfMerchandises = new ListOfMerchandise("LOL1","LOM1",merchandises);
 		launch(args);
 	}
 }

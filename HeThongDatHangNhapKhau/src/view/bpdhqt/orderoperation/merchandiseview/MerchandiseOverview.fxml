@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -9,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="610.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="610.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox prefHeight="120.0" prefWidth="610.0">
+      <HBox prefWidth="610.0">
          <children>
-            <VBox onMouseClicked="#infoVBoxClicked" prefHeight="120.0" prefWidth="170.0">
+            <VBox onMouseClicked="#infoVBoxClicked" prefWidth="170.0">
                <children>
                   <Label fx:id="merchandiseLbl" contentDisplay="BOTTOM" prefHeight="40.0" prefWidth="250.0" text="Merchandise x:">
                      <font>
@@ -34,17 +36,23 @@
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </Label>
+                  <Button fx:id="saveOneMerchandiseSiteOpt" mnemonicParsing="false" onAction="#saveOneMerchandiseSiteOptClicked" text="Lưu">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Button>
                </children>
             </VBox>
-            <Pane fx:id="merchandiseDetailPane" prefHeight="80.0" prefWidth="440.0">
+            <Pane fx:id="merchandiseDetailPane" prefWidth="440.0">
                <children>
                   <GridPane fx:id="gridPane">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
                   </GridPane>
-               </children></Pane>
+               </children>
+            </Pane>
          </children>
       </HBox>
    </children>
-</Pane>
+</AnchorPane>
