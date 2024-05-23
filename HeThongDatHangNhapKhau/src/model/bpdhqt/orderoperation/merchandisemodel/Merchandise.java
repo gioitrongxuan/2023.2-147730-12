@@ -11,8 +11,8 @@ public class Merchandise {
 	private ArrayList<Site> sites = new ArrayList<Site>();
 	private String merchandiseCode;
 	private String unit;
-	private int quantityOrdered;
-	private String deliveryMean;
+	private ArrayList<Integer> quantityOrdered = new ArrayList<Integer>();
+	private ArrayList<String> deliveryMean = new ArrayList<String>();
 	//
 	//
 	//
@@ -40,23 +40,26 @@ public class Merchandise {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-	public int getQuantityOrdered() {
+
+	
+	public ArrayList<Integer> getQuantityOrdered() {
 		return quantityOrdered;
 	}
-	public void setQuantityOrdered(int quantityOrdered) {
+	public void setQuantityOrdered(ArrayList<Integer> quantityOrdered) {
 		this.quantityOrdered = quantityOrdered;
 	}
-	public String getDeliveryMean() {
+	public ArrayList<String> getDeliveryMean() {
 		return deliveryMean;
 	}
-	public void setDeliveryMean(String deliveryMean) {
+	public void setDeliveryMean(ArrayList<String> deliveryMean) {
 		this.deliveryMean = deliveryMean;
 	}
 	//
 	//
 	//
-	public Merchandise(String name, ArrayList<Site> sites, String merchandiseCode, String unit, int quantityOrdered,
-			String deliveryMean) {
+
+	public Merchandise(String name, ArrayList<Site> sites, String merchandiseCode, String unit, ArrayList<Integer> quantityOrdered,
+			ArrayList<String> deliveryMean) {
 		super();
 		this.name = name;
 		this.sites = sites;

@@ -1,27 +1,23 @@
 package controller.bpdhqt.orderoperation.merchandisecontroller;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import model.bpdhqt.orderoperation.merchandisemodel.Merchandise;
 import model.sitemodel.Site;
 
 public class MerchandiseSiteOptController {
 	private Merchandise merchandise;
-	private Site site;
-	private int site_x;
-	
-	public MerchandiseSiteOptController (Merchandise merchandise, Site site,int i) {
-		this.merchandise = merchandise;
-		this.site = site;
-		this.site_x =i;
-	}
+	private MerchandiseController merchandiseController;
 
+	public MerchandiseSiteOptController (Merchandise merchandise) {
+		this.merchandise = merchandise;
+
+	}
     @FXML
     private ResourceBundle resources;
 
@@ -39,6 +35,9 @@ public class MerchandiseSiteOptController {
 
     @FXML
     private ChoiceBox<String> unitChoiceBox;
+    
+    @FXML
+    private Label unitLbl;
 
     @FXML
     void initialize() {
@@ -46,20 +45,136 @@ public class MerchandiseSiteOptController {
         assert quantityTextField != null : "fx:id=\"quantityTextField\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         assert siteIDLbl != null : "fx:id=\"siteIDLbl\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         assert unitChoiceBox != null : "fx:id=\"unitChoiceBox\" was not injected: check your FXML file 'siteoptionview.fxml'.";
-
     }
 
-    public void setData(Merchandise merchandise, Site site, int site_x) {
+    
+    
+    public Merchandise getMerchandise() {
+		return merchandise;
+	}
+
+
+
+	public void setMerchandise(Merchandise merchandise) {
+		this.merchandise = merchandise;
+	}
+
+
+
+	public MerchandiseController getMerchandiseController() {
+		return merchandiseController;
+	}
+
+
+
+	public void setMerchandiseController(MerchandiseController merchandiseController) {
+		this.merchandiseController = merchandiseController;
+	}
+
+
+
+	public ResourceBundle getResources() {
+		return resources;
+	}
+
+
+
+	public void setResources(ResourceBundle resources) {
+		this.resources = resources;
+	}
+
+
+
+	public URL getLocation() {
+		return location;
+	}
+
+
+
+	public void setLocation(URL location) {
+		this.location = location;
+	}
+
+
+
+	public ChoiceBox<String> getMeanChoiceBox() {
+		return meanChoiceBox;
+	}
+
+
+
+	public void setMeanChoiceBox(ChoiceBox<String> meanChoiceBox) {
+		this.meanChoiceBox = meanChoiceBox;
+	}
+
+
+
+	public TextField getQuantityTextField() {
+		return quantityTextField;
+	}
+
+
+
+	public void setQuantityTextField(TextField quantityTextField) {
+		this.quantityTextField = quantityTextField;
+	}
+
+
+
+	public Label getSiteIDLbl() {
+		return siteIDLbl;
+	}
+
+
+
+	public void setSiteIDLbl(Label siteIDLbl) {
+		this.siteIDLbl = siteIDLbl;
+	}
+
+
+
+	public ChoiceBox<String> getUnitChoiceBox() {
+		return unitChoiceBox;
+	}
+
+
+
+	public void setUnitChoiceBox(ChoiceBox<String> unitChoiceBox) {
+		this.unitChoiceBox = unitChoiceBox;
+	}
+
+
+
+	public Label getUnitLbl() {
+		return unitLbl;
+	}
+
+
+
+	public void setUnitLbl(Label unitLbl) {
+		this.unitLbl = unitLbl;
+	}
+
+
+
+	public void setData(Merchandise merchandise, Site site, int site_x) {
     	this.merchandise = merchandise;
-		this.site = site;
-		this.site_x = site_x;
+    	
+    	siteIDLbl.setText(merchandise.getSites().get(site_x).getSiteCode());
+		unitLbl.setText(merchandise.getUnit());
 		
-		siteIDLbl.setText(merchandise.getSites().get(site_x).getSiteCode());
-		unitChoiceBox.getItems().add( merchandise.getUnit());
-		meanChoiceBox.getItems().add( "Plane");
+		if(merchandise.getQuantityOrdered().isEmpty()) {
+			quantityTextField.setText("0");
+		} else {
+				quantityTextField.setText(merchandise.getQuantityOrdered().get(site_x)+"");
+		}
+		
+		meanChoiceBox.getItems().add( "Air");
 		meanChoiceBox.getItems().add( "Ship");
-		meanChoiceBox.getItems().add( "Truck");
-		meanChoiceBox.getItems().add( "Container");
-		meanChoiceBox.getItems().add( "Motor");
+	    // Xóa các mục cũ trong ChoiceBox và thêm các mục mới
+		
+		if(!(merchandise.getDeliveryMean().isEmpty())) {
+				meanChoiceBox.setValue(merchandise.getDeliveryMean().get(site_x));
+		}
     }
 }
