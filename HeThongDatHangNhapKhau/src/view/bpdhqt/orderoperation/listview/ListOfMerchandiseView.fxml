@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="220.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="220.0" style="-fx-border-color: #0066FF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="220.0" spacing="20.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="220.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="140.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: #bddfff; -fx-border-color: #0066FF;">
                <children>
                   <Label fx:id="merchandiseIDLbl" prefHeight="27.0" prefWidth="140.0" text="ID">
                      <font>
@@ -25,12 +25,12 @@
                      </font>
                   </Label>
                </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </VBox>
-            <Button fx:id="merchandiseDetailBtn" mnemonicParsing="false" onAction="#merchandiseDetailBtnClicked" prefHeight="70.0" prefWidth="50.0" />
+            <Button fx:id="merchandiseDetailBtn" mnemonicParsing="false" onAction="#merchandiseDetailBtnClicked" prefHeight="70.0" prefWidth="50.0" style="-fx-border-color: #0066FF; -fx-background-color: #CCFFCC;" />
          </children>
-         <padding>
-            <Insets left="10.0" />
-         </padding>
       </HBox>
    </children>
 </Pane>
