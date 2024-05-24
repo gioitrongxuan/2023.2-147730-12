@@ -6,6 +6,6 @@
 
 <AnchorPane prefHeight="23.0" prefWidth="459.0" style="-fx-background-color: Red;" xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.jmc.htdh.controller.actor.dhqt.OrderListCellController">
+            fx:controller="htdh.controller.actor.dhqt.OrderListCellController">
     <FontAwesomeIconView glyphName="ARROW_RIGHT" layoutX="8.0" layoutY="18.0"/>
 </AnchorPane>

@@ -11,7 +11,7 @@
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jmc.htdh.controller.LoginController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="htdh.controller.LoginController">
     <VBox prefHeight="400.0" prefWidth="200.0" styleClass="login_logo_container" stylesheets="@../Styles/login.css">
         <FontAwesomeIconView glyphName="CART_PLUS" selectionEnd="0" size="50" text=""/>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Đặt Hàng Quốc Tế" wrappingWidth="100.80859375"/>

@@ -8,7 +8,7 @@
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="management_container"
             stylesheets="@../../Styles/orderManagement.css" xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.jmc.htdh.controller.actor.dhqt.OrderListController">
+            fx:controller="htdh.controller.actor.dhqt.OrderListController">
     <Text layoutX="399.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"
           AnchorPane.leftAnchor="399.0" AnchorPane.topAnchor="14.5"/>
     <ListView fx:id="order_listview" prefHeight="640.0" prefWidth="830.0" AnchorPane.leftAnchor="14.0"
