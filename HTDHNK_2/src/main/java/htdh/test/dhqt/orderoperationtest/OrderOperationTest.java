@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfList;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 import htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
-import htdh.model.actor.sitemodel.Site;;
+import htdh.model.actor.sitemodel.Site;
 import htdh.controller.actor.dhqt.orderoperationcontroller.OrderOperationController;
 
 public class OrderOperationTest extends Application{

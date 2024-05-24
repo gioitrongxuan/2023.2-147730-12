@@ -2,7 +2,7 @@ package htdh.subsystem.connectionManagementSubsystem;
 
 public class DatabaseConfig {
     //Default values
-    private String url = "jdbc:sqlserver://DESKTOP-7RDGHEM\\SQLEXPRESS:1434;databaseName=HTDHNK;trustServerCertificate=true;";
+    private String url = "jdbc:sqlserver://LAPTOP-RVP7SFPH:1433;databaseName=HTDHNK;trustServerCertificate=true;";
     private String username = "sa";
     private String password = "123456789";
 

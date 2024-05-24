@@ -20,7 +20,7 @@ public class SQLServerConnector implements DatabaseConnector{
 
     public ResultSet getBPDHQTDataBase(String username, String password) {
         ResultSet resultSet = null;
-        String query = "SELECT * FROM BPDHQT WHERE username = ? AND password = ?";
+        String query = "SELECT * FROM account WHERE username = ? AND password = ?";
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement(query);
             preparedStatement.setString(1, username);

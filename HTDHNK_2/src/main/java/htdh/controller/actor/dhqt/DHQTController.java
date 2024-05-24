@@ -16,6 +16,7 @@ public class DHQTController implements Initializable {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().addListener((observableValue, oldVal, newVal)->{
             switch (newVal){
                 case  ORDER_LIST_MANAGEMENT -> client_parent.setCenter(Model.getInstance().getViewFactory().getOrderManagement());
+                case SETTING -> client_parent.setCenter(Model.getInstance().getViewFactory().getPhanDuc());
                 default -> client_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());
             }
         });

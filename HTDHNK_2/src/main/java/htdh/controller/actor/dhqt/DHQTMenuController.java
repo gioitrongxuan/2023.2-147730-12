@@ -20,6 +20,7 @@ public class DHQTMenuController implements Initializable {
     private void addListeners(){
         dashboard_btn.setOnAction(event -> onDashboard());
         management_btn.setOnAction(event -> onManagement());
+        setting_btn.setOnAction(event->onPhanDuc());
     }
     private void onManagement() {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(BPDHQTMenuOptions.ORDER_LIST_MANAGEMENT);
@@ -27,5 +28,8 @@ public class DHQTMenuController implements Initializable {
 
     private void onDashboard() {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(BPDHQTMenuOptions.DASHBOARD);
+    }
+    private void onPhanDuc() {
+    	Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(BPDHQTMenuOptions.SETTING);
     }
 }
