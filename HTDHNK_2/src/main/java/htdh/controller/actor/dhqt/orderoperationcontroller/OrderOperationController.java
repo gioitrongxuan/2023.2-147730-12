@@ -9,6 +9,7 @@ import htdh.controller.actor.dhqt.listcontroller.ListOfMerchandiseController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -18,7 +19,7 @@ import javafx.scene.layout.VBox;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfList;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 
-public class OrderOperationController {
+public class OrderOperationController implements Initializable {
 	
 	private ArrayList<ListOfList> needToOrderList;
 	private ListOfMerchandiseController listOfMerchandiseController;
@@ -188,6 +189,7 @@ public class OrderOperationController {
 
 	    listOfListGridPane.getChildren().clear();
 
+
 	    int column = 0;
 	    int row = 0;
 
@@ -216,7 +218,7 @@ public class OrderOperationController {
 	
 	
 	
-	
+
 	//
 	//
 	//
@@ -224,6 +226,11 @@ public class OrderOperationController {
     void siteOptSaveBtnClicked(ActionEvent event) {
 	
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+	}
 	//
 	//
 	//

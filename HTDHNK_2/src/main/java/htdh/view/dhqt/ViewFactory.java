@@ -215,8 +215,9 @@ public class ViewFactory {
         		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(ORDEROPERATION_FXML_FILE_PATH));
                 OrderOperationController orderOperationController = new OrderOperationController(needToOrderList);
         		fxmlLoader.setController(orderOperationController);
-        		orderOperationController.setOrderOperationData(needToOrderList);
-        		orderOperation = fxmlLoader.load();;
+        		orderOperation = fxmlLoader.load();
+                orderOperationController.setOrderOperationData(needToOrderList);
+
         		
             }catch (Exception e) {
                 e.printStackTrace();
