@@ -4,7 +4,7 @@ public class DatabaseConfig {
     //Default values
     private String url = "jdbc:sqlserver://DESKTOP-7RDGHEM\\SQLEXPRESS:1434;databaseName=HTDHNK;trustServerCertificate=true;";
     private String username = "sa";
-    private String password = "123456789";
+    private String password = "12345678";
 
 
     // Constructor, getters, and setters
