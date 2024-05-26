@@ -2,26 +2,26 @@
 package htdh.model.actor.sales;
 
 public class Product {
-    private String id;
-    private String name;
+    private String productID;
+    private String productName;
     private int quantity;
     private String unit;
 
     // Constructor
     public Product(String id, String name, int quantity, String unit) {
-        this.id = id;
-        this.name = name;
+        this.productID = id;
+        this.productName = name;
         this.quantity = quantity;
         this.unit = unit;
     }
 
     // Getters
     public String getId() {
-        return id;
+        return productID;
     }
 
     public String getName() {
-        return name;
+        return productName;
     }
 
     public int getQuantity() {
@@ -34,11 +34,11 @@ public class Product {
 
     // Setters
     public void setId(String id) {
-        this.id = id;
+        this.productID = id;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.productName = name;
     }
 
     public void setQuantity(int quantity) {

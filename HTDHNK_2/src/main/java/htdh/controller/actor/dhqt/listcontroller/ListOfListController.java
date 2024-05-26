@@ -16,13 +16,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-
 public class ListOfListController {
 	
 	private ListOfList listOfList;
 	private ArrayList<ListOfList> needToOrderList = new ArrayList<ListOfList>();
 	private OrderOperationController orderOperationController;
-	
+	private ArrayList<ListOfMerchandiseController> ListOfMerchandiseControllers = new ArrayList<ListOfMerchandiseController>();
     public ListOfListController(ListOfList listOfList) {
 		super();
 		this.listOfList = listOfList;
@@ -62,6 +61,8 @@ public class ListOfListController {
 
         int column = 0;
         int row = 0;
+        
+        ListOfMerchandiseControllers.clear();
         for (int i = 0; i < listOfList.getListOfMerchandise().size(); i++) {
             try {
 
@@ -75,6 +76,8 @@ public class ListOfListController {
                 Pane pane = fxmlLoader.load();
 
                 listOfMerchandiseController.setListOfMerchandiseData(listOfMerchandise);
+         
+                ListOfMerchandiseControllers.add(listOfMerchandiseController);
                 orderOperationController.getListOfMerchandiseGridPane().add(pane, column++, row);
                 if (column == 1) {
                     column = 0;
@@ -158,4 +161,12 @@ public class ListOfListController {
     	this.listOfList = listOfList;
     	listOfListLbl.setText(listOfList.getListOfListID());
     }
+
+	public void saveSiteOptions(ListOfList listOfList) {
+		this.listOfList = listOfList;
+		for( int i = 0 ; i < ListOfMerchandiseControllers.size() ; i++ ) {
+			ListOfMerchandiseControllers.get(i).saveSiteOptions(listOfList.getListOfMerchandise());
+		}
+	}
+
 }

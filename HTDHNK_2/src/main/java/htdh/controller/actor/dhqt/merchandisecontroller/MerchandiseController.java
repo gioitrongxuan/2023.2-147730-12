@@ -28,7 +28,13 @@ public class MerchandiseController {
     public MerchandiseController(Merchandise merchandise) {
         this.merchandise = merchandise;
     }
+    @FXML
+    private Label chosenQuantityLbl;
+    @FXML
+    private Label expectedReceiveDate;
 
+    @FXML
+    private Label needOrderedQuantityLbl;
 	@FXML
     private GridPane gridPane;
 
@@ -136,23 +142,23 @@ public class MerchandiseController {
     }
 
 	@FXML
-	void saveOneMerchandiseSiteOptClicked(ActionEvent event) {
-//	    // Lưu các giá trị đã chọn cho Merchandise
-//		
-		
+	void saveOneMerchandiseSiteOptClicked(ActionEvent event) throws IOException {
+	
 		System.out.println("Thông tin Merchandise TRƯỚC khi lưu:");
 	    System.out.println("Số lượng đặt hàng: " + merchandise.getQuantityOrdered());
 	    for( int i = 0; i < merchandise.getDeliveryMean().size();i++) {
-			System.out.println("Phương thức giao hàng: " + merchandise.getDeliveryMean());
+			System.out.println("Phương thức giao hàng: " + merchandise.getDeliveryMean().get(i));
 		}
 
 	    ArrayList<String> means = new ArrayList<String>();
 	    ArrayList<Integer> orderedMerchandiseQuantity = new ArrayList<Integer>();
 	    for(int i = 0; i < merchandiseSiteOptControllers.size(); i++) {
-	    	if (merchandiseSiteOptControllers.get(i).getQuantityTextField().getText() != null) {
-	    		orderedMerchandiseQuantity.add(Integer.parseInt(merchandiseSiteOptControllers.get(i).getQuantityTextField().getText()));
-	    	} else {
+	    	if ( merchandiseSiteOptControllers.get(i).getQuantityTextField().getText() == null ) {
 	    		orderedMerchandiseQuantity.add(0);
+	    		merchandiseSiteOptControllers.get(i).getQuantityTextField().setText("0");;
+	    	} else {
+	    		orderedMerchandiseQuantity.add(Integer.parseInt(merchandiseSiteOptControllers.get(i).getQuantityTextField().getText()));
+
 	    	}
 	    	
 	    	means.add(merchandiseSiteOptControllers.get(i).getMeanChoiceBox().getValue());
@@ -160,11 +166,10 @@ public class MerchandiseController {
 	    
 	    merchandise.setQuantityOrdered(orderedMerchandiseQuantity);
 	    merchandise.setDeliveryMean(means);
+//	    listOfMerchandise.setMerchandises(null);
 	    
 	    
 	    
-	    
-//	    // Kiểm tra xem các giá trị đã được lưu thành công hay không bằng cách in ra giá trị thuộc tính của Merchandise
 	    System.out.println("\n\nThông tin Merchandise SAU khi lưu:");
 	    System.out.println("Số lượng đặt hàng: " + merchandise.getQuantityOrdered());
 	    for( int i = 0; i < merchandise.getDeliveryMean().size();i++) {
@@ -172,52 +177,6 @@ public class MerchandiseController {
 		}
 	}
 	
-	public void setMerchandiseData( Merchandise merchandise) {
-        this.merchandise = merchandise;
-        merchandiseLbl.setText(merchandise.getMerchandiseCode());
-        merchandiseNameLbl.setText(merchandise.getName());
-        final String SITE_OPTION_FXML_FILE_PATH = "/view/bpdhqt/orderoperation/merchandiseview/SiteOptionView.fxml";
-
-        gridPane.getChildren().clear();
-
-        int column = 0;
-        int row = 0;
-        int paneHeight;
-        int siteOptPaneHeight;
-        
-        for (int i = 0; i < merchandise.getSites().size(); i++) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource(SITE_OPTION_FXML_FILE_PATH));
-
-                AnchorPane anchorPane = new AnchorPane();
-                fxmlLoader.setRoot(anchorPane);
-
-                Site site = merchandise.getSites().get(i);
-                merchandiseSiteOptController = new MerchandiseSiteOptController(merchandise);
-                fxmlLoader.setController(merchandiseSiteOptController);
-                merchandiseSiteOptControllers.add(merchandiseSiteOptController);
-                fxmlLoader.load();
-                gridPane.add(anchorPane, column++, row);
-                if (column == 1) {
-                    column = 0;
-                    row++;
-                }
-                
-                
-                siteOptPaneHeight = (int) anchorPane.getScaleY();
-                paneHeight = (int) merchandiseDetailPane.getHeight();
-                if (siteOptPaneHeight > paneHeight) {
-                	merchandiseDetailPane.setMaxHeight(paneHeight + 100);
-                	paneHeight = (int) merchandiseDetailPane.getHeight();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            
-        }
-        
-    }
     
     public void setMerchandiseData(ListOfMerchandise listOfMerchandise) {
         this.listOfMerchandise = listOfMerchandise;
@@ -230,6 +189,7 @@ public class MerchandiseController {
         int column = 0;
         int row = 0;
         
+        merchandiseSiteOptControllers.clear();
         for (int i = 0; i < merchandise.getSites().size(); i++) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -260,5 +220,22 @@ public class MerchandiseController {
     }
 
 
+	public void saveSiteOptions(ListOfMerchandise listOfMerchandise) {
+		ArrayList<String> means = new ArrayList<String>();
+	    ArrayList<Integer> orderedMerchandiseQuantity = new ArrayList<Integer>();
+	    for(int i = 0; i < merchandiseSiteOptControllers.size(); i++) {
+	    	if ( merchandiseSiteOptControllers.get(i).getQuantityTextField().getText() == null ) {
+	    		orderedMerchandiseQuantity.add(0);
+	    		merchandiseSiteOptControllers.get(i).getQuantityTextField().setText("0");;
+	    	} else {
+	    		orderedMerchandiseQuantity.add(Integer.parseInt(merchandiseSiteOptControllers.get(i).getQuantityTextField().getText()));
 
+	    	}
+	    	
+	    	means.add(merchandiseSiteOptControllers.get(i).getMeanChoiceBox().getValue());
+	    }
+	    
+	    merchandise.setQuantityOrdered(orderedMerchandiseQuantity);
+	    merchandise.setDeliveryMean(means);
+	}
 }

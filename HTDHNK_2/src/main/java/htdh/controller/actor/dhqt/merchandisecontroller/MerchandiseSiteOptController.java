@@ -2,6 +2,7 @@ package htdh.controller.actor.dhqt.merchandisecontroller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -10,12 +11,19 @@ import htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
 import htdh.model.actor.sitemodel.Site;
 
 public class MerchandiseSiteOptController {
+	//
+	//
+	//
 	private Merchandise merchandise;
 	private MerchandiseController merchandiseController;
-
+	//
+	//
+	//
 	public MerchandiseSiteOptController (Merchandise merchandise) {
 		this.merchandise = merchandise;
-
+	//
+	//
+	//
 	}
     @FXML
     private ResourceBundle resources;
@@ -44,9 +52,26 @@ public class MerchandiseSiteOptController {
         assert quantityTextField != null : "fx:id=\"quantityTextField\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         assert siteIDLbl != null : "fx:id=\"siteIDLbl\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         assert unitChoiceBox != null : "fx:id=\"unitChoiceBox\" was not injected: check your FXML file 'siteoptionview.fxml'.";
+        quantityTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                // Khi TextField được focus
+                if (quantityTextField.getText().equals("0")) {
+                    quantityTextField.setText("");
+                }
+            } else {
+                // Khi TextField mất focus
+                if (quantityTextField.getText().isEmpty()) {
+                    quantityTextField.setText("0");
+                }
+            }
+        });
     }
 
-    
+    @FXML
+    void quantityTextFieldClicked(ActionEvent event) {
+    	 
+    }
+
     
     public Merchandise getMerchandise() {
 		return merchandise;
@@ -162,27 +187,18 @@ public class MerchandiseSiteOptController {
     	siteIDLbl.setText(merchandise.getSites().get(site_x).getSiteCode());
 		unitLbl.setText(merchandise.getUnit());
 		
-		for( int i = 0; i < merchandise.getQuantityOrdered().size() ; i++) {
-			if (!(merchandise.getQuantityOrdered().get(i) == 0)) {
-		        int quantity = merchandise.getQuantityOrdered().get(i);
-		        quantityTextField.setText(quantity != 0 ? String.valueOf(quantity) : "0");
-		    } else {
-		        quantityTextField.setText("0");
-		    }
+		if(merchandise.getQuantityOrdered().isEmpty()) {
+			quantityTextField.setText("0");
+		} else {
+				quantityTextField.setText(merchandise.getQuantityOrdered().get(site_x)+"");
 		}
-		
 		
 		meanChoiceBox.getItems().add( "Air");
 		meanChoiceBox.getItems().add( "Ship");
-//		System.out.println("Hello");
 	    // Xóa các mục cũ trong ChoiceBox và thêm các mục mới
-		for( int i = 0; i < merchandise.getQuantityOrdered().size() ; i++) {
-			if (!(merchandise.getDeliveryMean().get(i) == null)) {
-				meanChoiceBox.setValue(merchandise.getDeliveryMean().get(i));
-		    } else {
-		        
-		    }
+		
+		if(!(merchandise.getDeliveryMean().isEmpty())) {
+				meanChoiceBox.setValue(merchandise.getDeliveryMean().get(site_x));
 		}
     }
-
 }

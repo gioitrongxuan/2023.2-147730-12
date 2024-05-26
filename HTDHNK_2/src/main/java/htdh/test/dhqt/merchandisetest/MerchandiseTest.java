@@ -16,17 +16,17 @@ public class MerchandiseTest extends Application {
 	private static Merchandise merchandise;
 	
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
-		final String MERCHANDISE_FXML_FILE_PATH = "/view/bpdhqt/orderoperation/merchandiseview/MerchandiseOverview.fxml";
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(MERCHANDISE_FXML_FILE_PATH));
-		MerchandiseController merchandiseController = new MerchandiseController(merchandise);
-		fxmlLoader.setController(merchandiseController);
-		Parent root = fxmlLoader.load();
-		merchandiseController.setMerchandiseData(merchandise);
-		
-		primaryStage.setTitle("Merchandise");
-		primaryStage.setScene(new Scene(root));
-		primaryStage.show();
+//		// TODO Auto-generated method stub
+//		final String MERCHANDISE_FXML_FILE_PATH = "/view/bpdhqt/orderoperation/merchandiseview/MerchandiseOverview.fxml";
+//		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(MERCHANDISE_FXML_FILE_PATH));
+//		MerchandiseController merchandiseController = new MerchandiseController(merchandise);
+//		fxmlLoader.setController(merchandiseController);
+//		Parent root = fxmlLoader.load();
+//		merchandiseController.setMerchandiseData(merchandise);
+//		
+//		primaryStage.setTitle("Merchandise");
+//		primaryStage.setScene(new Scene(root));
+//		primaryStage.show();
 	}
 	
 	public static void main(String[] args) {

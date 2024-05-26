@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import htdh.controller.actor.dhqt.merchandisecontroller.MerchandiseController;
 import htdh.controller.actor.dhqt.merchandisecontroller.MerchandiseSiteOptController;
 import htdh.controller.actor.dhqt.orderoperationcontroller.OrderOperationController;
@@ -14,31 +13,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfList;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 import htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
 
 public class ListOfMerchandiseController {
 	
 	private ListOfMerchandise listOfMerchandise;
+	private ListOfList listOfList;
 	private ArrayList<ListOfMerchandise> listOfMerchandises = new ArrayList<ListOfMerchandise>();
 	private OrderOperationController orderOperationController;
 	private MerchandiseController merchandiseController;
-	private ArrayList<MerchandiseSiteOptController> merchandiseSiteOptControllers = new ArrayList<>();
+	private ArrayList<MerchandiseController> merchandiseControllers = new ArrayList<MerchandiseController>();
 	
 	public ListOfMerchandiseController(ListOfMerchandise listOfMerchandise, OrderOperationController orderOperationController, ListOfListController listOfListController) {
-		
-//		this.listOfMerchandises = listOfMerchandises;
 		this.listOfMerchandise = listOfMerchandise;
 		this.orderOperationController = orderOperationController;
 	}
-	
-	public ListOfMerchandiseController(ListOfMerchandise listOfMerchandise, OrderOperationController orderOperationController, ListOfListController listOfListController, ArrayList<MerchandiseSiteOptController> merchandiseSiteOptControllers ) {
-		 this.merchandiseSiteOptControllers = merchandiseSiteOptControllers;
-//		this.listOfMerchandises = listOfMerchandises;
-		this.listOfMerchandise = listOfMerchandise;
-		this.orderOperationController = orderOperationController;
-	}
-	
+
 	@FXML
     private ResourceBundle resources;
 
@@ -53,6 +45,7 @@ public class ListOfMerchandiseController {
 
     @FXML
     private Label merchandiseLbl1;
+
     //
     //
     //
@@ -116,12 +109,13 @@ public class ListOfMerchandiseController {
 	//
 	@FXML
     void merchandiseDetailBtnClicked(ActionEvent event) {
-    	final String SITE_OPTION_FXML_FILE_PATH = "/fxml/dhqt/orderoperation/merchandiseview/MerchandiseOverview.fxml";
+    	final String SITE_OPTION_FXML_FILE_PATH = "/fxml/dhqt/orderoperation/merchandiseview/merchandiseoverview.fxml";
     	
     	orderOperationController.getSiteOptGridPane().getChildren().clear();
 
         int column = 0;
         int row = 0;
+        merchandiseControllers.clear();
         for (int i = 0; i < listOfMerchandise.getMerchandises().size(); i++) {
             try {
 
@@ -135,6 +129,8 @@ public class ListOfMerchandiseController {
                 Pane pane = fxmlLoader.load();
 
                 merchandiseController.setMerchandiseData(listOfMerchandise);
+
+                merchandiseControllers.add(merchandiseController);
                 orderOperationController.getSiteOptGridPane().add(pane, column++, row);
                 if (column == 1) {
                     column = 0;
@@ -159,4 +155,11 @@ public class ListOfMerchandiseController {
     	merchandiseIDLbl.setText(listOfMerchandise.getListOfListID());
     	merchandiseLbl1.setText(listOfMerchandise.getID());
     }
+
+	public void saveSiteOptions(ArrayList<ListOfMerchandise> listOfMerchandises) {
+		this.listOfMerchandises = listOfMerchandises;
+		for ( int i = 0 ; i < merchandiseControllers.size(); i++ ) {
+			merchandiseControllers.get(i).saveSiteOptions(listOfMerchandises.get(i));
+		}
+	}
 }

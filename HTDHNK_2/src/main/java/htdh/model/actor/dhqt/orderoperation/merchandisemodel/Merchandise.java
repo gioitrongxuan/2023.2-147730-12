@@ -7,12 +7,19 @@ public class Merchandise {
 	//
 	//
 	//
-	private String name;
-	private ArrayList<Site> sites = new ArrayList<Site>();
 	private String merchandiseCode;
-	private String unit;
+	private String name;
+	
+	private ArrayList<Site> sites = new ArrayList<Site>();
 	private ArrayList<Integer> quantityOrdered = new ArrayList<Integer>();
+	
+	private String unit;
+	
 	private ArrayList<String> deliveryMean = new ArrayList<String>();
+	
+	private String boPhanDatHangQuocTe;
+	private String orderSentDate;
+	private String desiredDeliveryDate;
 	//
 	//
 	//
@@ -40,8 +47,6 @@ public class Merchandise {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-
-	
 	public ArrayList<Integer> getQuantityOrdered() {
 		return quantityOrdered;
 	}
@@ -54,10 +59,28 @@ public class Merchandise {
 	public void setDeliveryMean(ArrayList<String> deliveryMean) {
 		this.deliveryMean = deliveryMean;
 	}
+	public String getBoPhanDatHangQuocTe() {
+		return boPhanDatHangQuocTe;
+	}
+	public void setBoPhanDatHangQuocTe(String boPhanDatHangQuocTe) {
+		this.boPhanDatHangQuocTe = boPhanDatHangQuocTe;
+	}
+	public String getOrderSentDate() {
+		return orderSentDate;
+	}
+	public void setOrderSentDate(String orderSentDate) {
+		this.orderSentDate = orderSentDate;
+	}
+	public String getDesiredDeliveryDate() {
+		return desiredDeliveryDate;
+	}
+	public void setDesiredDeliveryDate(String desiredDeliveryDate) {
+		this.desiredDeliveryDate = desiredDeliveryDate;
+	}
 	//
 	//
 	//
-
+	
 	public Merchandise(String name, ArrayList<Site> sites, String merchandiseCode, String unit, ArrayList<Integer> quantityOrdered,
 			ArrayList<String> deliveryMean) {
 		super();
@@ -68,8 +91,24 @@ public class Merchandise {
 		this.quantityOrdered = quantityOrdered;
 		this.deliveryMean = deliveryMean;
 	}
+	public Merchandise(String name, ArrayList<Site> sites, String merchandiseCode, String unit , ArrayList<Integer> quantityOrdered,
+			 ArrayList<String> deliveryMean, String boPhanDatHangQuocTe, String orderSentDate,
+			String desiredDeliveryDate) {
+		super();
+		this.merchandiseCode = merchandiseCode;
+		this.name = name;
+		this.sites = sites;
+		this.quantityOrdered = quantityOrdered;
+		this.unit = unit;
+		this.deliveryMean = deliveryMean;
+		this.boPhanDatHangQuocTe = boPhanDatHangQuocTe;
+		this.orderSentDate = orderSentDate;
+		this.desiredDeliveryDate = desiredDeliveryDate;
+	}
 	public Merchandise() {
 		super();
 	}
-	
+	//
+	//
+	//	
 }
