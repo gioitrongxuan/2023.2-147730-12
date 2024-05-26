@@ -20,6 +20,7 @@ import htdh.model.actor.sitemodel.Site;
 
 public class MerchandiseController {
     private Merchandise merchandise;
+    private ArrayList<Merchandise> merchandises;
     private ListOfMerchandise listOfMerchandise;
     private Site site;
     private MerchandiseSiteOptController merchandiseSiteOptController;
@@ -62,7 +63,67 @@ public class MerchandiseController {
     }
 
     
-    public Merchandise getMerchandise() {
+    public MerchandiseSiteOptController getMerchandiseSiteOptController() {
+		return merchandiseSiteOptController;
+	}
+
+
+	public void setMerchandiseSiteOptController(MerchandiseSiteOptController merchandiseSiteOptController) {
+		this.merchandiseSiteOptController = merchandiseSiteOptController;
+	}
+
+
+	public ArrayList<MerchandiseSiteOptController> getMerchandiseSiteOptControllers() {
+		return merchandiseSiteOptControllers;
+	}
+
+
+	public void setMerchandiseSiteOptControllers(ArrayList<MerchandiseSiteOptController> merchandiseSiteOptControllers) {
+		this.merchandiseSiteOptControllers = merchandiseSiteOptControllers;
+	}
+
+
+	public Label getChosenQuantityLbl() {
+		return chosenQuantityLbl;
+	}
+
+
+	public void setChosenQuantityLbl(Label chosenQuantityLbl) {
+		this.chosenQuantityLbl = chosenQuantityLbl;
+	}
+
+
+	public Label getExpectedReceiveDate() {
+		return expectedReceiveDate;
+	}
+
+
+	public void setExpectedReceiveDate(Label expectedReceiveDate) {
+		this.expectedReceiveDate = expectedReceiveDate;
+	}
+
+
+	public Label getNeedOrderedQuantityLbl() {
+		return needOrderedQuantityLbl;
+	}
+
+
+	public void setNeedOrderedQuantityLbl(Label needOrderedQuantityLbl) {
+		this.needOrderedQuantityLbl = needOrderedQuantityLbl;
+	}
+
+
+	public Button getSaveOneMerchandiseSiteOpt() {
+		return saveOneMerchandiseSiteOpt;
+	}
+
+
+	public void setSaveOneMerchandiseSiteOpt(Button saveOneMerchandiseSiteOpt) {
+		this.saveOneMerchandiseSiteOpt = saveOneMerchandiseSiteOpt;
+	}
+
+
+	public Merchandise getMerchandise() {
 		return merchandise;
 	}
 
@@ -146,12 +207,12 @@ public class MerchandiseController {
 	
 		System.out.println("Thông tin Merchandise TRƯỚC khi lưu:");
 	    System.out.println("Số lượng đặt hàng: " + merchandise.getQuantityOrdered());
-	    for( int i = 0; i < merchandise.getDeliveryMean().size();i++) {
-			System.out.println("Phương thức giao hàng: " + merchandise.getDeliveryMean().get(i));
-		}
+		System.out.println("Phương thức giao hàng: " + merchandise.getDeliveryMean());
+	    System.out.println("Tgian hen: " + merchandise.getDesiredDeliveryDate());
 
 	    ArrayList<String> means = new ArrayList<String>();
 	    ArrayList<Integer> orderedMerchandiseQuantity = new ArrayList<Integer>();
+	    ArrayList<String> desiredDeliveryDate = new ArrayList<String>();
 	    for(int i = 0; i < merchandiseSiteOptControllers.size(); i++) {
 	    	if ( merchandiseSiteOptControllers.get(i).getQuantityTextField().getText() == null ) {
 	    		orderedMerchandiseQuantity.add(0);
@@ -162,19 +223,20 @@ public class MerchandiseController {
 	    	}
 	    	
 	    	means.add(merchandiseSiteOptControllers.get(i).getMeanChoiceBox().getValue());
+	    	desiredDeliveryDate.add(merchandiseSiteOptControllers.get(i).getDesiredDeliveryDateLbl().getText());
 	    }
 	    
 	    merchandise.setQuantityOrdered(orderedMerchandiseQuantity);
 	    merchandise.setDeliveryMean(means);
+	    merchandise.setDesiredDeliveryDate(desiredDeliveryDate);
 //	    listOfMerchandise.setMerchandises(null);
 	    
 	    
 	    
 	    System.out.println("\n\nThông tin Merchandise SAU khi lưu:");
 	    System.out.println("Số lượng đặt hàng: " + merchandise.getQuantityOrdered());
-	    for( int i = 0; i < merchandise.getDeliveryMean().size();i++) {
-			System.out.println("Phương thức giao hàng: " + merchandise.getDeliveryMean());
-		}
+		System.out.println("Phương thức giao hàng: " + merchandise.getDeliveryMean());
+		System.out.println("Tgian hen: " + merchandise.getDesiredDeliveryDate());
 	}
 	
     
@@ -182,6 +244,8 @@ public class MerchandiseController {
         this.listOfMerchandise = listOfMerchandise;
         merchandiseLbl.setText(merchandise.getMerchandiseCode());
         merchandiseNameLbl.setText(merchandise.getName());
+        expectedReceiveDate.setText(merchandise.getOrderSentDate());
+        needOrderedQuantityLbl.setText(merchandise.getNeedOrderedQuantity()+"");
         final String SITE_OPTION_FXML_FILE_PATH = "/fxml/dhqt/orderoperation/merchandiseview/SiteOptionView.fxml";
 
         gridPane.getChildren().clear();
@@ -200,7 +264,7 @@ public class MerchandiseController {
                 fxmlLoader.setRoot(anchorPane);
 
                 Site site = merchandise.getSites().get(i);
-                MerchandiseSiteOptController merchandiseSiteOptController = new MerchandiseSiteOptController(merchandise);
+                MerchandiseSiteOptController merchandiseSiteOptController = new MerchandiseSiteOptController(merchandise, this);
                 fxmlLoader.setController(merchandiseSiteOptController);
                 merchandiseSiteOptControllers.add(merchandiseSiteOptController);
                 fxmlLoader.load();
@@ -220,22 +284,39 @@ public class MerchandiseController {
     }
 
 
-	public void saveSiteOptions(ListOfMerchandise listOfMerchandise) {
-		ArrayList<String> means = new ArrayList<String>();
-	    ArrayList<Integer> orderedMerchandiseQuantity = new ArrayList<Integer>();
-	    for(int i = 0; i < merchandiseSiteOptControllers.size(); i++) {
-	    	if ( merchandiseSiteOptControllers.get(i).getQuantityTextField().getText() == null ) {
-	    		orderedMerchandiseQuantity.add(0);
-	    		merchandiseSiteOptControllers.get(i).getQuantityTextField().setText("0");;
-	    	} else {
-	    		orderedMerchandiseQuantity.add(Integer.parseInt(merchandiseSiteOptControllers.get(i).getQuantityTextField().getText()));
-
-	    	}
-	    	
-	    	means.add(merchandiseSiteOptControllers.get(i).getMeanChoiceBox().getValue());
-	    }
+	public void saveSiteOptions(Merchandise merchandise) {
+		this.merchandise = merchandise;
+			ArrayList<String> means = new ArrayList<String>();
+		    ArrayList<Integer> orderedMerchandiseQuantity = new ArrayList<Integer>();
+		    ArrayList<String> desiredDeliveryDate = new ArrayList<String>();
+		    for(int i = 0; i < merchandiseSiteOptControllers.size(); i++) {
+		    	if ( merchandiseSiteOptControllers.get(i).getQuantityTextField().getText() == null ) {
+		    		orderedMerchandiseQuantity.add(0);
+		    		merchandiseSiteOptControllers.get(i).getQuantityTextField().setText("0");;
+		    	} else {
+		    		orderedMerchandiseQuantity.add(Integer.parseInt(merchandiseSiteOptControllers.get(i).getQuantityTextField().getText()));
+	
+		    	}
+		    	
+		    	means.add(merchandiseSiteOptControllers.get(i).getMeanChoiceBox().getValue());
+		    	desiredDeliveryDate.add(merchandiseSiteOptControllers.get(i).getDesiredDeliveryDateLbl().getText());
+		    }
+		    
+		    merchandise.setQuantityOrdered(orderedMerchandiseQuantity);
+		    merchandise.setDeliveryMean(means);
+		    merchandise.setDesiredDeliveryDate(desiredDeliveryDate);
+//		    listOfMerchandise.setMerchandises(null);
 	    
-	    merchandise.setQuantityOrdered(orderedMerchandiseQuantity);
-	    merchandise.setDeliveryMean(means);
+	    
+	    System.out.println("Số lượng đặt hàng: " + merchandise.getQuantityOrdered());
+		System.out.println("Phương thức giao hàng: " + merchandise.getDeliveryMean());
+		System.out.println("Tgian hen: " + merchandise.getDesiredDeliveryDate());
 	}
+
+
+//	public void saveSiteOptions(ArrayList<Merchandise> merchandises) {
+//		// TODO Auto-generated method stub
+//		this.merchandises = merchandises;
+//		for (int i = 0; i < merchandises.get)
+//	}
 }

@@ -20,15 +20,17 @@ import htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
 public class ListOfMerchandiseController {
 	
 	private ListOfMerchandise listOfMerchandise;
-	private ListOfList listOfList;
-	private ArrayList<ListOfMerchandise> listOfMerchandises = new ArrayList<ListOfMerchandise>();
+	private ListOfListController listOfListController;
+//	private ListOfList listOfList;
+	private ListOfMerchandise listOfMerchandises;
 	private OrderOperationController orderOperationController;
-	private MerchandiseController merchandiseController;
+//	private MerchandiseController merchandiseController;
 	private ArrayList<MerchandiseController> merchandiseControllers = new ArrayList<MerchandiseController>();
 	
 	public ListOfMerchandiseController(ListOfMerchandise listOfMerchandise, OrderOperationController orderOperationController, ListOfListController listOfListController) {
 		this.listOfMerchandise = listOfMerchandise;
 		this.orderOperationController = orderOperationController;
+		this.listOfListController = listOfListController;
 	}
 
 	@FXML
@@ -57,11 +59,11 @@ public class ListOfMerchandiseController {
 		this.listOfMerchandise = listOfMerchandise;
 	}
 
-	public ArrayList<ListOfMerchandise> getListOfMerchandises() {
+	public ListOfMerchandise getListOfMerchandises() {
 		return listOfMerchandises;
 	}
 
-	public void setListOfMerchandises(ArrayList<ListOfMerchandise> listOfMerchandises) {
+	public void setListOfMerchandises(ListOfMerchandise listOfMerchandises) {
 		this.listOfMerchandises = listOfMerchandises;
 	}
 
@@ -156,10 +158,11 @@ public class ListOfMerchandiseController {
     	merchandiseLbl1.setText(listOfMerchandise.getID());
     }
 
-	public void saveSiteOptions(ArrayList<ListOfMerchandise> listOfMerchandises) {
-		this.listOfMerchandises = listOfMerchandises;
+	public void saveSiteOptions(ListOfMerchandise listOfMerchandise) {
+		System.out.println(merchandiseControllers.size());
+		this.listOfMerchandises = listOfMerchandise;
 		for ( int i = 0 ; i < merchandiseControllers.size(); i++ ) {
-			merchandiseControllers.get(i).saveSiteOptions(listOfMerchandises.get(i));
+			merchandiseControllers.get(i).saveSiteOptions(listOfMerchandise.getMerchandises().get(i));
 		}
 	}
 }

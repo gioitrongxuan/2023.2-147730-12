@@ -44,13 +44,13 @@ public class ListOfMerchandise {
 	//
 	//
 	//
-	public ListOfMerchandise(String listOfListID, String name, String iD, ArrayList<Merchandise> merchandises) {
-		super();
-		this.listOfListID = listOfListID;
-		this.name = name;
-		this.ID = iD;
-		this.merchandises = merchandises;
-	}
+//	public ListOfMerchandise(String listOfListID, String name, String iD, ArrayList<Merchandise> merchandises) {
+//		super();
+//		this.listOfListID = listOfListID;
+//		this.name = name;
+//		this.ID = iD;
+//		this.merchandises = merchandises;
+//	}
 	public ListOfMerchandise(String listOfListID, String iD, ArrayList<Merchandise> merchandises) {
 		super();
 		this.listOfListID = listOfListID;

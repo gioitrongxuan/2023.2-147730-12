@@ -30,24 +30,24 @@ public class MerchandiseTest extends Application {
 	}
 	
 	public static void main(String[] args) {
-		Site site1 = new Site("Site A");
-        Site site2 = new Site("Site B");
-        Site site3 = new Site("Site C");
-        Site site4 = new Site("Site D");
-        Site site5 = new Site("Site E");
-
-        // Tạo danh sách các Site
-        ArrayList<Site> sites = new ArrayList<>();
-        sites.add(site1);
-        sites.add(site2);
-        sites.add(site3);
-        sites.add(site4);
-        sites.add(site5);
-
-        // Tạo đối tượng Merchandise
-        ArrayList<String> means = new ArrayList<String>();
-        ArrayList<Integer> orderedMerchandiseQuantity = new ArrayList<Integer>(0);
-        merchandise = new Merchandise("Asus laptop", sites, "M001", "Unit1", orderedMerchandiseQuantity, means);
+//		Site site1 = new Site("Site A");
+//        Site site2 = new Site("Site B");
+//        Site site3 = new Site("Site C");
+//        Site site4 = new Site("Site D");
+//        Site site5 = new Site("Site E");
+//
+//        // Tạo danh sách các Site
+//        ArrayList<Site> sites = new ArrayList<>();
+//        sites.add(site1);
+//        sites.add(site2);
+//        sites.add(site3);
+//        sites.add(site4);
+//        sites.add(site5);
+//
+//        // Tạo đối tượng Merchandise
+//        ArrayList<String> means = new ArrayList<String>();
+//        ArrayList<Integer> orderedMerchandiseQuantity = new ArrayList<Integer>(0);
+//        merchandise = new Merchandise("Asus laptop", sites, "M001", "Unit1", orderedMerchandiseQuantity, means);
 		launch(args);
 	}
 }

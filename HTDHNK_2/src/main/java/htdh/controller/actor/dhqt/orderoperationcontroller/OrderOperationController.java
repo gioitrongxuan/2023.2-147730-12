@@ -246,7 +246,7 @@ public class OrderOperationController {
     }
 	@FXML
     void siteOptSaveBtnClicked(ActionEvent event) {
-		
+		System.out.println(listOfListControllers.size());
 		for (int i = 0 ; i < listOfListControllers.size() ; i++) {
 			saveSiteOptions(i, needToOrderList.get(i));
 		}
@@ -255,6 +255,7 @@ public class OrderOperationController {
 	//
 	//
 	private void saveSiteOptions(int i, ListOfList listOfList) {
+//		System.out.println("Hello");
 		this.listOfList = listOfList;
 		// TODO Auto-generated method stub
 		listOfListControllers.get(i).saveSiteOptions(listOfList);

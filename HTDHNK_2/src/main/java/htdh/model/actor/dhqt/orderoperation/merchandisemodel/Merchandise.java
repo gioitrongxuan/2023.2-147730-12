@@ -17,14 +17,22 @@ public class Merchandise {
 	
 	private ArrayList<String> deliveryMean = new ArrayList<String>();
 	
-	private String boPhanDatHangQuocTe;
+	private String orderOfSale;
+	private int needOrderedQuantity;
 	private String orderSentDate;
-	private String desiredDeliveryDate;
+	private ArrayList<String> desiredDeliveryDate = new ArrayList<String>();
 	//
 	//
 	//
+	
 	public String getName() {
 		return name;
+	}
+	public int getNeedOrderedQuantity() {
+		return needOrderedQuantity;
+	}
+	public void setNeedOrderedQuantity(int needOrderedQuantity) {
+		this.needOrderedQuantity = needOrderedQuantity;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -60,10 +68,10 @@ public class Merchandise {
 		this.deliveryMean = deliveryMean;
 	}
 	public String getBoPhanDatHangQuocTe() {
-		return boPhanDatHangQuocTe;
+		return orderOfSale;
 	}
 	public void setBoPhanDatHangQuocTe(String boPhanDatHangQuocTe) {
-		this.boPhanDatHangQuocTe = boPhanDatHangQuocTe;
+		this.orderOfSale = boPhanDatHangQuocTe;
 	}
 	public String getOrderSentDate() {
 		return orderSentDate;
@@ -71,29 +79,18 @@ public class Merchandise {
 	public void setOrderSentDate(String orderSentDate) {
 		this.orderSentDate = orderSentDate;
 	}
-	public String getDesiredDeliveryDate() {
+	public ArrayList<String> getDesiredDeliveryDate() {
 		return desiredDeliveryDate;
 	}
-	public void setDesiredDeliveryDate(String desiredDeliveryDate) {
+	public void setDesiredDeliveryDate(ArrayList<String> desiredDeliveryDate) {
 		this.desiredDeliveryDate = desiredDeliveryDate;
 	}
 	//
 	//
 	//
-	
 	public Merchandise(String name, ArrayList<Site> sites, String merchandiseCode, String unit, ArrayList<Integer> quantityOrdered,
-			ArrayList<String> deliveryMean) {
-		super();
-		this.name = name;
-		this.sites = sites;
-		this.merchandiseCode = merchandiseCode;
-		this.unit = unit;
-		this.quantityOrdered = quantityOrdered;
-		this.deliveryMean = deliveryMean;
-	}
-	public Merchandise(String name, ArrayList<Site> sites, String merchandiseCode, String unit , ArrayList<Integer> quantityOrdered,
-			 ArrayList<String> deliveryMean, String boPhanDatHangQuocTe, String orderSentDate,
-			String desiredDeliveryDate) {
+			 ArrayList<String> deliveryMean, String orderOfSale, int needOrderedQuantity,
+			String orderSentDate, ArrayList<String> desiredDeliveryDate) {
 		super();
 		this.merchandiseCode = merchandiseCode;
 		this.name = name;
@@ -101,7 +98,8 @@ public class Merchandise {
 		this.quantityOrdered = quantityOrdered;
 		this.unit = unit;
 		this.deliveryMean = deliveryMean;
-		this.boPhanDatHangQuocTe = boPhanDatHangQuocTe;
+		this.orderOfSale = orderOfSale;
+		this.needOrderedQuantity = needOrderedQuantity;
 		this.orderSentDate = orderSentDate;
 		this.desiredDeliveryDate = desiredDeliveryDate;
 	}

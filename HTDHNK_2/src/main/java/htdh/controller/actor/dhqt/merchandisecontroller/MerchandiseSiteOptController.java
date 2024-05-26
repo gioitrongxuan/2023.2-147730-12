@@ -1,5 +1,7 @@
 package htdh.controller.actor.dhqt.merchandisecontroller;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -19,12 +21,19 @@ public class MerchandiseSiteOptController {
 	//
 	//
 	//
-	public MerchandiseSiteOptController (Merchandise merchandise) {
+	public MerchandiseSiteOptController (Merchandise merchandise, MerchandiseController merchandiseController) {
 		this.merchandise = merchandise;
+		this.merchandiseController = merchandiseController;
 	//
 	//
 	//
 	}
+	@FXML
+	private Label siteNameLbl;
+	
+	@FXML
+    private Label desiredDeliveryDateLbl;
+
     @FXML
     private ResourceBundle resources;
 
@@ -65,15 +74,50 @@ public class MerchandiseSiteOptController {
                 }
             }
         });
+        meanChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            updateDesiredDeliveryDate(newValue);
+        });
     }
 
-    @FXML
+    private void updateDesiredDeliveryDate(String mean) {
+        if (mean == null || merchandiseController.getExpectedReceiveDate().getText() == null || merchandiseController.getExpectedReceiveDate().getText().isEmpty()) {
+            desiredDeliveryDateLbl.setText("");
+            return;
+        }
+
+        int daysToAdd = mean.equals("Air") ? 5 : 10;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate orderSentDate = LocalDate.parse(merchandiseController.getExpectedReceiveDate().getText(), formatter);
+        LocalDate desiredDeliveryDate = orderSentDate.plusDays(daysToAdd);
+
+        desiredDeliveryDateLbl.setText(desiredDeliveryDate.format(formatter));
+    }
+
+
+	@FXML
     void quantityTextFieldClicked(ActionEvent event) {
     	 
     }
 
     
-    public Merchandise getMerchandise() {
+    public Label getSiteNameLbl() {
+		return siteNameLbl;
+	}
+
+	public void setSiteNameLbl(Label siteNameLbl) {
+		this.siteNameLbl = siteNameLbl;
+	}
+
+	public Label getDesiredDeliveryDateLbl() {
+		return desiredDeliveryDateLbl;
+	}
+
+	public void setDesiredDeliveryDateLbl(Label desiredDeliveryDateLbl) {
+		this.desiredDeliveryDateLbl = desiredDeliveryDateLbl;
+	}
+
+	public Merchandise getMerchandise() {
 		return merchandise;
 	}
 
