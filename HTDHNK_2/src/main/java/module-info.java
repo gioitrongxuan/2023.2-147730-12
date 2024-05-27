@@ -33,4 +33,6 @@ module htdh {
     exports htdh.controller.actor.sales.createOrder.child.createOrder.child;
     opens htdh.controller.actor.sales.createOrder.child.createOrder.child to javafx.fxml;
     opens htdh.controller.actor.sales.createOrder.child.createOrder.parent to javafx.fxml, javafx.base;
+    opens htdh.common.entity;
+    exports htdh.common.entity;
 }

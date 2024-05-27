@@ -63,7 +63,7 @@
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#orderCreateButtonPressed" prefHeight="43.0" prefWidth="200.0" text="¤ Quản lí mặt hàng">
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#controlProductPressed" prefHeight="43.0" prefWidth="200.0" text="¤ Quản lí mặt hàng">
                            <font>
                               <Font size="20.0" />
                            </font>

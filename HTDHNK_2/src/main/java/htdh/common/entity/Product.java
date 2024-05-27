@@ -47,6 +47,12 @@ public class Product {
         this.unit = unit;
         this.quantity = quantity;
     }
+
+    public Product(String productCode, ArrayList<String> unit) {
+        super();
+        this.productCode = productCode;
+        this.unit = unit;
+    }
     public Product() {
         super();
     }
