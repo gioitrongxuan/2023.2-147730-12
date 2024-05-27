@@ -11,12 +11,26 @@ public class Site {
 	private String siteCode;
 	private String siteName;
 	private ArrayList<Product> productsInSite = new ArrayList<Product>();
+	private int byAirTime;
+	private int byShipTime;
 	//
 	//
 	//
 	
 	public String getSiteCode() {
 		return siteCode;
+	}
+	public int getByAirTime() {
+		return byAirTime;
+	}
+	public void setByAirTime(int byAirTime) {
+		this.byAirTime = byAirTime;
+	}
+	public int getByShipTime() {
+		return byShipTime;
+	}
+	public void setByShipTime(int byShipTime) {
+		this.byShipTime = byShipTime;
 	}
 	public String getSiteName() {
 		return siteName;
@@ -42,6 +56,13 @@ public class Site {
 	//
 	//
 	//
+	public Site(String siteCode, String siteName, int byAirTime, int byShipTime) {
+		super();
+		this.siteName = siteName;
+		this.siteCode = siteCode;
+		this.byAirTime = byAirTime;
+		this.byShipTime = byShipTime;
+	}
 	public Site(String siteCode, String siteName, ArrayList<Product> merchandisesInSite) {
 		super();
 		this.siteName = siteName;

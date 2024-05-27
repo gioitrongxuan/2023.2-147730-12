@@ -6,6 +6,7 @@ module htdh {
     requires com.microsoft.sqlserver.jdbc;
     requires java.desktop;
 	requires javafx.graphics;
+	requires javafx.base;
     opens htdh to javafx.fxml;
     opens htdh.view.test to javafx.fxml,javafx.base;
     opens htdh.controller.actor.dhqt.orderoperationcontroller to javafx.fxml;

@@ -159,7 +159,7 @@ public class ListOfMerchandiseController {
     }
 
 	public void saveSiteOptions(ListOfMerchandise listOfMerchandise) {
-		System.out.println(merchandiseControllers.size());
+
 		this.listOfMerchandises = listOfMerchandise;
 		for ( int i = 0 ; i < merchandiseControllers.size(); i++ ) {
 			merchandiseControllers.get(i).saveSiteOptions(listOfMerchandise.getMerchandises().get(i));

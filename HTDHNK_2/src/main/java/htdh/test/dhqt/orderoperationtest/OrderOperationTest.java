@@ -34,16 +34,16 @@ public class OrderOperationTest extends Application{
 	
 	public static void main(String[] args) {
 
-		Site site1 = new Site("Site A");
-        Site site2 = new Site("Site B");
-        Site site3 = new Site("Site C");
-        Site site4 = new Site("Site D");
-        Site site5 = new Site("Site E");
-        Site site6 = new Site("Site F");
-        Site site7 = new Site("Site G");
-        Site site8 = new Site("Site H");
-        Site site9 = new Site("Site J");
-        Site site10 = new Site("Site K");
+		Site site1 = new Site("Site A", "Amazon", 5, 10);
+        Site site2 = new Site("Site B", "Alibaba", 10, 20);
+        Site site3 = new Site("Site C", "Ebay", 20, 43);
+        Site site4 = new Site("Site D", "Warlmart", 20, 32);
+        Site site5 = new Site("Site E", "Target Corp", 10, 21);
+        Site site6 = new Site("Site F", "BestBuy", 13, 21);
+        Site site7 = new Site("Site G", "Etsy", 32, 42);
+        Site site8 = new Site("Site H", "CostCo", 21, 41);
+        Site site9 = new Site("Site J", "Ikea", 20, 34);
+        Site site10 = new Site("Site K", "FlipKart", 22, 26);
 
         // Tạo danh sách các Site
         ArrayList<Site> sites1 = new ArrayList<>();
