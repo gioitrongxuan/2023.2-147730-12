@@ -28,7 +28,7 @@
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="merchandiseNameLbl" contentDisplay="BOTTOM" prefHeight="40.0" prefWidth="250.0" text="Merchandise's name">
+                     <Label fx:id="merchandiseNameLbl" contentDisplay="BOTTOM" prefHeight="40.0" prefWidth="250.0" text="Merchandise's name">
                      <font>
                         <Font size="14.0" />
                      </font>

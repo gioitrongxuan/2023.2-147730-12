@@ -1,0 +1,39 @@
+
+.cell_container:filled:selected:focused, .cell_container:filled:selected {
+    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
+    -fx-text-fill: white;
+
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 7);
+}
+.cell_container:even {
+    -fx-background-color: white;
+}
+.cell_container:filled:hover {
+    -fx-background-color: #0093ff;
+    -fx-text-fill: white;
+}
+
+.rejectOrder_icon_container {
+    -fx-background-color: #132A13;
+    -fx-alignment: center;
+}
+.rejectOrder_date_lbl {
+    -fx-text-fill:#AAAAAA;
+    -fx-font-weight: 700;
+}
+
+.rejectOrder_pAddress_lbl {
+    -fx-text-fill:#000000;
+    -fx-font-weight: 700;
+}
+.cell_container Line {
+    -fx-stroke: #EEEEEE;
+}
+.rejectOrder_amount_lbl {
+    -fx-text-fill:#132A13;
+    -fx-background-radius: 2;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 5;
+    -fx-font-weight: 700;
+}

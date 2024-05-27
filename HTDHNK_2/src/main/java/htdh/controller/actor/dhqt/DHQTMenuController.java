@@ -10,19 +10,20 @@ import java.util.ResourceBundle;
 
 public class DHQTMenuController implements Initializable {
     public Button dashboard_btn;
-    public Button setting_btn;
+    public Button order_btn;
     public Button logout_btn;
-    public Button management_btn;
+    public Button rejectOrder_btn;
     @Override
     public void initialize(URL url, ResourceBundle resources) {
         addListeners();
     }
     private void addListeners(){
         dashboard_btn.setOnAction(event -> onDashboard());
-        management_btn.setOnAction(event -> onManagement());
-        setting_btn.setOnAction(event->onPhanDuc());
+        rejectOrder_btn.setOnAction(event -> onRejectOrder());
+        order_btn.setOnAction(event->onPhanDuc());
+        logout_btn.setOnAction(event -> onLogout());
     }
-    private void onManagement() {
+    private void onRejectOrder() {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(BPDHQTMenuOptions.ORDER_LIST_MANAGEMENT);
     }
 
@@ -32,4 +33,8 @@ public class DHQTMenuController implements Initializable {
     private void onPhanDuc() {
     	Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(BPDHQTMenuOptions.SETTING);
     }
+    private void onLogout() {
+        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(BPDHQTMenuOptions.LOGOUT);
+    }
+
 }

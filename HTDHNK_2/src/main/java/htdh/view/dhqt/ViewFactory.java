@@ -11,7 +11,6 @@ import htdh.model.actor.sitemodel.Site;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -63,7 +62,7 @@ public class ViewFactory {
     public AnchorPane getOrderManagement() {
         if (orderManagement == null) {
             try{
-                orderManagement = new FXMLLoader(getClass().getResource("/fxml/dhqt/OrderList.fxml")).load();
+                orderManagement = new FXMLLoader(getClass().getResource("/fxml/dhqt/RejectOrderList.fxml")).load();
             }catch (Exception e) {
                 e.printStackTrace();
             }
