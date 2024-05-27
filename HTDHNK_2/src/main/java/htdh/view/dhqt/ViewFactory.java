@@ -124,6 +124,7 @@ public class ViewFactory {
                 Merchandise merchandise10 = new Merchandise("Vinfast car", sites3, "M0010", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
                 Merchandise merchandise11 = new Merchandise("CAT Truck", sites3, "M0011", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
                 Merchandise merchandise12 = new Merchandise("Ipad", sites2, "M0012", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27",new ArrayList<String>());
+                
                 Merchandise merchandise13 = new Merchandise("Akko mechanical keyboard", sites2, "M0013", "Unit5", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-06-01", new ArrayList<String>());
                 Merchandise merchandise14 = new Merchandise("Mark Ryden Bag", sites1, "M0014", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-06-01", new ArrayList<String>());
                 Merchandise merchandise15 = new Merchandise("Custom cable", sites1, "M0015", "Unit4", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-06-01", new ArrayList<String>());
@@ -193,12 +194,13 @@ public class ViewFactory {
                 merchandises5.add(merchandise32);
                 merchandises5.add(merchandise33);
                 merchandises5.add(merchandise34);
-
-                ListOfMerchandise listOfMerchandise1 = new ListOfMerchandise("List of list 1", "List 1", merchandises1);
-                ListOfMerchandise listOfMerchandise2 = new ListOfMerchandise("List of list 1", "List 2", merchandises2);
-                ListOfMerchandise listOfMerchandise3 = new ListOfMerchandise("List of list 2", "List 1", merchandises3);
-                ListOfMerchandise listOfMerchandise4 = new ListOfMerchandise("List of list 2", "List 2", merchandises4);
-                ListOfMerchandise listOfMerchandise5 = new ListOfMerchandise("List of list 2", "List 3", merchandises5);
+                
+//                ListOfMerchandise(String listOfListID, String iD, String orderSentDate, ArrayList<Merchandise> merchandises)
+                ListOfMerchandise listOfMerchandise1 = new ListOfMerchandise("BPDH 1000", "List 1", "2024-05-27", merchandises1);
+                ListOfMerchandise listOfMerchandise2 = new ListOfMerchandise("BPDH 1000", "List 2", "2024-06-01", merchandises2);
+                ListOfMerchandise listOfMerchandise3 = new ListOfMerchandise("BPDH 2000", "List 1", "2024-06-21", merchandises3);
+                ListOfMerchandise listOfMerchandise4 = new ListOfMerchandise("BPDH 2000", "List 2", "2024-06-25", merchandises4);
+                ListOfMerchandise listOfMerchandise5 = new ListOfMerchandise("BPDH 2000", "List 3", "2024-06-13", merchandises5);
                 
                 
                 

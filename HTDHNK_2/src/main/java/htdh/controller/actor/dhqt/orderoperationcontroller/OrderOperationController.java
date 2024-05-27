@@ -26,6 +26,7 @@ public class OrderOperationController {
 	private ArrayList<ListOfList> needToOrderList;
 	private ListOfList listOfList;
 	private ArrayList<ListOfListController> listOfListControllers = new ArrayList<ListOfListController>();
+	private ArrayList<Button> listOfListButtons = new ArrayList<Button>();
 	//
 	//
 	//
@@ -205,12 +206,12 @@ public class OrderOperationController {
 	            fxmlLoader.setLocation(getClass().getResource(NEEDTOORDERLIST_OPTION_FXML_FILE_PATH));
 
 	            ListOfList listOfList = needToOrderList.get(i);
-	            ListOfListController listOfListController = new ListOfListController(needToOrderList, listOfList, this);
+	            ListOfListController listOfListController = new ListOfListController(needToOrderList, listOfList, this, listOfListButtons);
 	            fxmlLoader.setController(listOfListController);
 	            Pane pane = fxmlLoader.load();
 
 	            listOfListController.setListOfListData(listOfList);
-
+	            listOfListButtons.add(listOfListController.getListDetailBtn());
 	            listOfListControllers.add(listOfListController);
 	            listOfListGridPane.add(pane, column++, row);
 	            if (column == 1) {

@@ -7,23 +7,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0"
-      prefWidth="220.0" style="-fx-border-color: #0066FF;" xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="220.0" style="-fx-border-color: #0066FF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="220.0">
-      <Label fx:id="listOfListLbl" onMouseClicked="#lisrOfListLblClicked" prefHeight="70.0" prefWidth="170.0"
-             style="-fx-background-color: #CCFFFF; -fx-border-color: #0066FF;" text="Danh sách x">
+      <Label fx:id="listOfListLbl" onMouseClicked="#lisrOfListLblClicked" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: #CCFFFF; -fx-border-color: #0066FF;" text="Danh sách x">
          <font>
-            <Font size="18.0"/>
+            <Font size="18.0" />
          </font>
          <HBox.margin>
-            <Insets/>
+            <Insets />
          </HBox.margin>
          <padding>
-            <Insets left="10.0"/>
+            <Insets left="10.0" />
          </padding>
       </Label>
-      <Button fx:id="listDetailBtn" mnemonicParsing="false" onAction="#listDetailBtnClicked" prefHeight="70.0"
-              prefWidth="50.0" style="-fx-border-color: #0066FF; -fx-background-color: #CCFFCC;"/>
+      <Button fx:id="listDetailBtn" mnemonicParsing="false" onAction="#listDetailBtnClicked" prefHeight="70.0" prefWidth="50.0" style="-fx-border-color: #0066FF; -fx-background-color: #CCFFCC;" />
    </HBox>
 </Pane>
