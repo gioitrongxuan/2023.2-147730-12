@@ -175,10 +175,16 @@ public class ListOfMerchandiseController {
     }
 
 	public void saveSiteOptions(ListOfMerchandise listOfMerchandise) {
-
 		this.listOfMerchandises = listOfMerchandise;
 		for ( int i = 0 ; i < merchandiseControllers.size(); i++ ) {
 			merchandiseControllers.get(i).saveSiteOptions(listOfMerchandise.getMerchandises().get(i));
+		}
+	}
+
+	public void removeSiteOptions(ListOfMerchandise listOfMerchandise) {
+		this.listOfMerchandises = listOfMerchandise;
+		for ( int i = 0 ; i < merchandiseControllers.size(); i++ ) {
+			merchandiseControllers.get(i).removeSiteOptions(listOfMerchandise.getMerchandises().get(i));
 		}
 	}
 }
