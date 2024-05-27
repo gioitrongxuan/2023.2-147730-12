@@ -4,6 +4,7 @@ import htdh.model.actor.sales.ProductList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
@@ -88,5 +89,20 @@ public class CreateProductController {
     public void addProduct(Product product) {
         productList.addProduct(product); // Thêm sản phẩm vào danh sách
         tbl.setItems(productList.getItems()); // Thêm sản phẩm vào bảng
+    }
+
+    @FXML
+    void chuyen(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/sales/create/search/MerchandiseSearch.fxml"));
+            // Already setup controller in fxml file
+
+            Parent root = fxmlLoader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

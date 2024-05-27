@@ -23,6 +23,7 @@
                   <Font size="50.0" />
                </font>
             </Label>
+            <Button mnemonicParsing="false" onAction="#chuyen" text="Button" />
          </children>
          <BorderPane.margin>
             <Insets left="20.0" right="20.0" />

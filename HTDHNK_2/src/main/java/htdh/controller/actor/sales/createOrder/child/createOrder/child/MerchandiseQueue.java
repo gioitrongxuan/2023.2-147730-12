@@ -1,7 +1,7 @@
-package htdh.controller.actor.sales.child.create.child;
+package htdh.controller.actor.sales.createOrder.child.createOrder.child;
 
 import htdh.common.utils.notification.PopupNotification;
-import htdh.controller.actor.sales.child.create.parent.CreateOrder;
+import htdh.controller.actor.sales.createOrder.child.createOrder.parent.CreateOrder;
 import htdh.common.entity.Merchandise;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

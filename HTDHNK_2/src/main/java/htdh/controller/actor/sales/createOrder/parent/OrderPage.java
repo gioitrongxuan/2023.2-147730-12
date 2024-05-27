@@ -1,4 +1,4 @@
-package htdh.controller.actor.sales.parent;
+package htdh.controller.actor.sales.createOrder.parent;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

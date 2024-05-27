@@ -1,7 +1,7 @@
-package htdh.controller.actor.sales.child.create.child;
+package htdh.controller.actor.sales.createOrder.child.createOrder.child;
 
 import htdh.common.utils.pageInitialize.DateInitialize;
-import htdh.controller.actor.sales.child.create.parent.CreateOrder;
+import htdh.controller.actor.sales.createOrder.child.createOrder.parent.CreateOrder;
 import htdh.common.entity.Product;
 import htdh.common.utils.searchTools.SearchProducts;
 import javafx.collections.FXCollections;
