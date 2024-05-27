@@ -20,22 +20,33 @@ import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfList;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 
 public class OrderOperationController {
+	
 	//
 	//
 	//
+	
 	private ArrayList<ListOfList> needToOrderList;
 	private ListOfList listOfList;
 	private ArrayList<ListOfListController> listOfListControllers = new ArrayList<ListOfListController>();
 	private ArrayList<Button> listOfListButtons = new ArrayList<Button>();
+	
 	//
 	//
 	//
 	public OrderOperationController(ArrayList<ListOfList> needToOrderList) {
 		this.needToOrderList = needToOrderList;
 	}
+	
 	//
 	//
 	//
+	
+    @FXML
+    private Button removeSiteOptionsBtn;
+    
+    @FXML
+    private Button sendOrderBtn;
+    
 	@FXML
     private Button needOrderedMerchandisesBtn;
 
@@ -200,6 +211,7 @@ public class OrderOperationController {
 	    int column = 0;
 	    int row = 0;
         listOfListControllers.clear();
+        listOfListButtons.clear();
 	    for (int i = 0; i < needToOrderList.size(); i++) {
 	        try {
 	            FXMLLoader fxmlLoader = new FXMLLoader();
@@ -251,13 +263,32 @@ public class OrderOperationController {
 			saveSiteOptions(i, needToOrderList.get(i));
 		}
     }
-	//
-	//
-	//
-	private void saveSiteOptions(int i, ListOfList listOfList) {
+	@FXML
+	void sendOrderBtnClicked(ActionEvent event) {
+	
+	}
+    @FXML
+    void removeSiteOptionsBtnClicked(ActionEvent event) {
+    	for (int i = 0 ; i < listOfListControllers.size() ; i++) {
+    		if(listOfListButtons.get(i).getStyle().contains("-fx-background-color: #132A13;")) {
+    			removeSiteOptions(i, needToOrderList.get(i));
+    		} else {
 
+    		}
+		}
+    }
+
+	//
+	//
+	//
+    
+	private void saveSiteOptions(int i, ListOfList listOfList) {
 		this.listOfList = listOfList;
-		// TODO Auto-generated method stub
 		listOfListControllers.get(i).saveSiteOptions(listOfList);
+	}
+	
+	private void removeSiteOptions(int i, ListOfList listOfList) {
+		this.listOfList = listOfList;
+		listOfListControllers.get(i).removeSiteOptions(listOfList);
 	}
 }
