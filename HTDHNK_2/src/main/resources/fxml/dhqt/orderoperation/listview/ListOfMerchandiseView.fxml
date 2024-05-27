@@ -14,12 +14,12 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: #bddfff; -fx-border-color: #0066FF;">
                <children>
-                  <Label fx:id="merchandiseIDLbl" prefHeight="27.0" prefWidth="140.0" text="ID">
+                  <Label fx:id="fromWhatSale" prefHeight="27.0" prefWidth="140.0" text="BPBH_X">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="merchandiseLbl1" prefHeight="27.0" prefWidth="140.0" text="Mặt hàng x">
+                  <Label fx:id="orderSentDate" prefHeight="27.0" prefWidth="140.0" text="List_x">
                      <font>
                         <Font size="18.0" />
                      </font>

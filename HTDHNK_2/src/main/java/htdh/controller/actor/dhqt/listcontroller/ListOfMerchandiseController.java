@@ -19,15 +19,24 @@ import htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
 
 public class ListOfMerchandiseController {
 	
+	
+	//
+	//
+	//
+	
 	private ListOfMerchandise listOfMerchandise;
 	private ListOfListController listOfListController;
-//	private ListOfList listOfList;
 	private ListOfMerchandise listOfMerchandises;
 	private OrderOperationController orderOperationController;
-//	private MerchandiseController merchandiseController;
 	private ArrayList<MerchandiseController> merchandiseControllers = new ArrayList<MerchandiseController>();
+	private ArrayList<Button> listOfMerchandiseButtons = new  ArrayList<Button>();
 	
-	public ListOfMerchandiseController(ListOfMerchandise listOfMerchandise, OrderOperationController orderOperationController, ListOfListController listOfListController) {
+	//
+	//
+	//
+	
+	public ListOfMerchandiseController(ListOfMerchandise listOfMerchandise, OrderOperationController orderOperationController, ListOfListController listOfListController, ArrayList<Button> listOfMerchandiseButtons) {
+		this.listOfMerchandiseButtons = listOfMerchandiseButtons;
 		this.listOfMerchandise = listOfMerchandise;
 		this.orderOperationController = orderOperationController;
 		this.listOfListController = listOfListController;
@@ -43,10 +52,10 @@ public class ListOfMerchandiseController {
     private Button merchandiseDetailBtn;
 
     @FXML
-    private Label merchandiseIDLbl;
+    private Label fromWhatSale;
 
     @FXML
-    private Label merchandiseLbl1;
+    private Label orderSentDate;
 
     //
     //
@@ -92,19 +101,19 @@ public class ListOfMerchandiseController {
 	}
 
 	public Label getMerchandiseIDLbl() {
-		return merchandiseIDLbl;
+		return fromWhatSale;
 	}
 
 	public void setMerchandiseIDLbl(Label merchandiseIDLbl) {
-		this.merchandiseIDLbl = merchandiseIDLbl;
+		this.fromWhatSale = merchandiseIDLbl;
 	}
 
 	public Label getMerchandiseLbl1() {
-		return merchandiseLbl1;
+		return orderSentDate;
 	}
 
 	public void setMerchandiseLbl1(Label merchandiseLbl1) {
-		this.merchandiseLbl1 = merchandiseLbl1;
+		this.orderSentDate = merchandiseLbl1;
 	}
 	//
 	//
@@ -131,7 +140,6 @@ public class ListOfMerchandiseController {
                 Pane pane = fxmlLoader.load();
 
                 merchandiseController.setMerchandiseData(listOfMerchandise);
-
                 merchandiseControllers.add(merchandiseController);
                 orderOperationController.getSiteOptGridPane().add(pane, column++, row);
                 if (column == 1) {
@@ -142,20 +150,28 @@ public class ListOfMerchandiseController {
                 e.printStackTrace();
             }   
         }
+        
+        for( int i = 0 ; i < listOfMerchandiseButtons.size(); i++ ) {
+    		if(listOfMerchandiseButtons.get(i) == merchandiseDetailBtn) {
+    			listOfMerchandiseButtons.get(i).setStyle("-fx-background-color: #132A13; -fx-border-color:  #0066FF; -fx-border-width: 1px;");
+    		} else {
+    			listOfMerchandiseButtons.get(i).setStyle("-fx-background-color: #CCFFCC; -fx-border-color:  #0066FF; -fx-border-width: 1px;");
+    		}
+    	}
     }
 
     @FXML
     void initialize() {
         assert merchandiseDetailBtn != null : "fx:id=\"merchandiseDetailBtn\" was not injected: check your FXML file 'ListOfMerchandiseView.fxml'.";
-        assert merchandiseIDLbl != null : "fx:id=\"merchandiseIDLbl\" was not injected: check your FXML file 'ListOfMerchandiseView.fxml'.";
-        assert merchandiseLbl1 != null : "fx:id=\"merchandiseLbl1\" was not injected: check your FXML file 'ListOfMerchandiseView.fxml'.";
+        assert fromWhatSale != null : "fx:id=\"merchandiseIDLbl\" was not injected: check your FXML file 'ListOfMerchandiseView.fxml'.";
+        assert orderSentDate != null : "fx:id=\"merchandiseLbl1\" was not injected: check your FXML file 'ListOfMerchandiseView.fxml'.";
 
     }
 
     public void setListOfMerchandiseData(ListOfMerchandise listOfMerchandise) {
     	this.listOfMerchandise = listOfMerchandise;
-    	merchandiseIDLbl.setText(listOfMerchandise.getListOfListID());
-    	merchandiseLbl1.setText(listOfMerchandise.getID());
+    	fromWhatSale.setText(listOfMerchandise.getListOfListID() + "-" + listOfMerchandise.getID() );
+    	orderSentDate.setText(listOfMerchandise.getOrderSentDate());
     }
 
 	public void saveSiteOptions(ListOfMerchandise listOfMerchandise) {
