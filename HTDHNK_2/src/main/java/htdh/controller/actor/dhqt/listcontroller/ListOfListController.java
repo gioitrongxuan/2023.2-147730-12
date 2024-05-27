@@ -24,7 +24,7 @@ public class ListOfListController {
 	private ListOfList listOfList;
 	private ArrayList<ListOfList> needToOrderList = new ArrayList<ListOfList>();
 	private OrderOperationController orderOperationController;
-	private ArrayList<ListOfMerchandiseController> ListOfMerchandiseControllers = new ArrayList<ListOfMerchandiseController>();
+	private ArrayList<ListOfMerchandiseController> listOfMerchandiseControllers = new ArrayList<ListOfMerchandiseController>();
 	private ArrayList<Button> listOfListButtons = new ArrayList<Button>();
 	private ArrayList<Button> listOfMerchandiseButtons = new  ArrayList<Button>();
 	
@@ -71,8 +71,8 @@ public class ListOfListController {
 
         int column = 0;
         int row = 0;
-        
-        ListOfMerchandiseControllers.clear();
+        listOfMerchandiseButtons.clear();
+        listOfMerchandiseControllers.clear();
         for (int i = 0; i < listOfList.getListOfMerchandise().size(); i++) {
             try {
 
@@ -88,7 +88,7 @@ public class ListOfListController {
                 listOfMerchandiseController.setListOfMerchandiseData(listOfMerchandise);
          
                 listOfMerchandiseButtons.add(listOfMerchandiseController.getMerchandiseDetailBtn());
-                ListOfMerchandiseControllers.add(listOfMerchandiseController);
+                listOfMerchandiseControllers.add(listOfMerchandiseController);
                 orderOperationController.getListOfMerchandiseGridPane().add(pane, column++, row);
                 if (column == 1) {
                     column = 0;
@@ -182,8 +182,19 @@ public class ListOfListController {
 
 	public void saveSiteOptions(ListOfList listOfList) {
 		this.listOfList = listOfList;
-		for( int i = 0 ; i < ListOfMerchandiseControllers.size() ; i++ ) {
-			ListOfMerchandiseControllers.get(i).saveSiteOptions(listOfList.getListOfMerchandise().get(i));
+		for( int i = 0 ; i < listOfMerchandiseControllers.size() ; i++ ) {
+			listOfMerchandiseControllers.get(i).saveSiteOptions(listOfList.getListOfMerchandise().get(i));
+		}
+	}
+
+	public void removeSiteOptions(ListOfList listOfList) {
+		this.listOfList = listOfList;
+		for ( int i = 0 ; i < listOfMerchandiseControllers.size() ; i++ ) {
+			if(listOfMerchandiseButtons.get(i).getStyle().contains("-fx-background-color: #132A13;")) {
+				listOfMerchandiseControllers.get(i).removeSiteOptions(listOfList.getListOfMerchandise().get(i));
+			} else {
+				
+			}
 		}
 	}
 

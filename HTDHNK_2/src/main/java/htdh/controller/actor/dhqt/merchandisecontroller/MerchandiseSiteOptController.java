@@ -21,11 +21,14 @@ public class MerchandiseSiteOptController {
 	//
 	//
 	//
+	
     private Merchandise merchandise;
     private MerchandiseController merchandiseController;
+    
     //
     //
     //
+    
     public MerchandiseSiteOptController(Merchandise merchandise, MerchandiseController merchandiseController) {
         this.merchandise = merchandise;
         this.merchandiseController = merchandiseController;
@@ -98,6 +101,8 @@ public class MerchandiseSiteOptController {
     //
     //
     // Getters and Setters
+    
+    
     public Label getSiteNameLbl() {
         return siteNameLbl;
     }
@@ -211,9 +216,11 @@ public class MerchandiseSiteOptController {
         int needOrderedQuantity = Integer.parseInt(merchandiseController.getNeedOrderedQuantityLbl().getText());
         
         if(chosenQuantity < needOrderedQuantity) {
+        	merchandiseController.getNeedOrderedQuantityLbl().setStyle("-fx-text-fill: black;");
 	    	merchandiseController.getChosenQuantityLbl().setStyle("-fx-text-fill: red;");
 	    }
 	    else if (chosenQuantity == needOrderedQuantity) {
+	    	merchandiseController.getNeedOrderedQuantityLbl().setStyle("-fx-text-fill: black;");
 	    	merchandiseController.getChosenQuantityLbl().setStyle("-fx-text-fill: green;");
 	    }
 	    else if (chosenQuantity > needOrderedQuantity) {

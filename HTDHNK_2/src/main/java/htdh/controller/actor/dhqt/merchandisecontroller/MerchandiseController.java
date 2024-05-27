@@ -267,7 +267,6 @@ public class MerchandiseController {
             }
             
         }
-        
     }
 
 
@@ -291,6 +290,7 @@ public class MerchandiseController {
 	    
 	    merchandise.setQuantityOrdered(orderedMerchandiseQuantity);
 	    merchandise.setDeliveryMean(means);
+	    merchandise.setDesiredDeliveryDate(desiredDeliveryDate);
 	}
 	
 	public int calculateTotalQuantity() { // Thêm phương thức này
@@ -307,4 +307,26 @@ public class MerchandiseController {
         }
         return totalQuantity;
     }
+
+
+	public void removeSiteOptions(Merchandise merchandise) {
+		this.merchandise = merchandise;
+		ArrayList<String> means = new ArrayList<String>();
+	    ArrayList<Integer> orderedMerchandiseQuantity = new ArrayList<Integer>();
+	    ArrayList<String> desiredDeliveryDate = new ArrayList<String>();
+	    for(int i = 0; i < merchandiseSiteOptControllers.size(); i++) {
+	    	
+    		orderedMerchandiseQuantity.add(0);
+    		merchandiseSiteOptControllers.get(i).getQuantityTextField().setText("0");;
+	    	means.add(null);
+	    	desiredDeliveryDate.add(null);
+
+	    	merchandiseSiteOptControllers.get(i).getMeanChoiceBox().setValue(null);
+	    	merchandiseSiteOptControllers.get(i).getDesiredDeliveryDateLbl().setText("____-__-__");
+	    }
+	    
+	    merchandise.setQuantityOrdered(orderedMerchandiseQuantity);
+	    merchandise.setDeliveryMean(means);
+	    merchandise.setDesiredDeliveryDate(desiredDeliveryDate);
+	}
 }
