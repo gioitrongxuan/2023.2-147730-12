@@ -9,6 +9,7 @@ public class ListOfMerchandise {
 	private String name;
 	private String ID;
 	private ArrayList<Merchandise> merchandises = new ArrayList<Merchandise>();
+	private String orderSentDate;
 
 	public ListOfMerchandise(String mi2001, ArrayList<Merchandise> merchandises) {
 		// TODO Auto-generated constructor stub
@@ -17,9 +18,18 @@ public class ListOfMerchandise {
 	//
 	//
 	//
+	
 	public String getListOfListID() {
 		return listOfListID;
 	}
+	public String getOrderSentDate() {
+		return orderSentDate;
+	}
+
+	public void setOrderSentDate(String orderSentDate) {
+		this.orderSentDate = orderSentDate;
+	}
+
 	public void setListOfListID(String listOfListID) {
 		this.listOfListID = listOfListID;
 	}
@@ -44,10 +54,10 @@ public class ListOfMerchandise {
 	//
 	//
 	//
-	public ListOfMerchandise(String listOfListID, String name, String iD, ArrayList<Merchandise> merchandises) {
+	public ListOfMerchandise(String listOfListID, String iD, String orderSentDate, ArrayList<Merchandise> merchandises) {
 		super();
+		this.orderSentDate = orderSentDate;
 		this.listOfListID = listOfListID;
-		this.name = name;
 		this.ID = iD;
 		this.merchandises = merchandises;
 	}

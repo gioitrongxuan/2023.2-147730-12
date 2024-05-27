@@ -31,12 +31,12 @@ public class ListOfList {
 	//
 	//
 	//
-	public ListOfList(String listOfListID, String name, ArrayList<ListOfMerchandise> listOfMerchandise) {
-		super();
-		this.listOfListID = listOfListID;
-		this.name = name;
-		this.listOfMerchandises = listOfMerchandise;
-	}
+//	public ListOfList(String listOfListID, String name, ArrayList<ListOfMerchandise> listOfMerchandise) {
+//		super();
+//		this.listOfListID = listOfListID;
+//		this.name = name;
+//		this.listOfMerchandises = listOfMerchandise;
+//	}
 	public ListOfList(String listOfListID, ArrayList<ListOfMerchandise> listOfMerchandise) {
 		super();
 		this.listOfListID = listOfListID;

@@ -16,12 +16,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-
 public class ListOfListController {
+	//
+	//
+	//
 	
 	private ListOfList listOfList;
 	private ArrayList<ListOfList> needToOrderList = new ArrayList<ListOfList>();
 	private OrderOperationController orderOperationController;
+	private ArrayList<ListOfMerchandiseController> ListOfMerchandiseControllers = new ArrayList<ListOfMerchandiseController>();
+	private ArrayList<Button> listOfListButtons = new ArrayList<Button>();
+	private ArrayList<Button> listOfMerchandiseButtons = new  ArrayList<Button>();
+	
+	//
+	//
+	//
 	
     public ListOfListController(ListOfList listOfList) {
 		super();
@@ -29,8 +38,8 @@ public class ListOfListController {
 	}
 
 	public ListOfListController(ArrayList<ListOfList> needToOrderList, ListOfList listOfList,
-			OrderOperationController orderOperationController) {
-		// TODO Auto-generated constructor stub
+			OrderOperationController orderOperationController, ArrayList<Button> listOfListButtons) {
+		this.listOfListButtons = listOfListButtons;
 		this.needToOrderList = needToOrderList;
 		this.listOfList = listOfList;
 		this.orderOperationController = orderOperationController;
@@ -56,12 +65,14 @@ public class ListOfListController {
     @FXML
     void listDetailBtnClicked(ActionEvent event) {
     	final String LISTOFMERCHANDISE_FXML_FILE_PATH = "/fxml/dhqt/orderoperation/listview/ListOfMerchandiseView.fxml";
-    	
+//    	listDetailBtn.setStyle("-fx-background-color: #132A13; -fx-border-color:  #0066FF; -fx-border-width: 2px;");
     	orderOperationController.getSiteOptGridPane().getChildren().clear();
     	orderOperationController.getListOfMerchandiseGridPane().getChildren().clear();
 
         int column = 0;
         int row = 0;
+        
+        ListOfMerchandiseControllers.clear();
         for (int i = 0; i < listOfList.getListOfMerchandise().size(); i++) {
             try {
 
@@ -69,12 +80,15 @@ public class ListOfListController {
                 fxmlLoader.setLocation(getClass().getResource(LISTOFMERCHANDISE_FXML_FILE_PATH));
             	
                 ListOfMerchandise listOfMerchandise = listOfList.getListOfMerchandise().get(i);
-                ListOfMerchandiseController listOfMerchandiseController = new ListOfMerchandiseController(listOfMerchandise, orderOperationController, this);
+                ListOfMerchandiseController listOfMerchandiseController = new ListOfMerchandiseController(listOfMerchandise, orderOperationController, this, listOfMerchandiseButtons);
                 fxmlLoader.setController(listOfMerchandiseController);
                 
                 Pane pane = fxmlLoader.load();
 
                 listOfMerchandiseController.setListOfMerchandiseData(listOfMerchandise);
+         
+                listOfMerchandiseButtons.add(listOfMerchandiseController.getMerchandiseDetailBtn());
+                ListOfMerchandiseControllers.add(listOfMerchandiseController);
                 orderOperationController.getListOfMerchandiseGridPane().add(pane, column++, row);
                 if (column == 1) {
                     column = 0;
@@ -84,6 +98,14 @@ public class ListOfListController {
                 e.printStackTrace();
             }   
         }
+        
+        for( int i = 0 ; i < listOfListButtons.size(); i++ ) {
+    		if(listOfListButtons.get(i) == listDetailBtn) {
+    			listOfListButtons.get(i).setStyle("-fx-background-color: #132A13; -fx-border-color:  #0066FF; -fx-border-width: 1px;");
+    		} else {
+    			listOfListButtons.get(i).setStyle("-fx-background-color: #CCFFCC; -fx-border-color:  #0066FF; -fx-border-width: 1px;");
+    		}
+    	}
     }
     
     
@@ -151,11 +173,18 @@ public class ListOfListController {
 	@FXML
     void initialize() {
         assert listDetailBtn != null : "fx:id=\"listDetailBtn\" was not injected: check your FXML file 'ListOfListMerchandiseView.fxml'.";
-
     }
     
     public void setListOfListData(ListOfList listOfList) {
     	this.listOfList = listOfList;
     	listOfListLbl.setText(listOfList.getListOfListID());
     }
+
+	public void saveSiteOptions(ListOfList listOfList) {
+		this.listOfList = listOfList;
+		for( int i = 0 ; i < ListOfMerchandiseControllers.size() ; i++ ) {
+			ListOfMerchandiseControllers.get(i).saveSiteOptions(listOfList.getListOfMerchandise().get(i));
+		}
+	}
+
 }

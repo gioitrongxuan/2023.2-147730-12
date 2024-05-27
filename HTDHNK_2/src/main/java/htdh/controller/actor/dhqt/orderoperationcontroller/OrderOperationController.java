@@ -19,18 +19,29 @@ import javafx.scene.layout.VBox;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfList;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 
-public class OrderOperationController implements Initializable {
-	
+public class OrderOperationController {
+	//
+	//
+	//
 	private ArrayList<ListOfList> needToOrderList;
-	private ListOfMerchandiseController listOfMerchandiseController;
-	
-	private ListOfMerchandise listOfMerchandise;
-	private OrderOperationController orderOperationController;
-	private ListOfListController listOfListController;
+	private ListOfList listOfList;
+	private ArrayList<ListOfListController> listOfListControllers = new ArrayList<ListOfListController>();
+	private ArrayList<Button> listOfListButtons = new ArrayList<Button>();
+	//
+	//
+	//
 	public OrderOperationController(ArrayList<ListOfList> needToOrderList) {
 		this.needToOrderList = needToOrderList;
 	}
+	//
+	//
+	//
+	@FXML
+    private Button needOrderedMerchandisesBtn;
 
+	@FXML
+    private Button OrderStatusDetailBtn;
+	
 	@FXML
     private ResourceBundle resources;
 
@@ -66,12 +77,9 @@ public class OrderOperationController implements Initializable {
     
     @FXML
     private Button siteOptSaveBtn;
-    
-    
     //
     //
     //
-
 	public ResourceBundle getResources() {
 		return resources;
 	}
@@ -175,9 +183,9 @@ public class OrderOperationController implements Initializable {
         assert windowOptVBox != null : "fx:id=\"windowOptVBox\" was not injected: check your FXML file 'OrderOperation.fxml'.";
 
     }
-
-	
-
+    //
+	//
+    //
 	public void setOrderOperationData(ArrayList<ListOfList> needToOrderList) {
 		this.needToOrderList = needToOrderList;
 		showListOfListMerchandise(needToOrderList);
@@ -189,21 +197,22 @@ public class OrderOperationController implements Initializable {
 
 	    listOfListGridPane.getChildren().clear();
 
-
 	    int column = 0;
 	    int row = 0;
-
+        listOfListControllers.clear();
 	    for (int i = 0; i < needToOrderList.size(); i++) {
 	        try {
 	            FXMLLoader fxmlLoader = new FXMLLoader();
 	            fxmlLoader.setLocation(getClass().getResource(NEEDTOORDERLIST_OPTION_FXML_FILE_PATH));
 
 	            ListOfList listOfList = needToOrderList.get(i);
-	            ListOfListController listOfListController = new ListOfListController(needToOrderList, listOfList, this);
+	            ListOfListController listOfListController = new ListOfListController(needToOrderList, listOfList, this, listOfListButtons);
 	            fxmlLoader.setController(listOfListController);
 	            Pane pane = fxmlLoader.load();
 
 	            listOfListController.setListOfListData(listOfList);
+	            listOfListButtons.add(listOfListController.getListDetailBtn());
+	            listOfListControllers.add(listOfListController);
 	            listOfListGridPane.add(pane, column++, row);
 	            if (column == 1) {
 	                column = 0;
@@ -218,20 +227,37 @@ public class OrderOperationController implements Initializable {
 	
 	
 	
-
+	
 	//
 	//
 	//
 	@FXML
-    void siteOptSaveBtnClicked(ActionEvent event) {
-	
+    void OrderStatusDetailBtnClicked(ActionEvent event) {
+
     }
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+    @FXML
+    void needOrderedMerchandisesBtnClicked(ActionEvent event) {
 
+    }
+
+    @FXML
+    void orderOperationBtnClicked(ActionEvent event) {
+
+    }
+	@FXML
+    void siteOptSaveBtnClicked(ActionEvent event) {
+		for (int i = 0 ; i < listOfListControllers.size() ; i++) {
+			saveSiteOptions(i, needToOrderList.get(i));
+		}
+    }
+	//
+	//
+	//
+	private void saveSiteOptions(int i, ListOfList listOfList) {
+
+		this.listOfList = listOfList;
+		// TODO Auto-generated method stub
+		listOfListControllers.get(i).saveSiteOptions(listOfList);
 	}
-	//
-	//
-	//
 }

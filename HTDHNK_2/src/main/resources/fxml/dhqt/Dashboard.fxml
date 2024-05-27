@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css"
+<AnchorPane prefHeight="750.0" prefWidth="1105.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css"
             xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
             >
    <Text fx:id="user_name" layoutX="56.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name"

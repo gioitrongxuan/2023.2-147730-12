@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="610.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="610.0" style="-fx-border-color: #0066FF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefWidth="610.0">
          <children>
             <VBox onMouseClicked="#infoVBoxClicked" prefWidth="170.0">
                <children>
-                  <Label fx:id="merchandiseLbl" contentDisplay="BOTTOM" prefHeight="40.0" prefWidth="250.0" text="Merchandise x:">
+                  <Label fx:id="merchandiseLbl" contentDisplay="BOTTOM" prefHeight="40.0" prefWidth="170.0" text="Merchandise x:">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
@@ -28,17 +28,67 @@
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </Label>
-                     <Label fx:id="merchandiseNameLbl" contentDisplay="BOTTOM" prefHeight="40.0" prefWidth="250.0" text="Merchandise's name">
+                  <Label fx:id="merchandiseNameLbl" contentDisplay="BOTTOM" prefHeight="30.0" prefWidth="170.0" text="Merchandise's name">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="16.0" />
                      </font>
                      <padding>
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </Label>
-                  <Button fx:id="saveOneMerchandiseSiteOpt" mnemonicParsing="false" onAction="#saveOneMerchandiseSiteOptClicked" text="Lưu">
+                  <HBox prefHeight="30.0" prefWidth="170.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="90.0" text="Cần đặt:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="needOrderedQuantityLbl" prefHeight="30.0" prefWidth="80.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="30.0" prefWidth="170.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="90.0" text="Đã chọn:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="chosenQuantityLbl" prefHeight="30.0" prefWidth="80.0" text="Label">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label prefHeight="20.0" prefWidth="170.0" text="Ngày gửi:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="expectedReceiveDate" prefHeight="30.0" prefWidth="170.0" text="__-__-____">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Label>
+                  <Button fx:id="saveOneMerchandiseSiteOpt" mnemonicParsing="false" onAction="#saveOneMerchandiseSiteOptClicked" prefWidth="70.0" text="Lưu">
                      <VBox.margin>
-                        <Insets left="10.0" />
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
                      </VBox.margin>
                   </Button>
                </children>
