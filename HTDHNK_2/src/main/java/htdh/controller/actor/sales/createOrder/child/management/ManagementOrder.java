@@ -1,6 +1,6 @@
-package htdh.controller.actor.sales.child.management;
+package htdh.controller.actor.sales.createOrder.child.management;
 
-import htdh.controller.actor.sales.parent.OrderPage;
+import htdh.controller.actor.sales.createOrder.parent.OrderPage;
 import javafx.scene.control.TableView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

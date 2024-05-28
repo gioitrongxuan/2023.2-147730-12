@@ -5,6 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import htdh.common.entity.Merchandise;
+import htdh.common.entity.Product;
+
 
 public class SQLServerConnector implements DatabaseConnector{
     private DatabaseConfig config;
@@ -31,6 +37,7 @@ public class SQLServerConnector implements DatabaseConnector{
         }
         return resultSet;
     }
+    
     public ResultSet getRejectOrderDataBase(){
         ResultSet resultSet = null;
         String query = "SELECT * FROM Order WHERE status = 'REJECTED'";
@@ -69,4 +76,48 @@ public class SQLServerConnector implements DatabaseConnector{
             e.printStackTrace();
         }
     }
+
+    public void createOrder(ArrayList<Merchandise> data) {
+        String query = "INSERT INTO Order (merchandiseCode, quantity, unit, year, month, day, status) VALUES (?, ?, ?, ?, ?, ?,?)";
+
+        try {
+            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+            for (Merchandise merchandise : data) {
+                preparedStatement.setString(1, merchandise.getMerchandiseCode());
+                preparedStatement.setInt(2, merchandise.getQuantityOrdered());
+                preparedStatement.setString(3, merchandise.getUnit());
+                preparedStatement.setInt(4, merchandise.getYear());
+                preparedStatement.setInt(5, merchandise.getMonth());
+                preparedStatement.setInt(6, merchandise.getDay());
+                preparedStatement.setString(7, "Wait");
+                preparedStatement.addBatch();
+            }
+            preparedStatement.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Product findProductByMerchandiseCode(String merchandiseCode) {
+        String query = "SELECT merchandiseCode, unit FROM Product WHERE merchandiseCode = ?";
+        ArrayList<String> units = new ArrayList<>();
+        Product product = null;
+
+        try {
+            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+            preparedStatement.setString(1, merchandiseCode);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String code = resultSet.getString("merchandiseCode");
+                String[] elements = resultSet.getString("unit").split(",");
+                units = new ArrayList<String>(Arrays.asList(elements));
+                product = new Product(code, units);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
+
+
 }

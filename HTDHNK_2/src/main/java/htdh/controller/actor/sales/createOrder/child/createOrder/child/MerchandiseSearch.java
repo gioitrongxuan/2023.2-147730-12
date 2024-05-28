@@ -1,7 +1,8 @@
-package htdh.controller.actor.sales.child.create.child;
+package htdh.controller.actor.sales.createOrder.child.createOrder.child;
 
+import htdh.common.utils.notification.PopupNotification;
 import htdh.common.utils.pageInitialize.DateInitialize;
-import htdh.controller.actor.sales.child.create.parent.CreateOrder;
+import htdh.controller.actor.sales.createOrder.child.createOrder.parent.CreateOrder;
 import htdh.common.entity.Product;
 import htdh.common.utils.searchTools.SearchProducts;
 import javafx.collections.FXCollections;
@@ -46,6 +47,7 @@ public class MerchandiseSearch extends CreateOrder {
                         deliveryYear
                 )
         );
+        PopupNotification.popupNotification("Thành công", "Đã thêm sản phẩm vào danh sách chờ");
     }
 
     @FXML

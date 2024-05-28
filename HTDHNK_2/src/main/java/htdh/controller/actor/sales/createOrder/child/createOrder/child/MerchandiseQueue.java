@@ -1,8 +1,9 @@
-package htdh.controller.actor.sales.child.create.child;
+package htdh.controller.actor.sales.createOrder.child.createOrder.child;
 
 import htdh.common.utils.notification.PopupNotification;
-import htdh.controller.actor.sales.child.create.parent.CreateOrder;
+import htdh.controller.actor.sales.createOrder.child.createOrder.parent.CreateOrder;
 import htdh.common.entity.Merchandise;
+import htdh.model.actor.sales.ViewModel;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,11 +50,7 @@ public class MerchandiseQueue extends CreateOrder {
             PopupNotification.popupNotification("Thành công", "Đơn hàng đã được tạo thành công");
             cleanColumnData();
             initialize();
-            ///
-            ///
-            /// Thuc hien lien ket du lieu o day
-            ///
-            ///
+            ViewModel.getInstance().createOrder(selectedMechandise);
         }else{
             PopupNotification.popupNotification("Thất bại", "Không có sản phẩm trong giỏ hàng");
         }

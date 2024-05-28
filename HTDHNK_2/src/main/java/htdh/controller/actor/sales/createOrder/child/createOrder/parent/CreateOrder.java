@@ -1,7 +1,7 @@
-package htdh.controller.actor.sales.child.create.parent;
+package htdh.controller.actor.sales.createOrder.child.createOrder.parent;
 
 import htdh.common.utils.notification.PopupNotification;
-import htdh.controller.actor.sales.parent.OrderPage;
+import htdh.controller.actor.sales.createOrder.parent.OrderPage;
 import htdh.common.entity.Merchandise;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,8 +19,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class CreateOrder extends OrderPage {
-    final String SEARCH_MECHANDISE_PATH = "/view/sales/create/search/MerchandiseSearch.fxml";
-    final String QUEUE_MECHANDISE_PATH = "/view/sales/create/queue/MerchandiseQueue.fxml";
+    final String SEARCH_MECHANDISE_PATH = "/fxml/sales/create/search/MerchandiseSearch.fxml";
+    final String QUEUE_MECHANDISE_PATH = "/fxml/sales/create/queue/MerchandiseQueue.fxml";
+    final String CONTROL_PRODUCT_PATH = "/fxml/sales/CreateProduct.fxml";
 
     static ObservableList<MechandiseColumn> columnData = FXCollections.observableArrayList();
     @FXML
@@ -35,6 +36,15 @@ public class CreateOrder extends OrderPage {
     @FXML
     public void queueMechandiseButtonPressed(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(QUEUE_MECHANDISE_PATH));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    public void controlProductPressed(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(CONTROL_PRODUCT_PATH));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));

@@ -16,8 +16,8 @@ module htdh {
 
     exports htdh.model.actor.sales.manageOrder to javafx.graphics,javafx.fxml;
     exports htdh.test.bpdhqt.dhqt.orderoperationtest to  javafx.graphics;
-    exports htdh.controller.actor.sales.child.management to javafx.fxml;
-    opens htdh.controller.actor.sales.child.management to javafx.fxml;
+    exports htdh.controller.actor.sales.createOrder.child.management to javafx.fxml;
+    opens htdh.controller.actor.sales.createOrder.child.management to javafx.fxml;
     opens htdh.controller.actor.dhqt.listcontroller to javafx.fxml;
     exports htdh.controller.actor.sales to javafx.fxml;
     exports htdh.view.test to javafx.graphics,javafx.fxml;
@@ -30,5 +30,9 @@ module htdh {
     exports htdh.test.dhqt.orderoperationtest to javafx.graphics,javafx.fxml;
     exports htdh.view.dhqt;
     exports htdh.subsystem.connectionManagementSubsystem;
-
+    exports htdh.controller.actor.sales.createOrder.child.createOrder.child;
+    opens htdh.controller.actor.sales.createOrder.child.createOrder.child to javafx.fxml;
+    opens htdh.controller.actor.sales.createOrder.child.createOrder.parent to javafx.fxml, javafx.base;
+    opens htdh.common.entity;
+    exports htdh.common.entity;
 }

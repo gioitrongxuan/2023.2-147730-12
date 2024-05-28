@@ -102,6 +102,12 @@ public class Merchandise {
         this.day = day;
     }
 
+    public Merchandise(String merchandiseCode, String unit) {
+        super();
+        this.merchandiseCode = merchandiseCode;
+        this.unit = unit;
+    }
+
     public Merchandise() {
         super();
     }

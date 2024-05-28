@@ -108,47 +108,44 @@ public class ViewFactory {
                 sites2.add(site9);
 
                 // Tạo đối tượng Merchandise
-//                public Merchandise(String name, ArrayList<Site> sites, String merchandiseCode, String unit, ArrayList<Integer> quantityOrdered,
-//           			 ArrayList<String> deliveryMean, String orderOfSale, String needOrderedQuantity,
-//           			String orderSentDate, String desiredDeliveryDate)
-                Merchandise merchandise1 = new Merchandise("Asus laptop", sites3, "M001", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise2 = new Merchandise("Acer laptop", sites1, "M002", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise3 = new Merchandise("Toy's story", sites1, "M003", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise4 = new Merchandise("Panasonic Fridge", sites2, "M004", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise5 = new Merchandise("Iphone 13 pro max", sites2, "M005", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise6 = new Merchandise("Iphone 14 promax", sites3, "M006", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise7 = new Merchandise("Samsung S22 ultra", sites1, "M007", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise8 = new Merchandise("Havit airpod", sites3, "M008", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise9 = new Merchandise("Caculus Master", sites2, "M009", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise10 = new Merchandise("Vinfast car", sites3, "M0010", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise11 = new Merchandise("CAT Truck", sites3, "M0011", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27", new ArrayList<String>());
-                Merchandise merchandise12 = new Merchandise("Ipad", sites2, "M0012", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-05-27",new ArrayList<String>());
+                Merchandise merchandise1 = new Merchandise("Asus laptop", sites3, "M001", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 123, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise2 = new Merchandise("Acer laptop", sites1, "M002", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 736, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise3 = new Merchandise("Toy's story", sites1, "M003", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 431, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise4 = new Merchandise("Panasonic Fridge", sites2, "M004", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 432, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise5 = new Merchandise("Iphone 13 pro max", sites2, "M005", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 435, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise6 = new Merchandise("Iphone 14 promax", sites3, "M006", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 1434, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise7 = new Merchandise("Samsung S22 ultra", sites1, "M007", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 543, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise8 = new Merchandise("Havit airpod", sites3, "M008", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 599, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise9 = new Merchandise("Caculus Master", sites2, "M009", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 214, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise10 = new Merchandise("Vinfast car", sites3, "M0010", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 221, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise11 = new Merchandise("CAT Truck", sites3, "M0011", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 322, "2024-05-27", new ArrayList<String>());
+                Merchandise merchandise12 = new Merchandise("Ipad", sites2, "M0012", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 100, "2024-05-27",new ArrayList<String>());
                 
-                Merchandise merchandise13 = new Merchandise("Akko mechanical keyboard", sites2, "M0013", "Unit5", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-06-01", new ArrayList<String>());
-                Merchandise merchandise14 = new Merchandise("Mark Ryden Bag", sites1, "M0014", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-06-01", new ArrayList<String>());
-                Merchandise merchandise15 = new Merchandise("Custom cable", sites1, "M0015", "Unit4", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-06-01", new ArrayList<String>());
-                Merchandise merchandise16 = new Merchandise("Macbook Air", sites2, "M0016", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-06-01", new ArrayList<String>());
-                Merchandise merchandise17 = new Merchandise("Mac Vision", sites2, "M0017", "Unit7", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 250, "2024-06-01", new ArrayList<String>());
+                Merchandise merchandise13 = new Merchandise("Akko mechanical keyboard", sites2, "M0013", "Unit5", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 212, "2024-06-01", new ArrayList<String>());
+                Merchandise merchandise14 = new Merchandise("Mark Ryden Bag", sites1, "M0014", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 123, "2024-06-01", new ArrayList<String>());
+                Merchandise merchandise15 = new Merchandise("Custom cable", sites1, "M0015", "Unit4", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 234, "2024-06-01", new ArrayList<String>());
+                Merchandise merchandise16 = new Merchandise("Macbook Air", sites2, "M0016", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 766, "2024-06-01", new ArrayList<String>());
+                Merchandise merchandise17 = new Merchandise("Mac Vision", sites2, "M0017", "Unit7", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 766, "2024-06-01", new ArrayList<String>());
                 
-                Merchandise merchandise18 = new Merchandise("Asus laptop", sites3, "M001", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-21", new ArrayList<String>());
-                Merchandise merchandise19 = new Merchandise("AlienWare laptop", sites3, "M321", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-21", new ArrayList<String>());
-                Merchandise merchandise20 = new Merchandise("Toy's story", sites3, "M003", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-21", new ArrayList<String>());
-                Merchandise merchandise21 = new Merchandise("Panasonic Fridge", sites2, "M004", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-21", new ArrayList<String>());
+                Merchandise merchandise18 = new Merchandise("Asus laptop", sites3, "M001", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 655, "2024-06-21", new ArrayList<String>());
+                Merchandise merchandise19 = new Merchandise("AlienWare laptop", sites3, "M321", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 666, "2024-06-21", new ArrayList<String>());
+                Merchandise merchandise20 = new Merchandise("Toy's story", sites3, "M003", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 544, "2024-06-21", new ArrayList<String>());
+                Merchandise merchandise21 = new Merchandise("Panasonic Fridge", sites2, "M004", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 998, "2024-06-21", new ArrayList<String>());
                 Merchandise merchandise22 = new Merchandise("Iphone 13 pro max", sites2, "M005", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-21", new ArrayList<String>());
-                Merchandise merchandise23 = new Merchandise("Iphone 14 promax", sites3, "M006", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-21", new ArrayList<String>());
-                Merchandise merchandise24 = new Merchandise("Samsung S22 ultra", sites1, "M007", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-21", new ArrayList<String>());
+                Merchandise merchandise23 = new Merchandise("Iphone 14 promax", sites3, "M006", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 877, "2024-06-21", new ArrayList<String>());
+                Merchandise merchandise24 = new Merchandise("Samsung S22 ultra", sites1, "M007", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 711, "2024-06-21", new ArrayList<String>());
                 
-                Merchandise merchandise25 = new Merchandise("Havit airpod", sites3, "M008", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-25", new ArrayList<String>());
-                Merchandise merchandise26 = new Merchandise("Caculus Master", sites2, "M009", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-25", new ArrayList<String>());
-                Merchandise merchandise27 = new Merchandise("Vinfast car", sites3, "M0010", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-25", new ArrayList<String>());
-                Merchandise merchandise28 = new Merchandise("CAT Truck", sites3, "M0011", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-25", new ArrayList<String>());
-                Merchandise merchandise29 = new Merchandise("Ipad", sites2, "M0012", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-25", new ArrayList<String>());
+                Merchandise merchandise25 = new Merchandise("Havit airpod", sites3, "M008", "Unit2", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 123, "2024-06-25", new ArrayList<String>());
+                Merchandise merchandise26 = new Merchandise("Caculus Master", sites2, "M009", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 342, "2024-06-25", new ArrayList<String>());
+                Merchandise merchandise27 = new Merchandise("Vinfast car", sites3, "M0010", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 324, "2024-06-25", new ArrayList<String>());
+                Merchandise merchandise28 = new Merchandise("CAT Truck", sites3, "M0011", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 223, "2024-06-25", new ArrayList<String>());
+                Merchandise merchandise29 = new Merchandise("Ipad", sites2, "M0012", "Unit8", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 444, "2024-06-25", new ArrayList<String>());
                 
-                Merchandise merchandise30 = new Merchandise("Akko mechanical keyboard", sites2, "M0013", "Unit5", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-13", new ArrayList<String>());
-                Merchandise merchandise31 = new Merchandise("Mark Ryden Bag", sites1, "M0014", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-13", new ArrayList<String>());
-                Merchandise merchandise32 = new Merchandise("Custom cable", sites1, "M0015", "Unit4", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-13", new ArrayList<String>());
-                Merchandise merchandise33 = new Merchandise("Macbook Air", sites2, "M0016", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-13", new ArrayList<String>());
-                Merchandise merchandise34 = new Merchandise("Mac Vision", sites2, "M0017", "Unit7", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 250, "2024-06-13", new ArrayList<String>());
+                Merchandise merchandise30 = new Merchandise("Akko mechanical keyboard", sites2, "M0013", "Unit5", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 233, "2024-06-13", new ArrayList<String>());
+                Merchandise merchandise31 = new Merchandise("Mark Ryden Bag", sites1, "M0014", "Unit6", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 54, "2024-06-13", new ArrayList<String>());
+                Merchandise merchandise32 = new Merchandise("Custom cable", sites1, "M0015", "Unit4", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 766, "2024-06-13", new ArrayList<String>());
+                Merchandise merchandise33 = new Merchandise("Macbook Air", sites2, "M0016", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 454, "2024-06-13", new ArrayList<String>());
+                Merchandise merchandise34 = new Merchandise("Mac Vision", sites2, "M0017", "Unit7", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 777, "2024-06-13", new ArrayList<String>());
                 
                 ArrayList<Merchandise> merchandises1 = new ArrayList<>();
                 merchandises1.add(merchandise1);

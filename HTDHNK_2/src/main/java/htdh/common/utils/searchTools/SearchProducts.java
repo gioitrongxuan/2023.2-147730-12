@@ -3,6 +3,7 @@ package htdh.common.utils.searchTools;
 import java.util.ArrayList;
 import java.util.List;
 import htdh.common.entity.Product;
+import htdh.model.actor.sales.ViewModel;
 
 public class SearchProducts {
     private SearchProducts() {} // Constructor private để ngăn tạo instance
@@ -45,6 +46,7 @@ public class SearchProducts {
                 return product;
             }
         }
-        return matchedProducts;
+
+        return ViewModel.getInstance().searchProduct(searchTerm);
     }
 }
