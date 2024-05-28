@@ -3,6 +3,9 @@ package htdh.controller.actor.dhqt.listcontroller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import htdh.controller.actor.dhqt.merchandisecontroller.MerchandiseController;
 import htdh.controller.actor.dhqt.merchandisecontroller.MerchandiseSiteOptController;
@@ -16,6 +19,7 @@ import javafx.scene.layout.Pane;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfList;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 import htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
+import htdh.model.actor.dhqt.orderoperation.orderstosites.OrderToSite;
 
 public class ListOfMerchandiseController {
 	
@@ -30,7 +34,7 @@ public class ListOfMerchandiseController {
 	private OrderOperationController orderOperationController;
 	private ArrayList<MerchandiseController> merchandiseControllers = new ArrayList<MerchandiseController>();
 	private ArrayList<Button> listOfMerchandiseButtons = new  ArrayList<Button>();
-	
+	private ArrayList<OrderToSite> numberOfOrderToSite = new ArrayList<OrderToSite>();
 	//
 	//
 	//
@@ -191,8 +195,65 @@ public class ListOfMerchandiseController {
 	public void sendOrderToSite(ListOfMerchandise listOfMerchandise) {
 		// TODO Auto-generated method stub
 		this.listOfMerchandises = listOfMerchandise;
-		for ( int i = 0 ; i < merchandiseControllers.size(); i++ ) {
-			merchandiseControllers.get(i).sendOrderToSite(listOfMerchandise.getMerchandises().get(i));
+		
+		
+		List<String> orderToSiteKey = new ArrayList<String>();
+		
+		for ( MerchandiseController merchandiseController : merchandiseControllers ) {
+			
+			for( MerchandiseSiteOptController merchandiseSiteOptController : merchandiseController.getMerchandiseSiteOptControllers()) {
+					String siteID = merchandiseSiteOptController.getSiteIDLbl().getText();
+			    	String siteName = merchandiseSiteOptController.getSiteNameLbl().getText();
+			    	String deliveryMean = merchandiseSiteOptController.getMeanChoiceBox().getValue();
+			    	String orderSentDate = merchandiseController.getExpectedReceiveDate().getText();
+			    	ArrayList<String> desiredDeliveryDate = new ArrayList<String>();
+			    	
+			    	ArrayList<Merchandise> merchandisesNeedToOrder = new ArrayList<Merchandise>();
+			    	ArrayList<Integer> amountOfMerchandisesNeedToOrder = new ArrayList<Integer>();
+			    	String status = "Chờ xác nhận";
+			    	String key = siteID + deliveryMean;
+			    	if(!(merchandiseSiteOptController.getQuantityTextField().getText().equals("0"))) {
+			    		if (orderToSiteKey.contains(key) == false) {
+				    		orderToSiteKey.add(key);
+				    		desiredDeliveryDate.add(merchandiseSiteOptController.getDesiredDeliveryDateLbl().getText());
+				    		merchandisesNeedToOrder.add(merchandiseController.getMerchandise());
+				    		amountOfMerchandisesNeedToOrder.add(Integer.parseInt(merchandiseSiteOptController.getQuantityTextField().getText()));
+				    		OrderToSite orderToSite = new OrderToSite(key, siteID, siteName, deliveryMean, orderSentDate, desiredDeliveryDate, merchandisesNeedToOrder, amountOfMerchandisesNeedToOrder, status);
+				    		numberOfOrderToSite.add(orderToSite);
+				        } else {
+				        	for ( int i = 0 ; i < numberOfOrderToSite.size() ; i++ ) {
+				        		if(numberOfOrderToSite.get(i).getSiteID().equals(siteID)) {
+				        			
+				        			numberOfOrderToSite.get(i).getDesiredDeliveryDate().add(merchandiseSiteOptController.getDesiredDeliveryDateLbl().getText());
+				        			numberOfOrderToSite.get(i).getMerchandisesNeedToOrder().add(merchandiseController.getMerchandise());
+						    		numberOfOrderToSite.get(i).getAmountOfMerchandisesNeedToOrder().add(Integer.parseInt(merchandiseSiteOptController.getQuantityTextField().getText()));
+				        		}
+				        	}
+				        }
+			    	}
+			}
 		}
+		
+	    System.out.println("Thông tin các Order đã được tạo:");
+	    for (OrderToSite order : numberOfOrderToSite) {
+	    	System.out.println("ID of the Order to Site: " + order.getOrderToSiteID());
+	        System.out.println("SiteID: " + order.getSiteID());
+	        System.out.println("SiteName: " + order.getSiteName());
+	        System.out.println("DeliveryMean: " + order.getDeliveryMean());
+	        System.out.println("OrderSentDate: " + order.getOrderSentDate());
+	        System.out.println("DesiredDeliveryDate: " + order.getDesiredDeliveryDate());
+	        System.out.println("Status: " + order.getStatus());
+	        System.out.println("Merchandises:");
+	        ArrayList<Merchandise> merchandises = order.getMerchandisesNeedToOrder();
+	        ArrayList<Integer> quantities = order.getAmountOfMerchandisesNeedToOrder();
+	        for (int i = 0; i < merchandises.size(); i++) {
+	            Merchandise merchandise = merchandises.get(i);
+	            int quantity = quantities.get(i);
+	            System.out.println("  Merchandise Name: " + merchandise.getName());
+	            System.out.println("  Quantity: " + quantity);
+	            // In thêm các thuộc tính khác của merchandise nếu cần
+	        }
+	        System.out.println("\n");
+	    }
 	}
 }
