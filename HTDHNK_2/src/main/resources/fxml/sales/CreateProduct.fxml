@@ -91,7 +91,7 @@
                </font>
             </Button>
             <Region prefHeight="43.0" prefWidth="200.0" />
-            <Button mnemonicParsing="false" text="Logout">
+            <Button mnemonicParsing="false" onAction="#logout" text="Logout">
                <font>
                   <Font size="14.0" />
                </font>

@@ -66,6 +66,11 @@ public class CreateProductController {
     }
 
     @FXML
+    public void logout(ActionEvent event) {
+
+    }
+
+    @FXML
     void btnCreatePressed(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sales/CreateProductPopup.fxml"));
