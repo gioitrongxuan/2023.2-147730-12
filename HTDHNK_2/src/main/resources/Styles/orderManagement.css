@@ -10,17 +10,27 @@
     -fx-background-color: #EEEEEE;
     -fx-padding: 10;
 }
-
-management_container .list-cell:filled:selected:focused, management_container .list-cell:filled:selected {
-    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
-    -fx-text-fill: white;
+.management_container .list-cell {
+    -fx-background-color: #EEEEEE;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.5em;
+    -fx-font-family: "Calibri Light";
 }
-
-management_container .list-cell:even { /* <=== changed to even */
-    -fx-background-color: white;
+.management_container .list-cell:selected {
+    -fx-background-color: #132A13;
+    -fx-background-radius: 15;
+    -fx-border-color: #FFFFFF;
 }
+/*management_container .list-cell:filled:selected:focused, management_container .list-cell:filled:selected {*/
+/*    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);*/
+/*    -fx-text-fill: white;*/
+/*}*/
 
-management_container .list-cell:filled:hover {
-    -fx-background-color: #0093ff;
-    -fx-text-fill: white;
-}
+/*management_container .list-cell:even { !* <=== changed to even *!*/
+/*    -fx-background-color: white;*/
+/*}*/
+
+/*management_container .list-cell:filled:hover {*/
+/*    -fx-background-color: #0093ff;*/
+/*    -fx-text-fill: white;*/
+/*}*/

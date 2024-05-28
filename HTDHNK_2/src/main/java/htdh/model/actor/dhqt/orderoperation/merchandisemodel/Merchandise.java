@@ -103,6 +103,8 @@ public class Merchandise {
 		this.orderSentDate = orderSentDate;
 		this.desiredDeliveryDate = desiredDeliveryDate;
 	}
+
+
 	public Merchandise() {
 		super();
 	}

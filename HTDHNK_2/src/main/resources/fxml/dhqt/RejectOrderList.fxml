@@ -11,18 +11,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="850.0" styleClass="management_container" stylesheets="@../../Styles/orderManagement.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htdh.controller.actor.dhqt.RejectOrderListController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" styleClass="management_container" stylesheets="@../../Styles/orderManagement.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htdh.controller.actor.dhqt.RejectOrderListController">
     <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Xử lý đơn hủy" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.5" />
    <TextField layoutX="31.0" layoutY="57.0" prefHeight="25.0" prefWidth="128.0" promptText="Tìm với ID" AnchorPane.leftAnchor="14.0" />
    <FontAwesomeIconView glyphName="SEARCH" layoutX="123.0" layoutY="76.0" text="" />
    <DatePicker layoutX="165.0" layoutY="57.0" prefHeight="25.0" prefWidth="135.0" promptText="Hiện tại" />
    <HBox prefHeight="640.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="100.0">
       <VBox prefHeight="536.0" prefWidth="313.0">
-         <children>
-            <ListView fx:id="order_listview" maxWidth="-Infinity" prefHeight="536.0" prefWidth="133.0" />
-         </children>
+         <ListView fx:id="order_listview" maxWidth="-Infinity" prefHeight="536.0" prefWidth="314.0" />
       </VBox>
-      <VBox prefHeight="640.0" prefWidth="533.0">
+      <VBox prefHeight="536.0" prefWidth="861.0">
          <AnchorPane prefHeight="64.0" prefWidth="532.0" />
          <HBox alignment="CENTER" prefHeight="30.0" prefWidth="575.0" spacing="30.0" style="-fx-alignment: center;">
             <Label text="Mã hàng" HBox.hgrow="ALWAYS" />
@@ -31,7 +29,7 @@
             <Label layoutX="109.0" layoutY="10.0" text="Đơn vị" HBox.hgrow="ALWAYS" />
             <Label layoutX="157.0" layoutY="10.0" text="Ngày cần" HBox.hgrow="ALWAYS" />
          </HBox>
-         <Accordion prefHeight="519.0" prefWidth="489.0" />
+         <Accordion fx:id="list_merchan_site_acd" prefHeight="471.0" prefWidth="823.0" />
       </VBox>
    </HBox>
 </AnchorPane>
