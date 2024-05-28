@@ -92,7 +92,7 @@ public class MerchandiseSiteOptController {
         quantityTextField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                updateChosenQuantity(); // Thêm dòng này
+                updateChosenQuantity();
                 pause.playFromStart();
             }
         });

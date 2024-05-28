@@ -3,7 +3,12 @@ package htdh.controller.actor.dhqt.merchandisecontroller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +21,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 import htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
+import htdh.model.actor.dhqt.orderoperation.orderstosites.OrderToSite;
 import htdh.model.actor.sitemodel.Site;
 
 public class MerchandiseController {
@@ -24,6 +30,7 @@ public class MerchandiseController {
     private Site site;
     private MerchandiseSiteOptController merchandiseSiteOptController;
     private ArrayList<MerchandiseSiteOptController> merchandiseSiteOptControllers = new ArrayList<MerchandiseSiteOptController>();
+    private ArrayList<OrderToSite> listOfOrderToSite = new ArrayList<OrderToSite>();
 
     public MerchandiseController(Merchandise merchandise) {
         this.merchandise = merchandise;
@@ -329,4 +336,72 @@ public class MerchandiseController {
 	    merchandise.setDeliveryMean(means);
 	    merchandise.setDesiredDeliveryDate(desiredDeliveryDate);
 	}
+
+
+	public void sendOrderToSite(Merchandise merchandise) {
+		Map<String, OrderToSite> ordersMap = new HashMap<>();
+	    // Duyệt qua các MerchandiseSiteOptController để thu thập dữ liệu đơn hàng
+	    for (MerchandiseSiteOptController controller : merchandiseSiteOptControllers) {
+	    	
+	        String siteID = controller.getSiteIDLbl().getText();
+	        String deliveryMean = controller.getMeanChoiceBox().getValue();
+	        String orderSentDate = expectedReceiveDate.getText();
+	        String desiredDeliveryDate = controller.getDesiredDeliveryDateLbl().getText();
+	        String status = "Chờ xác nhận";
+	        String merchandiseName = merchandise.getName();
+	        int quantity = Integer.parseInt(controller.getQuantityTextField().getText());
+
+	        // Chỉ thêm mặt hàng vào đơn hàng nếu số lượng lớn hơn 0
+	        if (quantity > 0) {
+	            // Tạo khóa để phân biệt đơn hàng cho từng Site và Phương tiện vận chuyển
+	            String key = siteID + "-" + deliveryMean;
+
+	            // Nếu đơn hàng đã tồn tại trong Map, cập nhật số lượng của mặt hàng
+	            if (ordersMap.containsKey(key)) {
+	                OrderToSite order = ordersMap.get(key);
+	                order.getMerchandisesNeedToOrder().add(merchandise);
+	                order.getAmountOfMerchandisesNeedToOrder().add(quantity);
+	            } else {
+	                // Nếu đơn hàng chưa tồn tại, tạo đơn hàng mới và thêm vào Map
+	                OrderToSite order = new OrderToSite();
+	                order.setSiteID(siteID);
+	                order.setDeliveryMean(deliveryMean);
+	                order.setOrderSentDate(orderSentDate);
+	                order.setDesiredDeliveryDate(new ArrayList<>(List.of(desiredDeliveryDate)));
+	                order.setMerchandisesNeedToOrder(new ArrayList<>(List.of(merchandise)));
+	                order.setAmountOfMerchandisesNeedToOrder(new ArrayList<>(List.of(quantity)));
+	                ordersMap.put(key, order);
+	                listOfOrderToSite.add(order);
+	            }
+	        }
+	    }
+
+	    // In ra các đơn hàng theo yêu cầu
+	    for (OrderToSite order : listOfOrderToSite) {
+	    	printOrderToSite(order);
+	    }
+    }
+	
+	public void printOrderToSite(OrderToSite order) {
+	    System.out.println("SiteID: " + order.getSiteID());
+	    System.out.println("Delivery Mean: " + order.getDeliveryMean());
+	    System.out.println("Order Sent Date: " + order.getOrderSentDate());
+	    System.out.println("Desired Delivery Date: " + order.getDesiredDeliveryDate());
+	    System.out.println("Status: " + order.getStatus());
+	    
+	    System.out.println("Merchandises:");
+	    ArrayList<Merchandise> merchandises = order.getMerchandisesNeedToOrder();
+	    ArrayList<Integer> quantities = order.getAmountOfMerchandisesNeedToOrder();
+	    
+	    System.out.println(merchandises.size());
+	    for (int i = 0; i < merchandises.size(); i++) {
+	        Merchandise merchandise = merchandises.get(i);
+	        int quantity = quantities.get(i);
+	        System.out.println("  Merchandise Name: " + merchandise.getName());
+	        System.out.println("  Quantity: " + quantity);
+	        // In thêm các thuộc tính khác của merchandise nếu cần
+	    }
+	    System.out.println("\n\n");
+	}
+
 }

@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import htdh.controller.actor.dhqt.listcontroller.ListOfListController;
-import htdh.controller.actor.dhqt.listcontroller.ListOfMerchandiseController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfList;
-import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 
 public class OrderOperationController {
 	
@@ -26,13 +26,13 @@ public class OrderOperationController {
 	//
 	
 	private ArrayList<ListOfList> needToOrderList;
-	private ListOfList listOfList;
 	private ArrayList<ListOfListController> listOfListControllers = new ArrayList<ListOfListController>();
 	private ArrayList<Button> listOfListButtons = new ArrayList<Button>();
 	
 	//
 	//
 	//
+	
 	public OrderOperationController(ArrayList<ListOfList> needToOrderList) {
 		this.needToOrderList = needToOrderList;
 	}
@@ -41,6 +41,12 @@ public class OrderOperationController {
 	//
 	//
 	
+    @FXML
+    private ChoiceBox<String> comparisonStandardsChoiceBox;
+    
+    @FXML
+    private TextField searchBox;
+    
     @FXML
     private Button removeSiteOptionsBtn;
     
@@ -192,11 +198,13 @@ public class OrderOperationController {
         assert siteOptGridPane != null : "fx:id=\"siteOptGridPane\" was not injected: check your FXML file 'OrderOperation.fxml'.";
         assert siteOptionScrollPane != null : "fx:id=\"siteOptionScrollPane\" was not injected: check your FXML file 'OrderOperation.fxml'.";
         assert windowOptVBox != null : "fx:id=\"windowOptVBox\" was not injected: check your FXML file 'OrderOperation.fxml'.";
-
+        
+        
     }
     //
 	//
     //
+    
 	public void setOrderOperationData(ArrayList<ListOfList> needToOrderList) {
 		this.needToOrderList = needToOrderList;
 		showListOfListMerchandise(needToOrderList);
@@ -221,10 +229,11 @@ public class OrderOperationController {
 	            ListOfListController listOfListController = new ListOfListController(needToOrderList, listOfList, this, listOfListButtons);
 	            fxmlLoader.setController(listOfListController);
 	            Pane pane = fxmlLoader.load();
-
+	            
 	            listOfListController.setListOfListData(listOfList);
 	            listOfListButtons.add(listOfListController.getListDetailBtn());
 	            listOfListControllers.add(listOfListController);
+	            
 	            listOfListGridPane.add(pane, column++, row);
 	            if (column == 1) {
 	                column = 0;
@@ -265,7 +274,13 @@ public class OrderOperationController {
     }
 	@FXML
 	void sendOrderBtnClicked(ActionEvent event) {
-	
+		for (int i = 0 ; i < listOfListControllers.size() ; i++) {
+    		if(listOfListButtons.get(i).getStyle().contains("-fx-background-color: #132A13;")) {
+    			sendOrderToSite(i, needToOrderList.get(i));
+    		} else {
+
+    		}
+		}
 	}
     @FXML
     void removeSiteOptionsBtnClicked(ActionEvent event) {
@@ -277,18 +292,30 @@ public class OrderOperationController {
     		}
 		}
     }
+    
+	@FXML
+    void seachBoxFilled(ActionEvent event) {
+    	
+    }
+    
+    @FXML
+    void comparisonStandardsChoiceBoxClicked(MouseEvent event) {
+
+    }
 
 	//
 	//
 	//
     
 	private void saveSiteOptions(int i, ListOfList listOfList) {
-		this.listOfList = listOfList;
 		listOfListControllers.get(i).saveSiteOptions(listOfList);
 	}
 	
 	private void removeSiteOptions(int i, ListOfList listOfList) {
-		this.listOfList = listOfList;
 		listOfListControllers.get(i).removeSiteOptions(listOfList);
+	}
+	
+	private void sendOrderToSite(int i, ListOfList listOfList) {
+		listOfListControllers.get(i).sendOrderToSite(listOfList);
 	}
 }
