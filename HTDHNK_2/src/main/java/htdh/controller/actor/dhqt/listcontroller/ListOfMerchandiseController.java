@@ -187,4 +187,12 @@ public class ListOfMerchandiseController {
 			merchandiseControllers.get(i).removeSiteOptions(listOfMerchandise.getMerchandises().get(i));
 		}
 	}
+
+	public void sendOrderToSite(ListOfMerchandise listOfMerchandise) {
+		// TODO Auto-generated method stub
+		this.listOfMerchandises = listOfMerchandise;
+		for ( int i = 0 ; i < merchandiseControllers.size(); i++ ) {
+			merchandiseControllers.get(i).sendOrderToSite(listOfMerchandise.getMerchandises().get(i));
+		}
+	}
 }

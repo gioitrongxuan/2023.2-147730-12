@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ListOfListController {
+	
 	//
 	//
 	//
@@ -198,4 +199,14 @@ public class ListOfListController {
 		}
 	}
 
+	public void sendOrderToSite(ListOfList listOfList) {
+		this.listOfList = listOfList;
+		for ( int i = 0 ; i < listOfMerchandiseControllers.size() ; i++ ) {
+			if(listOfMerchandiseButtons.get(i).getStyle().contains("-fx-background-color: #132A13;")) {
+				listOfMerchandiseControllers.get(i).sendOrderToSite(listOfList.getListOfMerchandise().get(i));
+			} else {
+				
+			}
+		}
+	}
 }
