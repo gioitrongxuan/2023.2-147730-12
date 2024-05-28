@@ -37,6 +37,7 @@ public class SQLServerConnector implements DatabaseConnector{
         }
         return resultSet;
     }
+    
     public ResultSet getRejectOrderDataBase(){
         ResultSet resultSet = null;
         String query = "SELECT * FROM Order WHERE status = 'REJECTED'";
