@@ -23,40 +23,58 @@ public class CreateProductSubsystemTest {
 
     @Test
     public void testCreateEmptyProductID() {
-        Product product = new Product(null, "Test Product", -5, "pcs");
+        Product product = new Product("", "Test Product", 10, "pcs");
         assertThrows(RuntimeException.class, () -> createProductSubsystem.createProduct(product));
     }
 
     @Test
     public void testCreateEmptyProductName() {
-        Product product = new Product("2", "", 10, "pcs");
+        Product product = new Product("3", "", 10, "pcs");
+        assertThrows(RuntimeException.class, () -> createProductSubsystem.createProduct(product));
+    }
+
+    @Test
+    public void testCreateEmptyUnit() {
+        Product product = new Product("4", "Test Product", 10, "");
         assertThrows(RuntimeException.class, () -> createProductSubsystem.createProduct(product));
     }
 
     @Test
     public void testCreateNegativeQuantity() {
-        Product product = new Product("3", "Test Product", -1, "pcs");
+        Product product = new Product("5", "Test Product", -1, "pcs");
         assertThrows(RuntimeException.class, () -> createProductSubsystem.createProduct(product));
     }
 
     @Test
     public void testCreate0Quantity() {
-        Product product = new Product("4", "Test Product", 0, "pcs");
+        Product product = new Product("6", "Test Product", 0, "pcs");
         assertTrue(createProductSubsystem.createProduct(product));
     }
 
     @Test
-    public void testCreateEmptyUnit() {
-        Product product = new Product("5", "Test Product", 10, "");
-        assertThrows(RuntimeException.class, () -> createProductSubsystem.createProduct(product));
+    public void testCreatePositiveQuantity() {
+        Product product = new Product("7", "Test Product", 1, "pcs");
+        assertTrue(createProductSubsystem.createProduct(product));
     }
+
+//    @Test
+//    public void testCreateNonIntQuantity() {
+//        Product product = new Product("8", "Test Product", 1.5, "pcs");
+//        assertThrows(RuntimeException.class, () -> createProductSubsystem.createProduct(product));
+//    }
 
     @Test
     public void testCreateDuplicateProductID() {
-        Product product1 = new Product("6", "Test Product 1", 10, "pcs");
-        Product product2 = new Product("6", "Test Product 2", 5, "pcs");
+        Product product1 = new Product("9", "Test Product 1", 10, "pcs");
+        Product product2 = new Product("9", "Test Product 2", 5, "pcs");
         createProductSubsystem.createProduct(product1);
         assertThrows(RuntimeException.class, () -> createProductSubsystem.createProduct(product2));
     }
+
+//    @Test
+//    public void testCreateEmpty() {
+//        Product product = new Product("", "", null, "");
+//        assertThrows(RuntimeException.class, () -> createProductSubsystem.createProduct(product));
+//    }
 
 }
