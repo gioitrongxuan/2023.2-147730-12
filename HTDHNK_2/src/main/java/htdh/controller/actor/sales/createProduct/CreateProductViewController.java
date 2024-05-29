@@ -1,6 +1,5 @@
-package htdh.controller.actor.sales;
+package htdh.controller.actor.sales.createProduct;
 
-import htdh.model.actor.sales.ProductList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +10,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,9 +20,7 @@ import java.io.IOException;
 
 import htdh.model.actor.sales.Product;
 
-public class CreateProductController {
-	private ProductList productList = new ProductList();
-
+public class CreateProductViewController {
     @FXML
     private Button btnCreate;
 
@@ -54,15 +51,17 @@ public class CreateProductController {
     @FXML
     private TextField tfFilter;
 
+    private final CreateProductController productController = new CreateProductController();
+
     @FXML
     public void initialize() {
-    	colId.setCellValueFactory(new PropertyValueFactory<Product, String>("id"));
-    	colName.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
-    	colQuantity.setCellValueFactory(new PropertyValueFactory<Product, Integer>("quantity"));
-    	colUnit.setCellValueFactory(new PropertyValueFactory<Product, String>("unit"));
-    	if(productList.getItems() != null)
-    		tbl.setItems(productList.getItems());
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        colUnit.setCellValueFactory(new PropertyValueFactory<>("unit"));
 
+        productController.getAllProducts();
+        tbl.setItems(productController.getProductList());
     }
 
     @FXML
@@ -73,27 +72,26 @@ public class CreateProductController {
     @FXML
     void btnCreatePressed(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sales/CreateProductPopup.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sales/create/product/CreateProductPopup.fxml"));
             Parent root = loader.load();
 
-            CreateProductPopupController popupController = loader.getController();
-            popupController.setParentController(this); // Pass a reference to this controller
+            CreateProductPopupViewController popupController = loader.getController();
+            popupController.setProductController(productController); // Pass the shared controller
 
             Stage popupStage = new Stage();
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.setTitle("Tạo mặt hàng mới");
             popupStage.setScene(new Scene(root));
 
+            // After the popup closes, refresh the table
+            popupStage.setOnHidden(e -> {
+                tbl.refresh();
+            });
+
             popupStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    // Method to add a new product to the table
-    public void addProduct(Product product) {
-        productList.addProduct(product); // Thêm sản phẩm vào danh sách
-        tbl.setItems(productList.getItems()); // Thêm sản phẩm vào bảng
     }
 
     @FXML

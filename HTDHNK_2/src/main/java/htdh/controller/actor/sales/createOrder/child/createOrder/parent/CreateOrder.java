@@ -21,7 +21,7 @@ import java.io.IOException;
 public class CreateOrder extends OrderPage {
     final String SEARCH_MECHANDISE_PATH = "/fxml/sales/create/search/MerchandiseSearch.fxml";
     final String QUEUE_MECHANDISE_PATH = "/fxml/sales/create/queue/MerchandiseQueue.fxml";
-    final String CONTROL_PRODUCT_PATH = "/fxml/sales/CreateProduct.fxml";
+    final String CONTROL_PRODUCT_PATH = "/fxml/sales/create/product/CreateProduct.fxml";
 
     static ObservableList<MechandiseColumn> columnData = FXCollections.observableArrayList();
     @FXML

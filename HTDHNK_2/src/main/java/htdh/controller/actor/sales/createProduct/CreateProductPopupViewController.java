@@ -1,4 +1,4 @@
-package htdh.controller.actor.sales;
+package htdh.controller.actor.sales.createProduct;
 
 import htdh.model.actor.sales.Product;
 import javafx.event.ActionEvent;
@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CreateProductPopupController {
+public class CreateProductPopupViewController {
 
     @FXML
     private Button btnCancel;
@@ -29,10 +29,10 @@ public class CreateProductPopupController {
     @FXML
     private TextField unitField;
 
-    private CreateProductController parentController; // Reference to the main controller
+    private CreateProductController productController;
 
-    public void setParentController(CreateProductController controller) {
-        this.parentController = controller;
+    public void setProductController(CreateProductController productController) {
+        this.productController = productController;
     }
 
     @FXML
@@ -48,46 +48,39 @@ public class CreateProductPopupController {
         String quantityText = quantityField.getText();
         String unit = unitField.getText();
 
-        // Check if any of the fields are empty
         if (id.isEmpty() || name.isEmpty() || quantityText.isEmpty() || unit.isEmpty()) {
-            // Show an error message if any field is empty
             showErrorMessage("All fields are required.");
             return;
         }
-        
+
         int quantity;
         try {
-            // Parse the quantity string to an integer
             quantity = Integer.parseInt(quantityText);
         } catch (NumberFormatException e) {
-            // Show an error message if quantity is not a valid integer
             showErrorMessage("Quantity must be a valid integer.");
             return;
         }
-        
+
         if (quantity < 0) {
-            // Show an error message if quantity is negative
             showErrorMessage("Quantity must be a non-negative integer.");
             return;
         }
 
-        // Create a new Product object
-        Product newProduct = new Product(id, name, quantity, unit);
+        boolean isCreated = productController.createProduct(id, name, quantity, unit);
 
-        // Add the new product to the table using the main controller's method
-        parentController.addProduct(newProduct);
-
-        // Close the popup window
-        Stage stage = (Stage) btnCreate.getScene().getWindow();
-        stage.close();
+        if (isCreated) {
+            Stage stage = (Stage) btnCreate.getScene().getWindow();
+            stage.close();
+        } else {
+            showErrorMessage("Failed to create new product.");
+        }
     }
-    
+
     private void showErrorMessage(String message) {
-        Alert alert = new Alert(AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
 }
-

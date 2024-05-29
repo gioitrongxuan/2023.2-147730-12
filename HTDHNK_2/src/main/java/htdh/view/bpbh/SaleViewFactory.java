@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 public class SaleViewFactory {
     public void showSaleWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sales/CreateProduct.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/sales/create/product/CreateProduct.fxml"));
 //        CreateProductController clientController = new CreateProductController();
 //        loader.setController(clientController);
         createStage(loader);

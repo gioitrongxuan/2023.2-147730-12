@@ -1,4 +1,3 @@
-// bpbh.CreateProduct.model/Product.java
 package htdh.model.actor.sales;
 
 public class Product {

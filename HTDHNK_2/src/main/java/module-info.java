@@ -1,6 +1,7 @@
 module htdh {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.naming;
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
     requires com.microsoft.sqlserver.jdbc;
@@ -10,7 +11,6 @@ module htdh {
     opens htdh to javafx.fxml;
     opens htdh.view.test to javafx.fxml,javafx.base;
     opens htdh.controller.actor.dhqt.orderoperationcontroller to javafx.fxml;
-    opens htdh.controller.actor.sales to javafx.fxml;
     opens htdh.model.actor.sales to javafx.base;
     opens htdh.controller.actor.dhqt.merchandisecontroller to javafx.fxml;
 
@@ -19,7 +19,6 @@ module htdh {
     exports htdh.controller.actor.sales.createOrder.child.management to javafx.fxml;
     opens htdh.controller.actor.sales.createOrder.child.management to javafx.fxml;
     opens htdh.controller.actor.dhqt.listcontroller to javafx.fxml;
-    exports htdh.controller.actor.sales to javafx.fxml;
     exports htdh.view.test to javafx.graphics,javafx.fxml;
     exports htdh.test.dhqt.sales to javafx.graphics;
     exports htdh;
@@ -35,4 +34,6 @@ module htdh {
     opens htdh.controller.actor.sales.createOrder.child.createOrder.parent to javafx.fxml, javafx.base;
     opens htdh.common.entity;
     exports htdh.common.entity;
+    exports htdh.controller.actor.sales.createProduct to javafx.fxml;
+    opens htdh.controller.actor.sales.createProduct to javafx.fxml;
 }

@@ -119,5 +119,7 @@ public class SQLServerConnector implements DatabaseConnector{
         return product;
     }
 
-
+    public Connection getConnection() {
+        return this.connection;
+    }
 }
