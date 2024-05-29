@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
 import htdh.controller.actor.dhqt.merchandisecontroller.MerchandiseController;
 import htdh.controller.actor.dhqt.merchandisecontroller.MerchandiseSiteOptController;
 import htdh.controller.actor.dhqt.orderoperationcontroller.OrderOperationController;
@@ -216,6 +219,7 @@ public class ListOfMerchandiseController {
         dialogPane.setStyle("-fx-font-size: 14px;"); // Đặt kích thước chữ
      
         Optional<ButtonType> result = alert.showAndWait();
+        
         if (result.get() == ButtonType.OK){
         	allocationOrdersToSites();
         	orderOperationController.getSiteOptGridPane().getChildren().clear();
@@ -224,6 +228,8 @@ public class ListOfMerchandiseController {
         }
 	    ordersToSitesInformation();
 	}
+
+	
 
 	private void ordersToSitesInformation() {
 		System.out.println("Thông tin các Order đã được tạo:");
@@ -290,7 +296,13 @@ public class ListOfMerchandiseController {
 			}
 		}
 		for (OrderToSite order : numberOfOrderToSite) {
-	        dbConfig.insertDataIntoOrderToSiteTable(order);
-	    }
+		    boolean updateDataCheck = dbConfig.insertDataIntoOrderToSiteTable(order);
+		    if (!updateDataCheck) {
+		        JOptionPane.showMessageDialog(null, "Đơn hàng này đã được gửi rồi.");
+		        order = null;
+		        break; // Thoát khỏi vòng lặp nếu đơn hàng đã được gửi
+		    }
+		}
 	}
+
 }

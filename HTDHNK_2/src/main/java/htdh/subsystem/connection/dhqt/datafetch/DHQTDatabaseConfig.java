@@ -45,7 +45,7 @@ public class DHQTDatabaseConfig implements DatabaseConnector {
     }
     
     @SuppressWarnings("unused")
-    public static void createTable() {
+    public void createTable() {
         // Câu lệnh SQL để tạo bảng OrderToSite
         String createOrderToSiteTableSQL = "CREATE TABLE OrderToSite (" +
                                            "orderToSiteID NVARCHAR(50) PRIMARY KEY, " +
@@ -81,7 +81,7 @@ public class DHQTDatabaseConfig implements DatabaseConnector {
     }
 
     
-    public void insertDataIntoOrderToSiteTable(OrderToSite order) {
+    public boolean insertDataIntoOrderToSiteTable(OrderToSite order) {
         // SQL statement to insert data into the OrderToSite table
         String insertOrderToSiteSQL = "INSERT INTO OrderToSite (orderToSiteID, siteID, siteName, deliveryMean, orderSentDate, desiredDeliveryDate, status) " +
                                       "VALUES (?, ?, ?, ?, ?, ?, ?);";
@@ -115,9 +115,9 @@ public class DHQTDatabaseConfig implements DatabaseConnector {
             System.out.println("Data inserted into OrderToSite and MerchandisesInOrderToSite tables successfully.");
         } catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error inserting data: " + e.getMessage());
+//            JOptionPane.showMessageDialog(null, "Error inserting data: " + e.getMessage());
+            return false;
         }
+		return true;
     }
-
-
 }
