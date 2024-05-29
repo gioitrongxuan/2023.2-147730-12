@@ -160,7 +160,7 @@ public class ListOfListController {
                 fxmlLoader.setLocation(getClass().getResource(LISTOFMERCHANDISE_FXML_FILE_PATH));
             	
                 ListOfMerchandise listOfMerchandise = listOfList.getListOfMerchandise().get(i);
-                ListOfMerchandiseController listOfMerchandiseController = new ListOfMerchandiseController(listOfMerchandise, orderOperationController, this, listOfMerchandiseButtons);
+                ListOfMerchandiseController listOfMerchandiseController = new ListOfMerchandiseController(listOfMerchandise, orderOperationController,  listOfMerchandiseButtons);
                 fxmlLoader.setController(listOfMerchandiseController);
                 
                 Pane pane = fxmlLoader.load();

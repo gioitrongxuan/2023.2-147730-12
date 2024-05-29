@@ -70,9 +70,11 @@ public class MerchandiseSiteOptController {
         assert siteIDLbl != null : "fx:id=\"siteIDLbl\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         assert unitChoiceBox != null : "fx:id=\"unitChoiceBox\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         
-        chosenQuantitySufficiencyCheck();
-
         chosenQuantityCalculate();
+        chosenQuantitySufficiencyCheck();
+        
+        
+        
         
     }
 
@@ -167,9 +169,11 @@ public class MerchandiseSiteOptController {
     public void setUnitLbl(Label unitLbl) {
         this.unitLbl = unitLbl;
     }
+    
     //
     //
     //
+    
     private void updateDesiredDeliveryDate(String mean, int site_x) {
         if (mean == null || merchandiseController.getExpectedReceiveDate().getText() == null || merchandiseController.getExpectedReceiveDate().getText().isEmpty()) {
             desiredDeliveryDateLbl.setText("");
@@ -213,7 +217,9 @@ public class MerchandiseSiteOptController {
 
     public void setData(Merchandise merchandise, Site site, int site_x) {
         this.merchandise = merchandise;
-        
+        if(!(merchandise.getDesiredDeliveryDate().isEmpty())) {
+        	desiredDeliveryDateLbl.setText(merchandise.getDesiredDeliveryDate().get(site_x));
+        }
         siteIDLbl.setText(merchandise.getSites().get(site_x).getSiteCode());
         unitLbl.setText(merchandise.getUnit());
         siteNameLbl.setText(merchandise.getSites().get(site_x).getSiteName());
@@ -233,6 +239,16 @@ public class MerchandiseSiteOptController {
         meanChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             updateDesiredDeliveryDate(newValue, site_x);
         });
+        
+        if ( merchandiseController.getChosenQuantityLbl().getStyle().equals("-fx-text-fill: green;") && merchandiseController.getNeedOrderedQuantityLbl().getStyle().contains("-fx-text-fill: black;")) {
+            if (quantityTextField.getText().equals("0")) {
+                meanChoiceBox.setDisable(true);
+                quantityTextField.setDisable(true);
+            }
+        } else {
+            meanChoiceBox.setDisable(false);
+            quantityTextField.setDisable(false);
+        }
     }
     
     private void chosenQuantityCalculate() {
@@ -264,7 +280,7 @@ public class MerchandiseSiteOptController {
 		merchandiseController.getChosenQuantityLbl().styleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.contains("-fx-text-fill: green;") && merchandiseController.getNeedOrderedQuantityLbl().getStyle().contains("-fx-text-fill: black;")) {
                 // Nếu điều kiện được đáp ứng, vô hiệu hóa các ô tùy chọn khác
-                if (Integer.parseInt(quantityTextField.getText()) == 0) {
+                if (quantityTextField.getText().equals("0")) {
                     meanChoiceBox.setDisable(true);
                     quantityTextField.setDisable(true);
                 }

@@ -22,6 +22,7 @@ import javafx.scene.layout.Pane;
 import htdh.model.actor.dhqt.orderoperation.listmodel.ListOfMerchandise;
 import htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
 import htdh.model.actor.dhqt.orderoperation.orderstosites.OrderToSite;
+import htdh.subsystem.connection.dhqt.datafetch.DHQTDatabaseConfig;
 
 public class ListOfMerchandiseController {
 	
@@ -31,25 +32,22 @@ public class ListOfMerchandiseController {
 	//
 	
 	private ListOfMerchandise listOfMerchandise;
-	private ListOfListController listOfListController;
 	private ListOfMerchandise listOfMerchandises;
 	private OrderOperationController orderOperationController;
 	private ArrayList<MerchandiseController> merchandiseControllers = new ArrayList<MerchandiseController>();
 	private ArrayList<Button> listOfMerchandiseButtons = new  ArrayList<Button>();
 	private ArrayList<OrderToSite> numberOfOrderToSite = new ArrayList<OrderToSite>();
-	private boolean isSentToSites;
 	
 	//
 	//
 	//
-	
-	public ListOfMerchandiseController(ListOfMerchandise listOfMerchandise, OrderOperationController orderOperationController, ListOfListController listOfListController, ArrayList<Button> listOfMerchandiseButtons) {
+
+	public ListOfMerchandiseController(ListOfMerchandise listOfMerchandise, OrderOperationController orderOperationController, ArrayList<Button> listOfMerchandiseButtons) {
 		this.listOfMerchandiseButtons = listOfMerchandiseButtons;
 		this.listOfMerchandise = listOfMerchandise;
 		this.orderOperationController = orderOperationController;
-		this.listOfListController = listOfListController;
 	}
-
+	
 	@FXML
     private ResourceBundle resources;
 
@@ -220,10 +218,10 @@ public class ListOfMerchandiseController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
         	allocationOrdersToSites();
+        	orderOperationController.getSiteOptGridPane().getChildren().clear();
         } else {
         	
         }
-        merchandiseDetailBtn.setDisable(true);
 	    ordersToSitesInformation();
 	}
 
@@ -252,6 +250,15 @@ public class ListOfMerchandiseController {
 	}
 
 	private void allocationOrdersToSites() {
+		
+		DHQTDatabaseConfig dbConfig = new DHQTDatabaseConfig();
+	    
+	    // Kết nối tới cơ sở dữ liệu
+	    dbConfig.connect();
+	    
+	    // Tạo bảng nếu chưa tồn tại
+	    dbConfig.createTable();
+		
 		List<String> orderToSiteKey = new ArrayList<String>();
 		for ( MerchandiseController merchandiseController : merchandiseControllers ) {
 			for( MerchandiseSiteOptController merchandiseSiteOptController : merchandiseController.getMerchandiseSiteOptControllers()) {
@@ -259,16 +266,16 @@ public class ListOfMerchandiseController {
 		    	String siteName = merchandiseSiteOptController.getSiteNameLbl().getText();
 		    	String deliveryMean = merchandiseSiteOptController.getMeanChoiceBox().getValue();
 		    	String orderSentDate = merchandiseController.getExpectedReceiveDate().getText();
-		    	ArrayList<String> desiredDeliveryDate = new ArrayList<String>();
+		    	String desiredDeliveryDate;
 		    	
 		    	ArrayList<Merchandise> merchandisesNeedToOrder = new ArrayList<Merchandise>();
 		    	ArrayList<Integer> amountOfMerchandisesNeedToOrder = new ArrayList<Integer>();
 		    	String status = "Chờ xác nhận";
-		    	String key = siteID + deliveryMean;
+		    	String key = siteID + "-" + deliveryMean + "-" + orderSentDate;
 		    	if(!(merchandiseSiteOptController.getQuantityTextField().getText().equals("0"))) {
 		    		if (orderToSiteKey.contains(key) == false) {
 			    		orderToSiteKey.add(key);
-			    		desiredDeliveryDate.add(merchandiseSiteOptController.getDesiredDeliveryDateLbl().getText());
+			    		desiredDeliveryDate = (merchandiseSiteOptController.getDesiredDeliveryDateLbl().getText());
 			    		merchandisesNeedToOrder.add(merchandiseController.getMerchandise());
 			    		amountOfMerchandisesNeedToOrder.add(Integer.parseInt(merchandiseSiteOptController.getQuantityTextField().getText()));
 			    		OrderToSite orderToSite = new OrderToSite(key, siteID, siteName, deliveryMean, orderSentDate, desiredDeliveryDate, merchandisesNeedToOrder, amountOfMerchandisesNeedToOrder, status);
@@ -276,8 +283,7 @@ public class ListOfMerchandiseController {
 			        } else {
 			        	for ( int i = 0 ; i < numberOfOrderToSite.size() ; i++ ) {
 			        		if(numberOfOrderToSite.get(i).getSiteID().equals(siteID)) {
-			        			
-			        			numberOfOrderToSite.get(i).getDesiredDeliveryDate().add(merchandiseSiteOptController.getDesiredDeliveryDateLbl().getText());
+			        			numberOfOrderToSite.get(i).setDesiredDeliveryDate(merchandiseSiteOptController.getDesiredDeliveryDateLbl().getText());;
 			        			numberOfOrderToSite.get(i).getMerchandisesNeedToOrder().add(merchandiseController.getMerchandise());
 					    		numberOfOrderToSite.get(i).getAmountOfMerchandisesNeedToOrder().add(Integer.parseInt(merchandiseSiteOptController.getQuantityTextField().getText()));
 			        		}
@@ -286,7 +292,8 @@ public class ListOfMerchandiseController {
 		    	}
 			}
 		}
+		for (OrderToSite order : numberOfOrderToSite) {
+	        dbConfig.insertDataIntoOrderToSiteTable(order);
+	    }
 	}
-	
-	
 }
