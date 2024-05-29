@@ -73,6 +73,16 @@ public class ViewFactory {
     public VBox getPhanDuc() {
         if (orderOperation == null) {
             try{
+            	
+//            	Product {
+//            		//
+//            		//
+//            		//
+//            		private String name;
+//            		private String productCode;
+//            		private ArrayList<String> unit;
+//            		private int quantity;
+            	
             	Site site1 = new Site("Site A", "Amazon", 30, 65);
                 Site site2 = new Site("Site B", "Alibaba", 24, 43);
                 Site site3 = new Site("Site C", "Ebay", 20, 43);
@@ -127,7 +137,7 @@ public class ViewFactory {
                 Merchandise merchandise16 = new Merchandise("Macbook Air", sites2, "M0016", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 766, "2024-06-01", new ArrayList<String>());
                 Merchandise merchandise17 = new Merchandise("Mac Vision", sites2, "M0017", "Unit7", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 1000", 766, "2024-06-01", new ArrayList<String>());
                 
-                Merchandise merchandise18 = new Merchandise("Asus laptop", sites3, "M001", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 655, "2024-06-21", new ArrayList<String>());
+                Merchandise merchandise18 = new Merchandise("Asus laptop", sites3, "M0018", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 655, "2024-06-21", new ArrayList<String>());
                 Merchandise merchandise19 = new Merchandise("AlienWare laptop", sites3, "M321", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 666, "2024-06-21", new ArrayList<String>());
                 Merchandise merchandise20 = new Merchandise("Toy's story", sites3, "M003", "Unit3", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 544, "2024-06-21", new ArrayList<String>());
                 Merchandise merchandise21 = new Merchandise("Panasonic Fridge", sites2, "M004", "Unit1", new ArrayList<Integer>(), new ArrayList<String>(), "BPBH 2000", 998, "2024-06-21", new ArrayList<String>());

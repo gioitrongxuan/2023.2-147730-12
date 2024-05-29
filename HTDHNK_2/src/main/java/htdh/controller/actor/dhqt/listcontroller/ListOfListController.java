@@ -46,6 +46,10 @@ public class ListOfListController {
 		this.orderOperationController = orderOperationController;
 	}
 
+	//
+	//
+	//
+	
 	@FXML
     private ResourceBundle resources;
 
@@ -63,65 +67,17 @@ public class ListOfListController {
     	
     }
     
-    @FXML
-    void listDetailBtnClicked(ActionEvent event) {
-    	final String LISTOFMERCHANDISE_FXML_FILE_PATH = "/fxml/dhqt/orderoperation/listview/ListOfMerchandiseView.fxml";
-//    	listDetailBtn.setStyle("-fx-background-color: #132A13; -fx-border-color:  #0066FF; -fx-border-width: 2px;");
-    	orderOperationController.getSiteOptGridPane().getChildren().clear();
-    	orderOperationController.getListOfMerchandiseGridPane().getChildren().clear();
-
-        int column = 0;
-        int row = 0;
-        listOfMerchandiseButtons.clear();
-        listOfMerchandiseControllers.clear();
-        for (int i = 0; i < listOfList.getListOfMerchandise().size(); i++) {
-            try {
-
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource(LISTOFMERCHANDISE_FXML_FILE_PATH));
-            	
-                ListOfMerchandise listOfMerchandise = listOfList.getListOfMerchandise().get(i);
-                ListOfMerchandiseController listOfMerchandiseController = new ListOfMerchandiseController(listOfMerchandise, orderOperationController, this, listOfMerchandiseButtons);
-                fxmlLoader.setController(listOfMerchandiseController);
-                
-                Pane pane = fxmlLoader.load();
-
-                listOfMerchandiseController.setListOfMerchandiseData(listOfMerchandise);
-         
-                listOfMerchandiseButtons.add(listOfMerchandiseController.getMerchandiseDetailBtn());
-                listOfMerchandiseControllers.add(listOfMerchandiseController);
-                orderOperationController.getListOfMerchandiseGridPane().add(pane, column++, row);
-                if (column == 1) {
-                    column = 0;
-                    row++;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }   
-        }
-        
-        for( int i = 0 ; i < listOfListButtons.size(); i++ ) {
-    		if(listOfListButtons.get(i) == listDetailBtn) {
-    			listOfListButtons.get(i).setStyle("-fx-background-color: #132A13; -fx-border-color:  #0066FF; -fx-border-width: 1px;");
-    		} else {
-    			listOfListButtons.get(i).setStyle("-fx-background-color: #CCFFCC; -fx-border-color:  #0066FF; -fx-border-width: 1px;");
-    		}
-    	}
-    }
-    
-    
+    //
+    //
+    //
     
     public ListOfList getListOfList() {
 		return listOfList;
 	}
 
-
-
 	public void setListOfList(ListOfList listOfList) {
 		this.listOfList = listOfList;
 	}
-
-
 
 	public ResourceBundle getResources() {
 		return resources;
@@ -168,9 +124,11 @@ public class ListOfListController {
 	public void setListOfListLbl(Label listOfListLbl) {
 		this.listOfListLbl = listOfListLbl;
 	}
-
-
-
+	
+    //
+    //
+    //
+	
 	@FXML
     void initialize() {
         assert listDetailBtn != null : "fx:id=\"listDetailBtn\" was not injected: check your FXML file 'ListOfListMerchandiseView.fxml'.";
@@ -180,6 +138,59 @@ public class ListOfListController {
     	this.listOfList = listOfList;
     	listOfListLbl.setText(listOfList.getListOfListID());
     }
+    
+	//
+	//
+	//
+    
+    @FXML
+    void listDetailBtnClicked(ActionEvent event) {
+    	final String LISTOFMERCHANDISE_FXML_FILE_PATH = "/fxml/dhqt/orderoperation/listview/ListOfMerchandiseView.fxml";
+    	orderOperationController.getSiteOptGridPane().getChildren().clear();
+    	orderOperationController.getListOfMerchandiseGridPane().getChildren().clear();
+
+        int column = 0;
+        int row = 0;
+        listOfMerchandiseButtons.clear();
+        listOfMerchandiseControllers.clear();
+        for (int i = 0; i < listOfList.getListOfMerchandise().size(); i++) {
+            try {
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource(LISTOFMERCHANDISE_FXML_FILE_PATH));
+            	
+                ListOfMerchandise listOfMerchandise = listOfList.getListOfMerchandise().get(i);
+                ListOfMerchandiseController listOfMerchandiseController = new ListOfMerchandiseController(listOfMerchandise, orderOperationController, this, listOfMerchandiseButtons);
+                fxmlLoader.setController(listOfMerchandiseController);
+                
+                Pane pane = fxmlLoader.load();
+
+                listOfMerchandiseController.setListOfMerchandiseData(listOfMerchandise);
+         
+                listOfMerchandiseButtons.add(listOfMerchandiseController.getMerchandiseDetailBtn());
+                listOfMerchandiseControllers.add(listOfMerchandiseController);
+                orderOperationController.getListOfMerchandiseGridPane().add(pane, column++, row);
+                if (column == 1) {
+                    column = 0;
+                    row++;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }   
+        }
+        
+        for( int i = 0 ; i < listOfListButtons.size(); i++ ) {
+    		if(listOfListButtons.get(i) == listDetailBtn) {
+    			listOfListButtons.get(i).setStyle("-fx-background-color: #132A13; -fx-border-color:  #0066FF; -fx-border-width: 1px;");
+    		} else {
+    			listOfListButtons.get(i).setStyle("-fx-background-color: #CCFFCC; -fx-border-color:  #0066FF; -fx-border-width: 1px;");
+    		}
+    	}
+    }
+    
+    //
+    //
+    //
 
 	public void saveSiteOptions(ListOfList listOfList) {
 		this.listOfList = listOfList;

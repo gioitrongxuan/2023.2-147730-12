@@ -69,40 +69,17 @@ public class MerchandiseSiteOptController {
         assert quantityTextField != null : "fx:id=\"quantityTextField\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         assert siteIDLbl != null : "fx:id=\"siteIDLbl\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         assert unitChoiceBox != null : "fx:id=\"unitChoiceBox\" was not injected: check your FXML file 'siteoptionview.fxml'.";
-
-        quantityTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                if (quantityTextField.getText().equals("0")) {
-                    quantityTextField.setText("");
-                }
-            } else {
-                if (quantityTextField.getText().isEmpty()) {
-                    quantityTextField.setText("0");
-                }
-            }
-        });
-
         
+        chosenQuantitySufficiencyCheck();
 
-        PauseTransition pause = new PauseTransition(Duration.millis(1000));
-        pause.setOnFinished(event -> {
-            
-        });
-
-        quantityTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                updateChosenQuantity();
-                pause.playFromStart();
-            }
-        });
+        chosenQuantityCalculate();
+        
     }
+
     //
     //
     //
-    // Getters and Setters
-    
-    
+
     public Label getSiteNameLbl() {
         return siteNameLbl;
     }
@@ -257,4 +234,45 @@ public class MerchandiseSiteOptController {
             updateDesiredDeliveryDate(newValue, site_x);
         });
     }
+    
+    private void chosenQuantityCalculate() {
+		quantityTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                if (quantityTextField.getText().equals("0")) {
+                    quantityTextField.setText("");
+                }
+            } else {
+                if (quantityTextField.getText().isEmpty()) {
+                    quantityTextField.setText("0");
+                }
+            }
+        });
+        PauseTransition pause = new PauseTransition(Duration.millis(1000));
+        pause.setOnFinished(event -> {
+            
+        });
+        quantityTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                updateChosenQuantity();
+                pause.playFromStart();
+            }
+        });
+	}
+    
+    private void chosenQuantitySufficiencyCheck() {
+		merchandiseController.getChosenQuantityLbl().styleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains("-fx-text-fill: green;") && merchandiseController.getNeedOrderedQuantityLbl().getStyle().contains("-fx-text-fill: black;")) {
+                // Nếu điều kiện được đáp ứng, vô hiệu hóa các ô tùy chọn khác
+                if (Integer.parseInt(quantityTextField.getText()) == 0) {
+                    meanChoiceBox.setDisable(true);
+                    quantityTextField.setDisable(true);
+                }
+            } else {
+                // Nếu không, bật lại các ô tùy chọn khác
+                meanChoiceBox.setDisable(false);
+                quantityTextField.setDisable(false);
+            }
+        });
+	}
 }
