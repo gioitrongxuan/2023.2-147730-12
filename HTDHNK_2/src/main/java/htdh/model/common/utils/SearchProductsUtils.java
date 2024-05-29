@@ -32,12 +32,15 @@ public class SearchProductsUtils {
 //            }
 //        } catch (SQLException e) {
 //            e.printStackTrace();
-//        }
+//
 
         // Tạo dữ liệu mẫu
-        products.add(new Product("1", "ABC123", new ArrayList<>(List.of("kg", "g")), 10));
-        products.add(new Product("2", "DEF456", new ArrayList<>(List.of("l", "ml")), 20));
-        products.add(new Product("3", "GHI789", new ArrayList<>(List.of("m", "cm")), 30));
+        products.add(new Product("P0011", "ABC123", "kg",10));
+        products.add(new Product("P0012", "ABC123", "kg",10));
+        products.add(new Product("P0021", "DEF456", "l", 20));
+        products.add(new Product("P0022", "DEF456", "ml", 20));
+        products.add(new Product("P0031", "GHI789", "m", 30));
+        products.add(new Product("P0032", "GHI789", "cm", 30));
 
         // Tìm kiếm ProductCode trùng hoàn toàn với searchTerm
         Product matchedProducts = new Product();

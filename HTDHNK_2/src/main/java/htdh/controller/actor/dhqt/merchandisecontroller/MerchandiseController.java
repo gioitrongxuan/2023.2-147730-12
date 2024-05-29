@@ -367,7 +367,7 @@ public class MerchandiseController {
 	                order.setSiteID(siteID);
 	                order.setDeliveryMean(deliveryMean);
 	                order.setOrderSentDate(orderSentDate);
-	                order.setDesiredDeliveryDate(new ArrayList<>(List.of(desiredDeliveryDate)));
+	                order.setDesiredDeliveryDate(String.valueOf(new ArrayList<>(List.of(desiredDeliveryDate))));
 	                order.setMerchandisesNeedToOrder(new ArrayList<>(List.of(merchandise)));
 	                order.setAmountOfMerchandisesNeedToOrder(new ArrayList<>(List.of(quantity)));
 	                ordersMap.put(key, order);
