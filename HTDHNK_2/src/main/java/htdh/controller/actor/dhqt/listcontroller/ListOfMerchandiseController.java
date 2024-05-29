@@ -252,11 +252,8 @@ public class ListOfMerchandiseController {
 	private void allocationOrdersToSites() {
 		
 		DHQTDatabaseConfig dbConfig = new DHQTDatabaseConfig();
-	    
-	    // Kết nối tới cơ sở dữ liệu
 	    dbConfig.connect();
-	    
-	    // Tạo bảng nếu chưa tồn tại
+
 	    dbConfig.createTable();
 		
 		List<String> orderToSiteKey = new ArrayList<String>();
