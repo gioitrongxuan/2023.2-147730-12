@@ -2,14 +2,19 @@ package htdh.controller.actor.dhqt.orderoperationcontroller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import htdh.controller.actor.dhqt.listcontroller.ListOfListController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -97,8 +102,89 @@ public class OrderOperationController {
     //
     //
     //
+    
 	public ResourceBundle getResources() {
 		return resources;
+	}
+
+	public ArrayList<ListOfListController> getListOfListControllers() {
+		return listOfListControllers;
+	}
+
+	public void setListOfListControllers(ArrayList<ListOfListController> listOfListControllers) {
+		this.listOfListControllers = listOfListControllers;
+	}
+
+	public ArrayList<Button> getListOfListButtons() {
+		return listOfListButtons;
+	}
+
+	public void setListOfListButtons(ArrayList<Button> listOfListButtons) {
+		this.listOfListButtons = listOfListButtons;
+	}
+
+	public ChoiceBox<String> getComparisonStandardsChoiceBox() {
+		return comparisonStandardsChoiceBox;
+	}
+
+	public void setComparisonStandardsChoiceBox(ChoiceBox<String> comparisonStandardsChoiceBox) {
+		this.comparisonStandardsChoiceBox = comparisonStandardsChoiceBox;
+	}
+
+	public TextField getSearchBox() {
+		return searchBox;
+	}
+
+	public void setSearchBox(TextField searchBox) {
+		this.searchBox = searchBox;
+	}
+
+	public Button getRemoveSiteOptionsBtn() {
+		return removeSiteOptionsBtn;
+	}
+
+	public void setRemoveSiteOptionsBtn(Button removeSiteOptionsBtn) {
+		this.removeSiteOptionsBtn = removeSiteOptionsBtn;
+	}
+
+	public Button getSendOrderBtn() {
+		return sendOrderBtn;
+	}
+
+	public void setSendOrderBtn(Button sendOrderBtn) {
+		this.sendOrderBtn = sendOrderBtn;
+	}
+
+	public Button getNeedOrderedMerchandisesBtn() {
+		return needOrderedMerchandisesBtn;
+	}
+
+	public void setNeedOrderedMerchandisesBtn(Button needOrderedMerchandisesBtn) {
+		this.needOrderedMerchandisesBtn = needOrderedMerchandisesBtn;
+	}
+
+	public Button getOrderStatusDetailBtn() {
+		return OrderStatusDetailBtn;
+	}
+
+	public void setOrderStatusDetailBtn(Button orderStatusDetailBtn) {
+		OrderStatusDetailBtn = orderStatusDetailBtn;
+	}
+
+	public Label getAIMS() {
+		return AIMS;
+	}
+
+	public void setAIMS(Label aIMS) {
+		AIMS = aIMS;
+	}
+
+	public Button getSiteOptSaveBtn() {
+		return siteOptSaveBtn;
+	}
+
+	public void setSiteOptSaveBtn(Button siteOptSaveBtn) {
+		this.siteOptSaveBtn = siteOptSaveBtn;
 	}
 
 	public ArrayList<ListOfList> getNeedToOrderList() {
@@ -187,6 +273,7 @@ public class OrderOperationController {
     //
     //
     //
+	
     @FXML
     void initialize() {
         assert AIMS != null : "fx:id=\"AIMS\" was not injected: check your FXML file 'OrderOperation.fxml'.";
@@ -199,8 +286,8 @@ public class OrderOperationController {
         assert siteOptionScrollPane != null : "fx:id=\"siteOptionScrollPane\" was not injected: check your FXML file 'OrderOperation.fxml'.";
         assert windowOptVBox != null : "fx:id=\"windowOptVBox\" was not injected: check your FXML file 'OrderOperation.fxml'.";
         
-        
     }
+    
     //
 	//
     //
@@ -246,12 +333,10 @@ public class OrderOperationController {
 	    }
 	}
 	
-	
-	
-	
 	//
 	//
 	//
+	
 	@FXML
     void OrderStatusDetailBtnClicked(ActionEvent event) {
 
@@ -284,13 +369,28 @@ public class OrderOperationController {
 	}
     @FXML
     void removeSiteOptionsBtnClicked(ActionEvent event) {
-    	for (int i = 0 ; i < listOfListControllers.size() ; i++) {
-    		if(listOfListButtons.get(i).getStyle().contains("-fx-background-color: #132A13;")) {
-    			removeSiteOptions(i, needToOrderList.get(i));
-    		} else {
+    	
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Xác nhận");
+        alert.setHeaderText("Xác nhận hủy");
+        alert.setContentText("Bạn có chắc chắn muốn hủy không?");
+        DialogPane dialogPane = alert.getDialogPane();
 
-    		}
-		}
+        dialogPane.setPrefWidth(300); // Đặt kích thước chiều rộng
+        dialogPane.setPrefHeight(100); // Đặt kích thước chiều cao
+
+        dialogPane.setStyle("-fx-font-size: 14px;"); // Đặt kích thước chữ
+     
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+	    	for (int i = 0 ; i < listOfListControllers.size() ; i++) {
+	    		if(listOfListButtons.get(i).getStyle().contains("-fx-background-color: #132A13;")) {
+	    			removeSiteOptions(i, needToOrderList.get(i));
+	    		} else {
+	
+	    		}
+			}
+        }
     }
     
 	@FXML

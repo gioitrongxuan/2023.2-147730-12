@@ -5,33 +5,45 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="850.0" styleClass="management_container" stylesheets="@../../Styles/orderManagement.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htdh.controller.actor.dhqt.RejectOrderListController">
+<AnchorPane prefHeight="735.0" prefWidth="1100.0" styleClass="management_container" stylesheets="@../../Styles/orderManagement.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htdh.controller.actor.dhqt.CanceledListController">
     <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Xử lý đơn hủy" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.5" />
-   <TextField layoutX="31.0" layoutY="57.0" prefHeight="25.0" prefWidth="128.0" promptText="Tìm với ID" AnchorPane.leftAnchor="14.0" />
-   <FontAwesomeIconView glyphName="SEARCH" layoutX="123.0" layoutY="76.0" text="" />
-   <DatePicker layoutX="165.0" layoutY="57.0" prefHeight="25.0" prefWidth="135.0" promptText="Hiện tại" />
-   <HBox prefHeight="640.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="100.0">
-      <VBox prefHeight="536.0" prefWidth="313.0">
+   <TextField layoutX="14.0" layoutY="125.0" prefHeight="25.0" prefWidth="206.0" promptText="Tìm với ID" AnchorPane.leftAnchor="14.0" />
+   <FontAwesomeIconView glyphName="SEARCH" layoutX="201.0" layoutY="141.0" text="" />
+   <DatePicker layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="206.0" promptText="Hiện tại" />
+   <AnchorPane prefHeight="571.0" prefWidth="206.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="150.0">
+      <ScrollPane fitToHeight="true" hbarPolicy="NEVER" prefHeight="571.0" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <ListView fx:id="order_listview" prefHeight="569.0" prefWidth="202.0" />
+         </content>
+      </ScrollPane>
+   </AnchorPane>
+   <VBox layoutX="336.0" layoutY="176.0" prefHeight="571.0" prefWidth="850.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="150.0">
+      <AnchorPane prefHeight="62.0" prefWidth="735.0" />
+      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="754.0">
          <children>
-            <ListView fx:id="order_listview" maxWidth="-Infinity" prefHeight="536.0" prefWidth="133.0" />
+            <AnchorPane prefHeight="30.0" prefWidth="37.0" />
+            <Label prefHeight="17.0" prefWidth="63.0" text="Mã hàng" HBox.hgrow="ALWAYS" />
+            <AnchorPane layoutX="333.0" layoutY="10.0" prefHeight="32.0" prefWidth="40.0" />
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="66.0" text="Tên Hàng" HBox.hgrow="ALWAYS" />
+            <AnchorPane layoutX="457.0" layoutY="10.0" prefHeight="32.0" prefWidth="43.0" />
+            <Label layoutX="109.0" layoutY="10.0" prefHeight="17.0" prefWidth="52.0" text="Đơn vị" HBox.hgrow="ALWAYS" />
+            <AnchorPane layoutX="263.0" layoutY="10.0" prefHeight="30.0" prefWidth="69.0" />
+            <Label layoutX="157.0" layoutY="10.0" prefHeight="17.0" prefWidth="110.0" text="Ngày cần" HBox.hgrow="ALWAYS" />
+            <AnchorPane layoutX="425.0" layoutY="10.0" prefHeight="30.0" prefWidth="131.0" />
+            <AnchorPane prefHeight="30.0" prefWidth="8.0" />
          </children>
-      </VBox>
-      <VBox prefHeight="640.0" prefWidth="533.0">
-         <AnchorPane prefHeight="64.0" prefWidth="532.0" />
-         <HBox alignment="CENTER" prefHeight="30.0" prefWidth="575.0" spacing="30.0" style="-fx-alignment: center;">
-            <Label text="Mã hàng" HBox.hgrow="ALWAYS" />
-            <Label layoutX="10.0" layoutY="10.0" text="Tên Hàng" HBox.hgrow="ALWAYS" />
-            <Label layoutX="57.0" layoutY="10.0" text="Số lượng" HBox.hgrow="ALWAYS" />
-            <Label layoutX="109.0" layoutY="10.0" text="Đơn vị" HBox.hgrow="ALWAYS" />
-            <Label layoutX="157.0" layoutY="10.0" text="Ngày cần" HBox.hgrow="ALWAYS" />
-         </HBox>
-         <Accordion prefHeight="519.0" prefWidth="489.0" />
-      </VBox>
-   </HBox>
+      </HBox>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="450.0" prefWidth="797.0" VBox.vgrow="ALWAYS">
+         <content>
+            <Accordion fx:id="list_merchan_site_acd" prefHeight="477.0" prefWidth="835.0" />
+         </content>
+      </ScrollPane>
+   </VBox>
 </AnchorPane>

@@ -16,7 +16,7 @@ public class OrderToSite {
 	private String siteName;
 	private String deliveryMean;
 	private String orderSentDate;
-	private ArrayList<String> desiredDeliveryDate = new ArrayList<String>();
+	private String desiredDeliveryDate;
 	
 	private ArrayList<Merchandise> merchandisesNeedToOrder = new ArrayList<Merchandise>();
 	private ArrayList<Integer> amountOfMerchandisesNeedToOrder = new ArrayList<Integer>();
@@ -75,11 +75,11 @@ public class OrderToSite {
 		this.orderSentDate = orderSentDate;
 	}
 
-	public ArrayList<String> getDesiredDeliveryDate() {
+	public String getDesiredDeliveryDate() {
 		return desiredDeliveryDate;
 	}
 
-	public void setDesiredDeliveryDate(ArrayList<String> desiredDeliveryDate) {
+	public void setDesiredDeliveryDate(String desiredDeliveryDate) {
 		this.desiredDeliveryDate = desiredDeliveryDate;
 	}
 
@@ -127,7 +127,7 @@ public class OrderToSite {
 //		this.status = status;
 //	}
 
-	public OrderToSite(String fromWhatSale, String siteID, String deliveryMean, ArrayList<String> desiredDeliveryDate,
+	public OrderToSite(String fromWhatSale, String siteID, String deliveryMean, String desiredDeliveryDate,
 			ArrayList<Merchandise> merchandisesNeedToOrder, ArrayList<Integer> amountOfMerchandisesNeedToOrder,
 			String status) {
 		super();
@@ -142,7 +142,7 @@ public class OrderToSite {
 
 	
 	public OrderToSite(String orderToSiteID, String siteID, String siteName, String deliveryMean, String orderSentDate,
-			ArrayList<String> desiredDeliveryDate, ArrayList<Merchandise> merchandisesNeedToOrder,
+			String desiredDeliveryDate, ArrayList<Merchandise> merchandisesNeedToOrder,
 			ArrayList<Integer> amountOfMerchandisesNeedToOrder, String status) {
 		super();
 		this.orderToSiteID = orderToSiteID;

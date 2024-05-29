@@ -1,4 +1,4 @@
-package htdh.subsystem.CURDRejectOrder;
+package htdh.subsystem.CanceledOrder;
 
 public interface ICURDRejectOrder {
     void create();

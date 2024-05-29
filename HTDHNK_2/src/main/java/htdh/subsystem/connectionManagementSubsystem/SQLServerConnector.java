@@ -7,14 +7,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 
 import htdh.common.entity.Merchandise;
 import htdh.common.entity.Product;
+import htdh.model.common.entity.Order;
+import htdh.model.common.entity.Order_Merchandise;
+import htdh.subsystem.CanceledOrder.GetCanceledOrder;
+import htdh.subsystem.CanceledOrder.ListSite;
 
 
 public class SQLServerConnector implements DatabaseConnector{
+
     private DatabaseConfig config;
     private Connection connection;
+
+    public Connection getConnection() {
+        return connection;
+    }
 
     public SQLServerConnector() {
        this.config = new DatabaseConfig();
@@ -37,18 +48,7 @@ public class SQLServerConnector implements DatabaseConnector{
         }
         return resultSet;
     }
-    
-    public ResultSet getRejectOrderDataBase(){
-        ResultSet resultSet = null;
-        String query = "SELECT * FROM Order WHERE status = 'REJECTED'";
-        try {
-            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
-            resultSet = preparedStatement.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
+
 
 
     @Override
@@ -119,7 +119,13 @@ public class SQLServerConnector implements DatabaseConnector{
         return product;
     }
 
-    public Connection getConnection() {
-        return this.connection;
+
+
+    public List<Order> getCanceledOrders() {
+        return new GetCanceledOrder().getCanceledOrders();
+    }
+    public List<Order_Merchandise> getOrderMerchandises (String orderId){return new  GetCanceledOrder().getOrderMerchandise(orderId);}
+    public ResultSet findListSite(String merchandiseCode) {
+        return  new ListSite().findListSite(merchandiseCode);
     }
 }
