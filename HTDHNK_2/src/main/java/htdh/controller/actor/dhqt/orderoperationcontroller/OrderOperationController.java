@@ -102,8 +102,89 @@ public class OrderOperationController {
     //
     //
     //
+    
 	public ResourceBundle getResources() {
 		return resources;
+	}
+
+	public ArrayList<ListOfListController> getListOfListControllers() {
+		return listOfListControllers;
+	}
+
+	public void setListOfListControllers(ArrayList<ListOfListController> listOfListControllers) {
+		this.listOfListControllers = listOfListControllers;
+	}
+
+	public ArrayList<Button> getListOfListButtons() {
+		return listOfListButtons;
+	}
+
+	public void setListOfListButtons(ArrayList<Button> listOfListButtons) {
+		this.listOfListButtons = listOfListButtons;
+	}
+
+	public ChoiceBox<String> getComparisonStandardsChoiceBox() {
+		return comparisonStandardsChoiceBox;
+	}
+
+	public void setComparisonStandardsChoiceBox(ChoiceBox<String> comparisonStandardsChoiceBox) {
+		this.comparisonStandardsChoiceBox = comparisonStandardsChoiceBox;
+	}
+
+	public TextField getSearchBox() {
+		return searchBox;
+	}
+
+	public void setSearchBox(TextField searchBox) {
+		this.searchBox = searchBox;
+	}
+
+	public Button getRemoveSiteOptionsBtn() {
+		return removeSiteOptionsBtn;
+	}
+
+	public void setRemoveSiteOptionsBtn(Button removeSiteOptionsBtn) {
+		this.removeSiteOptionsBtn = removeSiteOptionsBtn;
+	}
+
+	public Button getSendOrderBtn() {
+		return sendOrderBtn;
+	}
+
+	public void setSendOrderBtn(Button sendOrderBtn) {
+		this.sendOrderBtn = sendOrderBtn;
+	}
+
+	public Button getNeedOrderedMerchandisesBtn() {
+		return needOrderedMerchandisesBtn;
+	}
+
+	public void setNeedOrderedMerchandisesBtn(Button needOrderedMerchandisesBtn) {
+		this.needOrderedMerchandisesBtn = needOrderedMerchandisesBtn;
+	}
+
+	public Button getOrderStatusDetailBtn() {
+		return OrderStatusDetailBtn;
+	}
+
+	public void setOrderStatusDetailBtn(Button orderStatusDetailBtn) {
+		OrderStatusDetailBtn = orderStatusDetailBtn;
+	}
+
+	public Label getAIMS() {
+		return AIMS;
+	}
+
+	public void setAIMS(Label aIMS) {
+		AIMS = aIMS;
+	}
+
+	public Button getSiteOptSaveBtn() {
+		return siteOptSaveBtn;
+	}
+
+	public void setSiteOptSaveBtn(Button siteOptSaveBtn) {
+		this.siteOptSaveBtn = siteOptSaveBtn;
 	}
 
 	public ArrayList<ListOfList> getNeedToOrderList() {
@@ -204,7 +285,6 @@ public class OrderOperationController {
         assert siteOptGridPane != null : "fx:id=\"siteOptGridPane\" was not injected: check your FXML file 'OrderOperation.fxml'.";
         assert siteOptionScrollPane != null : "fx:id=\"siteOptionScrollPane\" was not injected: check your FXML file 'OrderOperation.fxml'.";
         assert windowOptVBox != null : "fx:id=\"windowOptVBox\" was not injected: check your FXML file 'OrderOperation.fxml'.";
-        
         
     }
     
