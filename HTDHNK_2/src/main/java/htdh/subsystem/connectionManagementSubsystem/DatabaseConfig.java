@@ -5,9 +5,7 @@ public class DatabaseConfig {
     private String url = "jdbc:sqlserver://DESKTOP-7RDGHEM\\SQLEXPRESS:1434;databaseName=HTDHNK;trustServerCertificate=true;";
     private String username = "sa";
     private String password = "123456789";
-//chỗ này là thông tin dâtbase của máy ông 
-//thế cais số hiệu cổng kia là sao: OK MAF LÚC NÃY TÔI PUSH LÊN XONG KO THÁY CỦA TÔI ĐÂU LUÔN:đđ
-//    NÊN MỚI PHẢI CLONE LẠI:đđ
+
     // Constructor, getters, and setters
     public DatabaseConfig(String url, String username, String password) {
         this.url = url;

@@ -69,40 +69,19 @@ public class MerchandiseSiteOptController {
         assert quantityTextField != null : "fx:id=\"quantityTextField\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         assert siteIDLbl != null : "fx:id=\"siteIDLbl\" was not injected: check your FXML file 'siteoptionview.fxml'.";
         assert unitChoiceBox != null : "fx:id=\"unitChoiceBox\" was not injected: check your FXML file 'siteoptionview.fxml'.";
-
-        quantityTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                if (quantityTextField.getText().equals("0")) {
-                    quantityTextField.setText("");
-                }
-            } else {
-                if (quantityTextField.getText().isEmpty()) {
-                    quantityTextField.setText("0");
-                }
-            }
-        });
-
         
-
-        PauseTransition pause = new PauseTransition(Duration.millis(1000));
-        pause.setOnFinished(event -> {
-            
-        });
-
-        quantityTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                updateChosenQuantity();
-                pause.playFromStart();
-            }
-        });
+        chosenQuantityCalculate();
+        chosenQuantitySufficiencyCheck();
+        
+        
+        
+        
     }
+
     //
     //
     //
-    // Getters and Setters
-    
-    
+
     public Label getSiteNameLbl() {
         return siteNameLbl;
     }
@@ -190,9 +169,11 @@ public class MerchandiseSiteOptController {
     public void setUnitLbl(Label unitLbl) {
         this.unitLbl = unitLbl;
     }
+    
     //
     //
     //
+    
     private void updateDesiredDeliveryDate(String mean, int site_x) {
         if (mean == null || merchandiseController.getExpectedReceiveDate().getText() == null || merchandiseController.getExpectedReceiveDate().getText().isEmpty()) {
             desiredDeliveryDateLbl.setText("");
@@ -236,7 +217,9 @@ public class MerchandiseSiteOptController {
 
     public void setData(Merchandise merchandise, Site site, int site_x) {
         this.merchandise = merchandise;
-        
+        if(!(merchandise.getDesiredDeliveryDate().isEmpty())) {
+        	desiredDeliveryDateLbl.setText(merchandise.getDesiredDeliveryDate().get(site_x));
+        }
         siteIDLbl.setText(merchandise.getSites().get(site_x).getSiteCode());
         unitLbl.setText(merchandise.getUnit());
         siteNameLbl.setText(merchandise.getSites().get(site_x).getSiteName());
@@ -256,5 +239,56 @@ public class MerchandiseSiteOptController {
         meanChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             updateDesiredDeliveryDate(newValue, site_x);
         });
+        
+        if ( merchandiseController.getChosenQuantityLbl().getStyle().equals("-fx-text-fill: green;") && merchandiseController.getNeedOrderedQuantityLbl().getStyle().contains("-fx-text-fill: black;")) {
+            if (quantityTextField.getText().equals("0")) {
+                meanChoiceBox.setDisable(true);
+                quantityTextField.setDisable(true);
+            }
+        } else {
+            meanChoiceBox.setDisable(false);
+            quantityTextField.setDisable(false);
+        }
     }
+    
+    private void chosenQuantityCalculate() {
+		quantityTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                if (quantityTextField.getText().equals("0")) {
+                    quantityTextField.setText("");
+                }
+            } else {
+                if (quantityTextField.getText().isEmpty()) {
+                    quantityTextField.setText("0");
+                }
+            }
+        });
+        PauseTransition pause = new PauseTransition(Duration.millis(1000));
+        pause.setOnFinished(event -> {
+            
+        });
+        quantityTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                updateChosenQuantity();
+                pause.playFromStart();
+            }
+        });
+	}
+    
+    private void chosenQuantitySufficiencyCheck() {
+		merchandiseController.getChosenQuantityLbl().styleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains("-fx-text-fill: green;") && merchandiseController.getNeedOrderedQuantityLbl().getStyle().contains("-fx-text-fill: black;")) {
+                // Nếu điều kiện được đáp ứng, vô hiệu hóa các ô tùy chọn khác
+                if (quantityTextField.getText().equals("0")) {
+                    meanChoiceBox.setDisable(true);
+                    quantityTextField.setDisable(true);
+                }
+            } else {
+                // Nếu không, bật lại các ô tùy chọn khác
+                meanChoiceBox.setDisable(false);
+                quantityTextField.setDisable(false);
+            }
+        });
+	}
 }

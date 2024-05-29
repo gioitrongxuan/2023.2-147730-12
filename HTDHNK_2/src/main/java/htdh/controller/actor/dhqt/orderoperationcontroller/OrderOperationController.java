@@ -2,14 +2,19 @@ package htdh.controller.actor.dhqt.orderoperationcontroller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import htdh.controller.actor.dhqt.listcontroller.ListOfListController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -187,6 +192,7 @@ public class OrderOperationController {
     //
     //
     //
+	
     @FXML
     void initialize() {
         assert AIMS != null : "fx:id=\"AIMS\" was not injected: check your FXML file 'OrderOperation.fxml'.";
@@ -201,6 +207,7 @@ public class OrderOperationController {
         
         
     }
+    
     //
 	//
     //
@@ -246,12 +253,10 @@ public class OrderOperationController {
 	    }
 	}
 	
-	
-	
-	
 	//
 	//
 	//
+	
 	@FXML
     void OrderStatusDetailBtnClicked(ActionEvent event) {
 
@@ -284,13 +289,28 @@ public class OrderOperationController {
 	}
     @FXML
     void removeSiteOptionsBtnClicked(ActionEvent event) {
-    	for (int i = 0 ; i < listOfListControllers.size() ; i++) {
-    		if(listOfListButtons.get(i).getStyle().contains("-fx-background-color: #132A13;")) {
-    			removeSiteOptions(i, needToOrderList.get(i));
-    		} else {
+    	
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Xác nhận");
+        alert.setHeaderText("Xác nhận hủy");
+        alert.setContentText("Bạn có chắc chắn muốn hủy không?");
+        DialogPane dialogPane = alert.getDialogPane();
 
-    		}
-		}
+        dialogPane.setPrefWidth(300); // Đặt kích thước chiều rộng
+        dialogPane.setPrefHeight(100); // Đặt kích thước chiều cao
+
+        dialogPane.setStyle("-fx-font-size: 14px;"); // Đặt kích thước chữ
+     
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+	    	for (int i = 0 ; i < listOfListControllers.size() ; i++) {
+	    		if(listOfListButtons.get(i).getStyle().contains("-fx-background-color: #132A13;")) {
+	    			removeSiteOptions(i, needToOrderList.get(i));
+	    		} else {
+	
+	    		}
+			}
+        }
     }
     
 	@FXML

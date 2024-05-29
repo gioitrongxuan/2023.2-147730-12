@@ -9,13 +9,14 @@ public class OrderToSite {
 	//
 	//
 	//
-	private String orderID;
-	private String listfromsiteID;
+	
+	private String orderToSiteID;
+	private String fromWhatSale;
 	private String siteID;
 	private String siteName;
 	private String deliveryMean;
 	private String orderSentDate;
-	private ArrayList<String> desiredDeliveryDate = new ArrayList<String>();
+	private String desiredDeliveryDate;
 	
 	private ArrayList<Merchandise> merchandisesNeedToOrder = new ArrayList<Merchandise>();
 	private ArrayList<Integer> amountOfMerchandisesNeedToOrder = new ArrayList<Integer>();
@@ -25,14 +26,21 @@ public class OrderToSite {
 	//
 	//
 	//
-
-
-	public String getListfromsiteID() {
-		return listfromsiteID;
+	
+	public String getFromWhatSale() {
+		return fromWhatSale;
 	}
 
-	public void setListfromsiteID(String listfromsiteID) {
-		this.listfromsiteID = listfromsiteID;
+	public String getOrderToSiteID() {
+		return orderToSiteID;
+	}
+
+	public void setOrderToSiteID(String orderToSiteID) {
+		this.orderToSiteID = orderToSiteID;
+	}
+
+	public void setFromWhatSale(String fromWhatSale) {
+		this.fromWhatSale = fromWhatSale;
 	}
 
 	public String getSiteID() {
@@ -67,11 +75,11 @@ public class OrderToSite {
 		this.orderSentDate = orderSentDate;
 	}
 
-	public ArrayList<String> getDesiredDeliveryDate() {
+	public String getDesiredDeliveryDate() {
 		return desiredDeliveryDate;
 	}
 
-	public void setDesiredDeliveryDate(ArrayList<String> desiredDeliveryDate) {
+	public void setDesiredDeliveryDate(String desiredDeliveryDate) {
 		this.desiredDeliveryDate = desiredDeliveryDate;
 	}
 
@@ -104,11 +112,40 @@ public class OrderToSite {
 	//
 	//
 	
-	public OrderToSite(String fromWhatSale, String siteID, String siteName, String deliveryMean, String orderSentDate,
-			ArrayList<String> desiredDeliveryDate, ArrayList<Merchandise> merchandisesNeedToOrder,
+//	public OrderToSite(String fromWhatSale, String siteID, String siteName, String deliveryMean, String orderSentDate,
+//			ArrayList<String> desiredDeliveryDate, ArrayList<Merchandise> merchandisesNeedToOrder,
+//			ArrayList<Integer> amountOfMerchandisesNeedToOrder, String status) {
+//		super();
+//		this.fromWhatSale = fromWhatSale;
+//		this.siteID = siteID;
+//		this.siteName = siteName;
+//		this.deliveryMean = deliveryMean;
+//		this.orderSentDate = orderSentDate;
+//		this.desiredDeliveryDate = desiredDeliveryDate;
+//		this.merchandisesNeedToOrder = merchandisesNeedToOrder;
+//		this.amountOfMerchandisesNeedToOrder = amountOfMerchandisesNeedToOrder;
+//		this.status = status;
+//	}
+
+	public OrderToSite(String fromWhatSale, String siteID, String deliveryMean, String desiredDeliveryDate,
+			ArrayList<Merchandise> merchandisesNeedToOrder, ArrayList<Integer> amountOfMerchandisesNeedToOrder,
+			String status) {
+		super();
+		this.fromWhatSale = fromWhatSale;
+		this.siteID = siteID;
+		this.deliveryMean = deliveryMean;
+		this.desiredDeliveryDate = desiredDeliveryDate;
+		this.merchandisesNeedToOrder = merchandisesNeedToOrder;
+		this.amountOfMerchandisesNeedToOrder = amountOfMerchandisesNeedToOrder;
+		this.status = status;
+	}
+
+	
+	public OrderToSite(String orderToSiteID, String siteID, String siteName, String deliveryMean, String orderSentDate,
+			String desiredDeliveryDate, ArrayList<Merchandise> merchandisesNeedToOrder,
 			ArrayList<Integer> amountOfMerchandisesNeedToOrder, String status) {
 		super();
-		this.listfromsiteID = fromWhatSale;
+		this.orderToSiteID = orderToSiteID;
 		this.siteID = siteID;
 		this.siteName = siteName;
 		this.deliveryMean = deliveryMean;
@@ -119,31 +156,11 @@ public class OrderToSite {
 		this.status = status;
 	}
 
-	public OrderToSite(String fromWhatSale, String siteID, String deliveryMean, ArrayList<String> desiredDeliveryDate,
-			ArrayList<Merchandise> merchandisesNeedToOrder, ArrayList<Integer> amountOfMerchandisesNeedToOrder,
-			String status) {
-		super();
-		this.listfromsiteID = fromWhatSale;
-		this.siteID = siteID;
-		this.deliveryMean = deliveryMean;
-		this.desiredDeliveryDate = desiredDeliveryDate;
-		this.merchandisesNeedToOrder = merchandisesNeedToOrder;
-		this.amountOfMerchandisesNeedToOrder = amountOfMerchandisesNeedToOrder;
-		this.status = status;
-	}
-
 	public OrderToSite() {
 		super();
 	}
-
-	public String getOrderID() {
-		return orderID;
-	}
-
-	public void setOrderID(String orderID) {
-		this.orderID = orderID;
-	}
-//
+	
+	//
 	//
 	//
 	
