@@ -71,16 +71,6 @@ public class Model {
             e.printStackTrace();
         }
     }
-    public void getRejectOrderData(){
-        ResultSet resultSet = databaseDriver.getRejectOrderDataBase();
-        try {
-            while (resultSet.next()){
-                System.out.println(resultSet.getString("order_id"));
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
     /*
             Sales method section

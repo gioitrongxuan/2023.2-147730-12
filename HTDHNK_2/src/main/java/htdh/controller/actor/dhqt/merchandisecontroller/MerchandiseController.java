@@ -355,7 +355,6 @@ public class MerchandiseController {
 	        if (quantity > 0) {
 	            // Tạo khóa để phân biệt đơn hàng cho từng Site và Phương tiện vận chuyển
 	            String key = siteID + "-" + deliveryMean;
-
 	            // Nếu đơn hàng đã tồn tại trong Map, cập nhật số lượng của mặt hàng
 	            if (ordersMap.containsKey(key)) {
 	                OrderToSite order = ordersMap.get(key);
@@ -372,9 +371,11 @@ public class MerchandiseController {
 	                order.setAmountOfMerchandisesNeedToOrder(new ArrayList<>(List.of(quantity)));
 	                ordersMap.put(key, order);
 	                listOfOrderToSite.add(order);
+
 	            }
 	        }
 	    }
+
 
 	    // In ra các đơn hàng theo yêu cầu
 	    for (OrderToSite order : listOfOrderToSite) {

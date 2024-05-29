@@ -62,7 +62,7 @@ public class ViewFactory {
     public AnchorPane getOrderManagement() {
         if (orderManagement == null) {
             try{
-                orderManagement = new FXMLLoader(getClass().getResource("/fxml/dhqt/RejectOrderList.fxml")).load();
+                orderManagement = new FXMLLoader(getClass().getResource("/fxml/dhqt/CanceledOrderList.fxml")).load();
             }catch (Exception e) {
                 e.printStackTrace();
             }
@@ -252,7 +252,7 @@ public class ViewFactory {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/images/rose.jpg"))));
-        stage.setResizable(false);
+//        stage.setResizable(false);
         stage.setTitle("BPDHQT");
         stage.show();
     }

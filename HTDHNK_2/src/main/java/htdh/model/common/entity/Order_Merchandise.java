@@ -1,47 +1,69 @@
 package htdh.model.common.entity;
 
 public class Order_Merchandise {
-    private String merchandiseCode;
+    //
+    //
+    //
     private String name;
-    private String site;
-    private int quantity;
+    private String orderId;
+    private String merchandiseCode;
     private String unit;
-    private String deliveryMean;
-    private String orderOfSale;
-    private int needOrderedQuantity;
-    private String orderSentDate;
-    private String desiredDeliveryDate;
-
-    public Order_Merchandise(String merchandiseCode, String name, String site, int quantity, String unit, String deliveryMean, String orderOfSale, int needOrderedQuantity, String orderSentDate, String desiredDeliveryDate) {
-        this.merchandiseCode = merchandiseCode;
-        this.name = name;
-        this.site = site;
-        this.quantity = quantity;
-        this.unit = unit;
-        this.deliveryMean = deliveryMean;
-        this.orderOfSale = orderOfSale;
-        this.needOrderedQuantity = needOrderedQuantity;
-        this.orderSentDate = orderSentDate;
-        this.desiredDeliveryDate = desiredDeliveryDate;
-    }
-
-    public String getMerchandiseCode() {
-        return merchandiseCode;
-    }
-
+    private int quantityOrdered;
+    private String deliverydate;
+    //
+    //
+    //
     public String getName() {
         return name;
     }
-
-    public int getQuantity() {
-        return quantity;
+    public void setName(String name) {
+        this.name = name;
     }
-
+    public String getOrderId() {
+        return orderId;
+    }
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+    public String getMerchandiseCode() {
+        return merchandiseCode;
+    }
+    public void setMerchandiseCode(String merchandiseCode) {
+        this.merchandiseCode = merchandiseCode;
+    }
     public String getUnit() {
         return unit;
     }
-
-    public String getDesiredDeliveryDate() {
-        return desiredDeliveryDate;
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
+    public int getQuantityOrdered() {
+        return quantityOrdered;
+    }
+    public void setQuantityOrdered(int quantityOrdered) {
+        this.quantityOrdered = quantityOrdered;
+    }
+    public String getDeliveryDate() {
+        return deliverydate;
+    }
+    public void setDeliveryDate(String deliveryMean) {
+        this.deliverydate = deliveryMean;
+    }
+    //
+    //
+
+    public Order_Merchandise(String name, String orderId, String merchandiseCode, String unit, int quantityOrdered,
+                       String deliverydate) {
+        super();
+        this.name = name;
+        this.orderId = orderId;
+        this.merchandiseCode = merchandiseCode;
+        this.unit = unit;
+        this.quantityOrdered = quantityOrdered;
+        this.deliverydate = deliverydate;
+    }
+    public Order_Merchandise() {
+        super();
+    }
+
 }

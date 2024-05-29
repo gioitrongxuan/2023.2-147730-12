@@ -9,8 +9,8 @@ public class OrderToSite {
 	//
 	//
 	//
-	
-	private String fromWhatSale;
+	private String orderID;
+	private String listfromsiteID;
 	private String siteID;
 	private String siteName;
 	private String deliveryMean;
@@ -25,13 +25,14 @@ public class OrderToSite {
 	//
 	//
 	//
-	
-	public String getFromWhatSale() {
-		return fromWhatSale;
+
+
+	public String getListfromsiteID() {
+		return listfromsiteID;
 	}
 
-	public void setFromWhatSale(String fromWhatSale) {
-		this.fromWhatSale = fromWhatSale;
+	public void setListfromsiteID(String listfromsiteID) {
+		this.listfromsiteID = listfromsiteID;
 	}
 
 	public String getSiteID() {
@@ -107,7 +108,7 @@ public class OrderToSite {
 			ArrayList<String> desiredDeliveryDate, ArrayList<Merchandise> merchandisesNeedToOrder,
 			ArrayList<Integer> amountOfMerchandisesNeedToOrder, String status) {
 		super();
-		this.fromWhatSale = fromWhatSale;
+		this.listfromsiteID = fromWhatSale;
 		this.siteID = siteID;
 		this.siteName = siteName;
 		this.deliveryMean = deliveryMean;
@@ -122,7 +123,7 @@ public class OrderToSite {
 			ArrayList<Merchandise> merchandisesNeedToOrder, ArrayList<Integer> amountOfMerchandisesNeedToOrder,
 			String status) {
 		super();
-		this.fromWhatSale = fromWhatSale;
+		this.listfromsiteID = fromWhatSale;
 		this.siteID = siteID;
 		this.deliveryMean = deliveryMean;
 		this.desiredDeliveryDate = desiredDeliveryDate;
@@ -134,8 +135,15 @@ public class OrderToSite {
 	public OrderToSite() {
 		super();
 	}
-	
-	//
+
+	public String getOrderID() {
+		return orderID;
+	}
+
+	public void setOrderID(String orderID) {
+		this.orderID = orderID;
+	}
+//
 	//
 	//
 	

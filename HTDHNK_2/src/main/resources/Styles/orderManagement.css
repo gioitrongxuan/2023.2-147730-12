@@ -12,7 +12,7 @@
 }
 .management_container .list-cell {
     -fx-background-color: #EEEEEE;
-    -fx-text-fill: #FFFFFF;
+    /*-fx-text-fill: #FFFFFF;*/
     -fx-font-size: 1.5em;
     -fx-font-family: "Calibri Light";
 }

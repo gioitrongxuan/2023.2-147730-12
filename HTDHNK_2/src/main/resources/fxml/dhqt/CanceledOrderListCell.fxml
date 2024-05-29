@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="40.0" prefWidth="133.0" styleClass="cell_container" stylesheets="@../../Styles/RejectOrderListCell.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <VBox layoutX="20.0" layoutY="20.0" prefHeight="58.0" prefWidth="113.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <Label prefHeight="17.0" prefWidth="22.0" text="ID:" />
+            <Label fx:id="canceled_orderID" prefHeight="17.0" prefWidth="91.0" text="ID" />
+         </HBox>
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+               <Label prefHeight="17.0" prefWidth="35.0" text="Site:" />
+               <Label fx:id="order_name_lbl" prefHeight="17.0" text="Name" />
+            </children>
+         </HBox>
+      </children>
+   </VBox>
+</AnchorPane>

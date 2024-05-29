@@ -2,10 +2,10 @@ package htdh.model.common.entity;
 
 import java.util.Date;
 
-public class RejectOrder {
+public class CanceledOrder {
     private String OrderID;
     private Date rejectDate;
-    public RejectOrder(String orderId, Date rejectDate) {
+    public CanceledOrder(String orderId, Date rejectDate) {
         this.OrderID = orderId;
         this.rejectDate = rejectDate;
     }

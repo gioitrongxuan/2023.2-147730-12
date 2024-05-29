@@ -1,6 +1,6 @@
-package htdh.subsystem.CURDRejectOrder;
+package htdh.subsystem.CanceledOrder;
 
-public class UpdateRejectOrder implements ICURDRejectOrder{
+public class DeleteRejectOrder implements ICURDRejectOrder{
     @Override
     public void create() {
 
@@ -18,6 +18,6 @@ public class UpdateRejectOrder implements ICURDRejectOrder{
 
     @Override
     public void delete() {
-
+        System.out.println("Delete Reject Order");
     }
 }

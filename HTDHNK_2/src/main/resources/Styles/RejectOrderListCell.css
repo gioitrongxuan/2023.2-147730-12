@@ -1,5 +1,6 @@
 .cell_container {
-    -fx-background-color: #132A13;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
     -fx-background-radius: 10;
     -fx-padding: 10;
     -fx-spacing: 10;
@@ -10,7 +11,7 @@
 }
 
 .cell_container HBox Label{
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #000000;
 }
 
 
