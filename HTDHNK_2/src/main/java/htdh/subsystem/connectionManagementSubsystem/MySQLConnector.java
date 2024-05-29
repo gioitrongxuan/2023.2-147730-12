@@ -32,6 +32,8 @@ public class MySQLConnector implements DatabaseConnector {
             System.out.println("Database Disconnect successfully");
         } catch (SQLException e) {
             e.printStackTrace();
+        }
     }
-}
+    
+    
 }

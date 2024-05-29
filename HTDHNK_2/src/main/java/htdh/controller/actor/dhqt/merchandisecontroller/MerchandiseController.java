@@ -299,7 +299,7 @@ public class MerchandiseController {
 	    merchandise.setDesiredDeliveryDate(desiredDeliveryDate);
 	}
 	
-	public int calculateTotalQuantity() { // Thêm phương thức này
+	public int calculateTotalQuantity() {
         int totalQuantity = 0;
         for (MerchandiseSiteOptController controller : merchandiseSiteOptControllers) {
             String text = controller.getQuantityTextField().getText();
@@ -307,7 +307,7 @@ public class MerchandiseController {
                 try {
                     totalQuantity += Integer.parseInt(text);
                 } catch (NumberFormatException e) {
-                    // handle the exception, maybe log it or show an error message
+                	
                 }
             }
         }
@@ -334,10 +334,5 @@ public class MerchandiseController {
 	    merchandise.setQuantityOrdered(orderedMerchandiseQuantity);
 	    merchandise.setDeliveryMean(means);
 	    merchandise.setDesiredDeliveryDate(desiredDeliveryDate);
-	}
-	
-	
-	public void sendOrderToSite(Merchandise merchandise) {
-	
 	}
 }
