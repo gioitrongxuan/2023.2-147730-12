@@ -35,9 +35,9 @@ public class SearchProducts {
 //        }
 
         // Tạo dữ liệu mẫu
-        products.add(new Product("Name1", "001", new ArrayList<>(List.of("kg", "g")), 10));
-        products.add(new Product("Name2", "002", new ArrayList<>(List.of("l", "ml")), 20));
-        products.add(new Product("Name3", "003", new ArrayList<>(List.of("m", "cm")), 30));
+        products.add(new Product("Quan wibu", "P001", new ArrayList<>(List.of("White", "Black", "Blue")), 10));
+        products.add(new Product("Bim bim can", "P002", new ArrayList<>(List.of("500g", "200g")), 20));
+        products.add(new Product("Da quy", "P003", new ArrayList<>(List.of("Topaz", "Jade", "Aventurine")), 30));
 
         // Tìm kiếm ProductCode trùng hoàn toàn với searchTerm
         Product matchedProducts = new Product();

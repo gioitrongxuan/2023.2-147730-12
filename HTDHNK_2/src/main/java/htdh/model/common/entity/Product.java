@@ -8,7 +8,7 @@ public class Product {
 	//
 	private String name;
 	private String productCode;
-	private ArrayList<String> unit;
+	private String unit;
 	private int quantity;
 	//
 	//
@@ -25,10 +25,10 @@ public class Product {
 	public void setProductCode(String productCode) {
 		this.productCode = productCode;
 	}
-	public ArrayList<String> getUnit() {
+	public String getUnit() {
 		return unit;
 	}
-	public void setUnit(ArrayList<String> unit) {
+	public void setUnit(String unit) {
 		this.unit = unit;
 	}
 	public int getQuantity() {
@@ -40,7 +40,7 @@ public class Product {
 	//
 	//
 	//
-	public Product(String name, String productCode, ArrayList<String> unit, int quantity) {
+	public Product(String name, String productCode, String unit, int quantity) {
 		super();
 		this.name = name;
 		this.productCode = productCode;

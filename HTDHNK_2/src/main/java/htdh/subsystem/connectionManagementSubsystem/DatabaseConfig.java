@@ -2,12 +2,14 @@ package htdh.subsystem.connectionManagementSubsystem;
 
 public class DatabaseConfig {
     //Default values
+<<<<<<< HEAD
     private String url = "jdbc:sqlserver://DESKTOP-HTS59DT\\NTD2003:1433;databaseName=HTDHNK;trustServerCertificate=true;";
+=======
+    private String url = "jdbc:sqlserver://DESKTOP-LIBGL2T\\SQLEXPRESS:1433;databaseName=HTDHNK;trustServerCertificate=true;";
+>>>>>>> 7ac4fe243b4e948c54b5bdaa33a67c1e26c047bc
     private String username = "sa";
     private String password = "123456789";
-//chỗ này là thông tin dâtbase của máy ông 
-//thế cais số hiệu cổng kia là sao: OK MAF LÚC NÃY TÔI PUSH LÊN XONG KO THÁY CỦA TÔI ĐÂU LUÔN:đđ
-//    NÊN MỚI PHẢI CLONE LẠI:đđ
+
     // Constructor, getters, and setters
     public DatabaseConfig(String url, String username, String password) {
         this.url = url;

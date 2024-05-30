@@ -1,18 +1,19 @@
-
-.cell_container:filled:selected:focused, .cell_container:filled:selected {
-    -fx-background-color: linear-gradient(#328BDB 0%, #207BCF 25%, #1973C9 75%, #0A65BF 100%);
-    -fx-text-fill: white;
-
+.cell_container {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000000;
     -fx-background-radius: 10;
-    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 7);
+    -fx-padding: 10;
+    -fx-spacing: 10;
 }
-.cell_container:even {
-    -fx-background-color: white;
+
+.cell_container:hover{
+    -fx-cursor: hand;
 }
-.cell_container:filled:hover {
-    -fx-background-color: #0093ff;
-    -fx-text-fill: white;
+
+.cell_container HBox Label{
+    -fx-text-fill: #000000;
 }
+
 
 .rejectOrder_icon_container {
     -fx-background-color: #132A13;
