@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htdh.controller.warehousemanagement.PopUpOfAMerchandiseController">
+   <children>
+      <VBox layoutY="1.0" prefHeight="740.0" prefWidth="1110.0">
+         <children>
+            <VBox prefHeight="90.0" prefWidth="1110.0">
+               <children>
+                  <Label prefHeight="90.0" prefWidth="1110.0" text="Bộ Phận Quản Lý Kho" textFill="#1154da">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="375.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="50.0" prefWidth="1110.0">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="446.0" text="Thông tin chi tiết một đơn hàng:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+            <HBox prefHeight="600.0" prefWidth="1110.0">
+               <children>
+                  <HBox prefHeight="600.0" prefWidth="550.0">
+                     <children>
+                        <GridPane prefHeight="400.0" prefWidth="550.0">
+                           <children>
+                              <Label prefHeight="21.0" prefWidth="291.0" text="Site Code:">
+                                 <padding>
+                                    <Insets left="70.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="245.0" text="Merchandise Code:" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets left="70.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="214.0" text="Sale Code:" GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets left="70.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="272.0" text="Quanlity Order:" GridPane.rowIndex="3">
+                                 <padding>
+                                    <Insets left="70.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="258.0" text="Quanlity Actual:" GridPane.rowIndex="4">
+                                 <padding>
+                                    <Insets left="70.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="213.0" text="Unit:" GridPane.rowIndex="5">
+                                 <padding>
+                                    <Insets left="70.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="230.0" text="Arrival Date:" GridPane.rowIndex="6">
+                                 <padding>
+                                    <Insets left="70.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="31.0" prefWidth="344.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="50.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label prefHeight="21.0" prefWidth="322.0" text="Label" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" right="50.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="322.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="322.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="322.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="322.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="322.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="264.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="10.0" prefWidth="286.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="600.0" prefWidth="400.0">
+                     <children>
+                        <Label prefHeight="53.0" prefWidth="400.0" text="Note:">
+                           <padding>
+                              <Insets top="50.0" />
+                           </padding>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextArea prefHeight="468.0" prefWidth="400.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="600.0" prefWidth="160.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Lưu">
+                           <VBox.margin>
+                              <Insets left="35.0" top="250.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Quay Lại">
+                           <VBox.margin>
+                              <Insets left="35.0" top="200.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
