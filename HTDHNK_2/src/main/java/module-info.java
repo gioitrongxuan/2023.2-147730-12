@@ -34,6 +34,13 @@ module htdh {
     opens htdh.controller.actor.sales.createOrder.child.createOrder.parent to javafx.fxml, javafx.base;
     opens htdh.common.entity;
     exports htdh.common.entity;
+    exports htdh.test.warehousemanagement;
+    exports htdh.controller.warehousemanagement;
+    opens htdh.test.warehousemanagement;
+    opens htdh.controller.warehousemanagement to javafx.fxml;
+
+    exports test; // Xuất khẩu gói test để các mô-đun khác có thể truy cập
+    opens test to javafx.graphics, javafx.fxml;
     exports htdh.controller.actor.sales.createProduct to javafx.fxml;
     opens htdh.controller.actor.sales.createProduct to javafx.fxml;
     exports htdh.controller.actor.dhqt.reorder;

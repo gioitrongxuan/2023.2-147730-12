@@ -1,6 +1,7 @@
 package htdh.controller;
 
 import htdh.model.actor.dhqt.Model;
+import test.*;
 import htdh.model.actor.sales.ViewModel;
 import htdh.view.dhqt.AccountType;
 import javafx.collections.FXCollections;
@@ -49,7 +50,18 @@ public class LoginController implements Initializable {
                 ViewModel.getInstance().getSaleViewFactory().showSaleWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             }
-            case QLK -> Model.getInstance().getViewFactory().showLoginWindow();
+            case QLK -> {
+            	Model.getInstance().evalueteBPDHQTCred(username_fld.getText(), password_fld.getText());
+                if(Model.getInstance().getBPDHQTLoginSuccessFlag()){
+                    Model.getInstance().getViewFactory().showListOfOrderToWarehouseManagementView();
+                    // Đóng cửa sổ đăng nhập
+                    Model.getInstance().getViewFactory().closeStage(stage);
+                } else {
+                    username_fld.setText("");
+                    password_fld.setText("");
+                    error_lbl.setText("No such login credentials.");
+                }            
+            }
             case SITE -> Model.getInstance().getViewFactory().showLoginWindow();
         }
     }
