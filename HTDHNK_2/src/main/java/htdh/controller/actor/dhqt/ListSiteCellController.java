@@ -2,6 +2,7 @@ package htdh.controller.actor.dhqt;
 
 import htdh.model.actor.site.Site;
 import htdh.model.common.entity.Order;
+import htdh.model.common.entity.Order_Merchandise;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -25,7 +26,9 @@ public class ListSiteCellController implements Initializable {
     public TextField selected_tld;
     public ChoiceBox deliverymean_choice;
     TitlePaneReOrderController titlePaneReOrderController;
+    private Order_Merchandise order_merchandise = new Order_Merchandise();
     private Site site;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -53,7 +56,6 @@ public class ListSiteCellController implements Initializable {
         
 
     }
-
     public void setSite_id_lbl(String site_id_lbl) {
         this.site_id_lbl.setText(site_id_lbl);
     }
@@ -112,4 +114,18 @@ public class ListSiteCellController implements Initializable {
     }
 
 
+    public Order_Merchandise getOrder_merchandise() {
+        this.order_merchandise.setOrderId(site_id_lbl.getText());
+        this.order_merchandise.setMerchandiseCode(titlePaneReOrderController.getMerchandise().getMerchandiseCode());
+        this.order_merchandise.setDeliveryDate(deliverydate_lbl.getText());
+        this.order_merchandise.setQuantityOrdered(Integer.parseInt(selected_tld.getText()));
+        this.order_merchandise.setUnit(titlePaneReOrderController.getMerchandise().getUnit());
+        this.order_merchandise.setName(titlePaneReOrderController.getMerchandise().getName());
+        this.order_merchandise.setDeliverymean(deliverymean_choice.getSelectionModel().getSelectedItem().toString());
+        return order_merchandise;
+    }
+
+    public void setOrder_merchandise(Order_Merchandise order_merchandise) {
+        this.order_merchandise = order_merchandise;
+    }
 }

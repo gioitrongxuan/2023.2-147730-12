@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="80.0" prefWidth="577.0" style="-fx-background-color: #132A13;" stylesheets="@../../Styles/RejectOrderListCell.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htdh.controller.actor.dhqt.ReOrderConfirmCell">
+   <children>
+      <Label layoutX="23.0" layoutY="23.0" stylesheets="@../../Styles/login.css" text="Site:" textFill="WHITE" />
+      <Label layoutX="23.0" layoutY="48.0" text="Mã hàng:" textFill="WHITE" />
+      <Label layoutX="258.0" layoutY="23.0" text="Ngày nhận dự kiến:" textFill="WHITE" />
+      <Label layoutX="258.0" layoutY="48.0" text="Phương tiện vận chuyển:" textFill="WHITE" />
+      <Label fx:id="site_lbl" layoutX="50.0" layoutY="23.0" stylesheets="@../../Styles/login.css" text="Site:" textFill="WHITE" />
+      <Label fx:id="mer_code_lbl" layoutX="79.0" layoutY="48.0" stylesheets="@../../Styles/login.css" text="Site:" textFill="WHITE" />
+      <Label fx:id="date_lbl" layoutX="366.0" layoutY="23.0" stylesheets="@../../Styles/login.css" text="Site:" textFill="WHITE" />
+      <Label fx:id="pt_lbl" layoutX="395.0" layoutY="48.0" stylesheets="@../../Styles/login.css" text="Site:" textFill="WHITE" />
+   </children>
+</AnchorPane>

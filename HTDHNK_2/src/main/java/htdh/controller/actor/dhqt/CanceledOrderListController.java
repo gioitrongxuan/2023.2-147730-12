@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 
 public class CanceledOrderListController implements Initializable {
-    private List<TitlePaneReOrderController> titlePaneReOrderControllers;
+    private List<TitlePaneReOrderController> titlePaneReOrderControllers = FXCollections.observableArrayList();
 
     public ListView order_listview;
     public Accordion list_merchan_site_acd;
@@ -33,7 +33,7 @@ public class CanceledOrderListController implements Initializable {
     public Label order_date_lbl;
     public Button reorder_btn;
     public Button deleteOrder;
-
+    private List<Order_Merchandise> order_merchandises = FXCollections.observableArrayList();
     public List<TitlePaneReOrderController> getTitlePaneReOrderControllers() {
         return titlePaneReOrderControllers;
     }
@@ -51,6 +51,20 @@ public class CanceledOrderListController implements Initializable {
         deleteOrder.setOnAction(event -> {
             Order selectedOrder = (Order) order_listview.getSelectionModel().getSelectedItem();
             if (selectedOrder != null) {
+                Model.getInstance().getDatabaseDriver().deleteCancelOrder(selectedOrder.getOrderID());
+                canceledOrders.remove(selectedOrder);
+                order_listview.refresh();
+                list_merchan_site_acd.getPanes().clear();
+            }
+        });
+        reorder_btn.setOnAction(event -> {
+            Order selectedOrder = (Order) order_listview.getSelectionModel().getSelectedItem();
+            if (selectedOrder != null) {
+                for (TitlePaneReOrderController titlePaneReOrderController : titlePaneReOrderControllers) {
+                    for (ListSiteCellController listSiteCellController : titlePaneReOrderController.getListSiteCellControllers()) {
+                       this.order_merchandises.add(listSiteCellController.getOrder_merchandise());
+                    }
+                }
                 Model.getInstance().getDatabaseDriver().deleteCancelOrder(selectedOrder.getOrderID());
                 canceledOrders.remove(selectedOrder);
                 order_listview.refresh();
@@ -105,6 +119,7 @@ public class CanceledOrderListController implements Initializable {
                 Order selectedOrder = (Order) newValue;
                 // Handle the selected RejectOrder
                 System.out.println("Selected RejectOrder: " + selectedOrder.getOrderID());
+
                 list_merchan_site_acd.getPanes().clear();
                 order_date_lbl.setText(selectedOrder.getOrderSentDate());
                 delivery_mean_ldl.setText(selectedOrder.getDeliveryMean());
@@ -116,7 +131,7 @@ public class CanceledOrderListController implements Initializable {
                     loader.setController(controller);
                     try {
                         list_merchan_site_acd.getPanes().add(loader.load());
-//                        titlePaneReOrderControllers.add(controller);
+                        titlePaneReOrderControllers.add(controller);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

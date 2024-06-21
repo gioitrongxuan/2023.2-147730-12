@@ -9,6 +9,7 @@ public class Order_Merchandise {
     private String merchandiseCode;
     private String unit;
     private int quantityOrdered;
+    private String deliverymean;
     private String deliverydate;
     //
     //
@@ -66,4 +67,11 @@ public class Order_Merchandise {
         super();
     }
 
+    public String getDeliverymean() {
+        return deliverymean;
+    }
+
+    public void setDeliverymean(String deliverymean) {
+        this.deliverymean = deliverymean;
+    }
 }

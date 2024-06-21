@@ -29,10 +29,14 @@ public class TitlePaneReOrderController implements Initializable {
 
     public GridPane gridPane;
 
+    public Order_Merchandise getMerchandise() {
+        return merchandise;
+    }
+
     private Order_Merchandise merchandise;
 
     private ReorderController reorderController = new ReorderController();
-    private List<ListSiteCellController> listSiteCellControllers;
+    private List<ListSiteCellController> listSiteCellControllers = FXCollections.observableArrayList();
 
     public List<ListSiteCellController> getListSiteCellControllers() {
         return listSiteCellControllers;
@@ -94,7 +98,7 @@ public class TitlePaneReOrderController implements Initializable {
                                     }
 
                         });
-//                        listSiteCellControllers.add(listSiteCellController);
+                        listSiteCellControllers.add(listSiteCellController);
 
                     } catch (IOException e) {
                         e.printStackTrace();

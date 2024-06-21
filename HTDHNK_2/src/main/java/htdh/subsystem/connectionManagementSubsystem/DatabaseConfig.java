@@ -1,12 +1,9 @@
 package htdh.subsystem.connectionManagementSubsystem;
 
 public class DatabaseConfig {
-    //Default values
-<<<<<<< HEAD
-    private String url = "jdbc:sqlserver://DESKTOP-HTS59DT\\NTD2003:1433;databaseName=HTDHNK;trustServerCertificate=true;";
-=======
-    private String url = "jdbc:sqlserver://DESKTOP-LIBGL2T\\SQLEXPRESS:1433;databaseName=HTDHNK;trustServerCertificate=true;";
->>>>>>> 7ac4fe243b4e948c54b5bdaa33a67c1e26c047bc
+    //Default value
+    private String url = "jdbc:sqlserver://DESKTOP-7RDGHEM\\SQLEXPRESS:1434;databaseName=HTDHNK;trustServerCertificate=true;";
+
     private String username = "sa";
     private String password = "123456789";
 
