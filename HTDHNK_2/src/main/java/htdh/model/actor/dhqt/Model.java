@@ -10,6 +10,7 @@ public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     private final SQLServerConnector databaseDriver;
+
     private AccountType loginAccountType = AccountType.BPDHQT;
     //BPDHQT Data section
     private boolean bpdhqtLoginSuccessFlag;

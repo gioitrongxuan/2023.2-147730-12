@@ -16,9 +16,12 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
+
 public class CanceledOrderListController implements Initializable {
+    private List<TitlePaneReOrderController> titlePaneReOrderControllers;
 
     public ListView order_listview;
     public Accordion list_merchan_site_acd;
@@ -29,12 +32,31 @@ public class CanceledOrderListController implements Initializable {
     public Label site_lbl1;
     public Label order_date_lbl;
     public Button reorder_btn;
+    public Button deleteOrder;
+
+    public List<TitlePaneReOrderController> getTitlePaneReOrderControllers() {
+        return titlePaneReOrderControllers;
+    }
+
+    public void setTitlePaneReOrderControllers(List<TitlePaneReOrderController> titlePaneReOrderControllers) {
+        this.titlePaneReOrderControllers = titlePaneReOrderControllers;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resources) {
         ObservableList<Order> canceledOrders = FXCollections.observableArrayList(Model.getInstance().getDatabaseDriver().getCanceledOrders());
         FilteredList<Order> filteredData = new FilteredList<>(canceledOrders, p -> true);
         order_listview.setItems(filteredData);
+        deleteOrder.disableProperty().bind(Bindings.isEmpty(order_listview.getSelectionModel().getSelectedItems()));
+        deleteOrder.setOnAction(event -> {
+            Order selectedOrder = (Order) order_listview.getSelectionModel().getSelectedItem();
+            if (selectedOrder != null) {
+                Model.getInstance().getDatabaseDriver().deleteCancelOrder(selectedOrder.getOrderID());
+                canceledOrders.remove(selectedOrder);
+                order_listview.refresh();
+                list_merchan_site_acd.getPanes().clear();
+            }
+        });
 
 
         // Add a listener to the filter text field
@@ -94,9 +116,11 @@ public class CanceledOrderListController implements Initializable {
                     loader.setController(controller);
                     try {
                         list_merchan_site_acd.getPanes().add(loader.load());
+//                        titlePaneReOrderControllers.add(controller);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
                 }
             }
 

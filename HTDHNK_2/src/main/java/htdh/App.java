@@ -9,7 +9,7 @@ public class App extends Application {
     @SuppressWarnings("exports")
 	@Override
     public void start(Stage stage) {
-        Model.getInstance().getViewFactory().showBPDHQTWindow();
+        Model.getInstance().getViewFactory().showLoginWindow();
     }
     public static void main(String[] args) {
     	launch(args);

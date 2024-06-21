@@ -29,7 +29,7 @@ public class ListSiteCellController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Date currentDay = new Date();
+        Date currentDay = new Date(2023 - 1900, 3, 10);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
@@ -75,40 +75,28 @@ public class ListSiteCellController implements Initializable {
         ObservableList<String>  choiceOb= FXCollections.observableArrayList(choice);
         this.deliverymean_choice.setItems(choiceOb);
     }
-    public void setData(ResultSet resultSet) {
-        try {
-            // Lấy dữ liệu từ ResultSet
-            String siteId = resultSet.getString("site_id");
-//            String deliveryDate = resultSet.getString("deliverydate");
-            int quantity = resultSet.getInt("quantity");
-            int air_time_day = resultSet.getInt("air_time_day");
-            int ship_time_day = resultSet.getInt("ship_time_day");
-//            String deliveryMean = resultSet.getString("delivery_mean");
-
-            // Đặt dữ liệu vào các thành phần UI tương ứng
-            site_id_lbl.setText(siteId);
+    public void setData(Site site) {
+            this.site =site;
+            site_id_lbl.setText(site.getSiteCode());
             deliverydate_lbl.setText("____-__-__");
-            quantity_lbl.setText(String.valueOf(quantity));
+            quantity_lbl.setText(String.valueOf(site.getQuantity()));
             selected_tld.setText("");
             ObservableList<String> choicebox;
-            if(air_time_day == -1){
-                if(ship_time_day== -1) {
+            if(site.getByAirTime() == -1){
+                if(site.getByShipTime()== -1) {
                     choicebox = FXCollections.observableArrayList("");
                 }else{
                     choicebox = FXCollections.observableArrayList("Ship");
                 }
             } else {
-                if(ship_time_day== -1){
+                if(site.getByShipTime()== -1){
                     choicebox = FXCollections.observableArrayList("Air");
                 }else{
                     choicebox = FXCollections.observableArrayList("Air","Ship");
                 }
             }
             deliverymean_choice.setItems(choicebox);
-            this.site = new Site(siteId,"",air_time_day,ship_time_day);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public void setTitlePaneReOrderController(TitlePaneReOrderController titlePaneReOrderController){

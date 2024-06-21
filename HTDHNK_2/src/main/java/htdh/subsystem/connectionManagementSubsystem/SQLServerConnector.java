@@ -14,6 +14,7 @@ import htdh.common.entity.Merchandise;
 import htdh.common.entity.Product;
 import htdh.model.common.entity.Order;
 import htdh.model.common.entity.Order_Merchandise;
+import htdh.subsystem.CanceledOrder.DeleteRejectOrder;
 import htdh.subsystem.CanceledOrder.GetCanceledOrder;
 import htdh.subsystem.CanceledOrder.ListSite;
 
@@ -125,7 +126,10 @@ public class SQLServerConnector implements DatabaseConnector{
         return new GetCanceledOrder().getCanceledOrders();
     }
     public List<Order_Merchandise> getOrderMerchandises (String orderId){return new  GetCanceledOrder().getOrderMerchandise(orderId);}
-    public ResultSet findListSite(String merchandiseCode) {
-        return  new ListSite().findListSite(merchandiseCode);
+    public ResultSet findListSite(String merchandiseCode,String siteID) {
+        return  new ListSite().findListSite(merchandiseCode,siteID);
+    }
+    public void deleteCancelOrder(String orderId){
+        new DeleteRejectOrder().deleteCancelOrder(orderId);
     }
 }

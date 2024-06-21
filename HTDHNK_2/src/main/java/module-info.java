@@ -36,4 +36,5 @@ module htdh {
     exports htdh.common.entity;
     exports htdh.controller.actor.sales.createProduct to javafx.fxml;
     opens htdh.controller.actor.sales.createProduct to javafx.fxml;
+    exports htdh.controller.actor.dhqt.reorder;
 }

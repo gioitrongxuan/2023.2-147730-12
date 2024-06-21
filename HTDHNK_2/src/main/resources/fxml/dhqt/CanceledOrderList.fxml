@@ -80,4 +80,5 @@
       </children>
    </HBox>
    <Button fx:id="reorder_btn" layoutX="955.0" layoutY="52.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="131.0" text="Đặt lại" />
+   <Button fx:id="deleteOrder" layoutX="955.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: RED;" text="Xóa" textFill="WHITE" />
 </AnchorPane>

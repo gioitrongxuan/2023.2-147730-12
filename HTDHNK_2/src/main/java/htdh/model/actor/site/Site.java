@@ -14,8 +14,37 @@ public class Site {
 	private ArrayList<Product> productsInSite = new ArrayList<Product>();
 	private int byAirTime;
 	private int byShipTime;
+	private int quantity;
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	private int type;
+
+	public Date getDeliveryDate() {
+		return deliveryDate;
+	}
+
+	public void setDeliveryDate(Date deliveryDate) {
+		this.deliveryDate = deliveryDate;
+	}
+
+	private Date deliveryDate;
 	//
 	//
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	//
 	
 	public String getSiteCode() {
