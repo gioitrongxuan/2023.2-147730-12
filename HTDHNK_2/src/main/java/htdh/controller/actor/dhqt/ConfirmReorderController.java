@@ -17,9 +17,10 @@ public class ConfirmReorderController implements Initializable {
     public GridPane ReOrderGridPane;
     public List<Order> listOrder = FXCollections.observableArrayList();
     public void initialize(URL location, ResourceBundle resources) {
+
+    }
+    public void setData(List<Order> listOrder){
         final String SITE_OPTION_FXML_FILE_PATH = "/fxml/dhqt/Reorder.fxml";
-        ReOrderGridPane.getChildren().clear();
-        int column = 0;
         int row = 0;
 
         for(Order order : listOrder) {
@@ -28,9 +29,9 @@ public class ConfirmReorderController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource(SITE_OPTION_FXML_FILE_PATH));
                 ReOrderConfirmCell reOrderConfirmCell = new ReOrderConfirmCell();
-                reOrderConfirmCell.setOrder(order);
                 fxmlLoader.setController(reOrderConfirmCell);
                 ReOrderGridPane.add(fxmlLoader.load(), 0, row);
+                reOrderConfirmCell.setOrder(order);
             } catch (IOException e) {
                 e.printStackTrace();
             }

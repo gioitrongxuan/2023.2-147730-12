@@ -3,8 +3,10 @@ package htdh.model.common.entity;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import htdh.model.common.entity.Merchandise;
+import javafx.collections.FXCollections;
 
 public class Order {
 
@@ -18,6 +20,15 @@ public class Order {
     private String deliveryMean;
     private String orderSentDate;
 
+    public String getDeliverydate() {
+        return deliverydate;
+    }
+
+    public void setDeliverydate(String deliverydate) {
+        this.deliverydate = deliverydate;
+    }
+
+    private String deliverydate;
     public String getDesiredDeliveryDate() {
         return desiredDeliveryDate;
     }
@@ -27,6 +38,7 @@ public class Order {
     }
 
     private String desiredDeliveryDate;
+    private List<Order_Merchandise> orderMerchandiseList = FXCollections.observableArrayList();
 
     private ArrayList<Merchandise> merchandisesNeedToOrder = new ArrayList<Merchandise>();
     private ArrayList<Integer> amountOfMerchandisesNeedToOrder = new ArrayList<Integer>();
@@ -148,6 +160,14 @@ public class Order {
 
     public void setOrderID(String orderID) {
         this.orderID = orderID;
+    }
+
+    public List<Order_Merchandise> getOrderMerchandiseList() {
+        return orderMerchandiseList;
+    }
+
+    public void setOrderMerchandiseList(List<Order_Merchandise> orderMerchandiseList) {
+        this.orderMerchandiseList = orderMerchandiseList;
     }
 //
     //

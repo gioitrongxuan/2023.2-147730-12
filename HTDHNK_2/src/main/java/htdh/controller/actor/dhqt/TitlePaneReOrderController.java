@@ -19,6 +19,15 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class TitlePaneReOrderController implements Initializable {
+    public String getSiteCanceled() {
+        return siteCanceled;
+    }
+
+    public void setSiteCanceled(String siteCanceled) {
+        this.siteCanceled = siteCanceled;
+    }
+
+    private String siteCanceled;
     public Label merchandiseID_lbl;
     public Label merchandiseName_lbl;
     public Label quantity_lbl;
@@ -65,13 +74,14 @@ public class TitlePaneReOrderController implements Initializable {
     }
 
     public void setCellSite() {
-        ResultSet resultSet = Model.getInstance().getDatabaseDriver().findListSite(merchandise.getMerchandiseCode(),merchandise.getOrderId());
+        ResultSet resultSet = Model.getInstance().getDatabaseDriver().findListSite(merchandise.getMerchandiseCode(),siteCanceled);
+        System.out.println("siteCanceled"+siteCanceled);
         final String SITE_OPTION_FXML_FILE_PATH = "/fxml/dhqt/accordion/ListSiteCell.fxml";
+        merchandise.setSiteId(siteCanceled);
         List<Site> listSite = reorderController.getListSite(merchandise);
         gridPane.getChildren().clear();
             int column = 0;
             int row = 0;
-         
                 for(Site site : listSite) {
 
                     try {

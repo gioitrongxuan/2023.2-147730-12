@@ -1,23 +1,17 @@
 package htdh.controller.actor.dhqt.reorder;
 
-import htdh.controller.actor.dhqt.ListSiteCellController;
-import htdh.controller.actor.dhqt.TitlePaneReOrderController;
-import htdh.controller.actor.dhqt.merchandisecontroller.MerchandiseController;
-import htdh.controller.actor.dhqt.merchandisecontroller.MerchandiseSiteOptController;
 import htdh.model.actor.dhqt.Model;
-import htdh.model.actor.dhqt.orderoperation.merchandisemodel.Merchandise;
-import htdh.model.actor.dhqt.orderoperation.orderstosites.OrderToSite;
 import htdh.model.common.entity.Order;
 import htdh.model.actor.site.Site;
 import htdh.model.common.entity.Order_Merchandise;
-import htdh.subsystem.connection.dhqt.datafetch.DHQTDatabaseConfig;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXMLLoader;
 
-import javax.swing.*;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class ReorderController {
@@ -28,7 +22,7 @@ public class ReorderController {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date currentDay = new Date(2023 - 1900, 3, 10);
 
-        ResultSet resultSet = Model.getInstance().getDatabaseDriver().findListSite(orderMerchandise.getMerchandiseCode(),orderMerchandise.getOrderId());
+        ResultSet resultSet = Model.getInstance().getDatabaseDriver().findListSite(orderMerchandise.getMerchandiseCode(),orderMerchandise.getSiteId());
         try {
             while (resultSet.next()) {
                 Site site = new Site();
@@ -86,6 +80,81 @@ public class ReorderController {
             }
         });
     }
+    class SiteDeliveryKey {
+        private final String siteId;
+        private final String deliveryMean;
+
+        public SiteDeliveryKey(String siteId, String deliveryMean) {
+            this.siteId = siteId;
+            this.deliveryMean = deliveryMean;
+        }
+
+        public String getSiteId() {
+            return siteId;
+        }
+
+        public String getDeliveryMean() {
+            return deliveryMean;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            SiteDeliveryKey that = (SiteDeliveryKey) o;
+            return Objects.equals(siteId, that.siteId) &&
+                    Objects.equals(deliveryMean, that.deliveryMean);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(siteId, deliveryMean);
+        }
+    }
+
+
+    public List<Order> allocationOrdersToSites(List<Order_Merchandise> orderMerchandiseList) {
+        List<Order> orders = FXCollections.observableArrayList();
+        Map<SiteDeliveryKey, List<Order_Merchandise>> siteToOrdersMap = new HashMap<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        for (Order_Merchandise orderMerchandise : orderMerchandiseList) {
+            SiteDeliveryKey key = new SiteDeliveryKey(orderMerchandise.getSiteId(), orderMerchandise.getDeliverymean());
+            if (!siteToOrdersMap.containsKey(key)) {
+                siteToOrdersMap.put(key, new ArrayList<>());
+            }
+            siteToOrdersMap.get(key).add(orderMerchandise);
+        }
+
+        // In ra kết quả để kiểm tra
+        for (Map.Entry<SiteDeliveryKey, List<Order_Merchandise>> entry : siteToOrdersMap.entrySet()) {
+            SiteDeliveryKey key = entry.getKey();
+            List<Order_Merchandise> orderMerchandises = entry.getValue();
+            Order order = new Order();
+            order.setSiteID(key.getSiteId());
+            order.setDeliveryMean(key.getDeliveryMean());
+            order.setOrderMerchandiseList(orderMerchandises);
+
+            // Tìm ngày muộn nhất
+            LocalDate latestDate = null;
+            for (Order_Merchandise om : orderMerchandises) {
+                LocalDate currentDeliveryDate = LocalDate.parse(om.getDeliveryDate(), formatter);
+                if (latestDate == null || currentDeliveryDate.isAfter(latestDate)) {
+                    latestDate = currentDeliveryDate;
+                }
+            }
+
+            // Set ngày muộn nhất cho order
+            if (latestDate != null) {
+                order.setDeliverydate(latestDate.format(formatter));
+            }
+
+            orders.add(order);
+        }
+
+        return orders;
+    }
+
     public ReorderController(){}
 
     public void deleteCancelOrder(Order orderMerchandise){

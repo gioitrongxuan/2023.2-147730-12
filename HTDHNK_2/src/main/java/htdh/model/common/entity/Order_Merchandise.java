@@ -6,6 +6,16 @@ public class Order_Merchandise {
     //
     private String name;
     private String orderId;
+    private String siteId;
+
+    public String getSiteId() {
+        return siteId;
+    }
+
+    public void setSiteId(String siteId) {
+        this.siteId = siteId;
+    }
+
     private String merchandiseCode;
     private String unit;
     private int quantityOrdered;

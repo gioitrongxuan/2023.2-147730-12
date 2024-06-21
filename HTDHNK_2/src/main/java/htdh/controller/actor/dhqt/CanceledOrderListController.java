@@ -10,7 +10,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -62,10 +65,31 @@ public class CanceledOrderListController implements Initializable {
             if (selectedOrder != null) {
                 for (TitlePaneReOrderController titlePaneReOrderController : titlePaneReOrderControllers) {
                     for (ListSiteCellController listSiteCellController : titlePaneReOrderController.getListSiteCellControllers()) {
-                       this.order_merchandises.add(listSiteCellController.getOrder_merchandise());
+                        Order_Merchandise orderMerchandise = listSiteCellController.getOrder_merchandise();
+                        System.out.println("1");
+                        if(orderMerchandise!=null){
+                            this.order_merchandises.add(orderMerchandise);
+                            System.out.println("2");
+                        }
+
                     }
                 }
-                Model.getInstance().getDatabaseDriver().deleteCancelOrder(selectedOrder.getOrderID());
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/dhqt/ConfirmReorder.fxml"));
+                    ConfirmReorderController confirmReorderController = new ConfirmReorderController();
+                    System.out.println(order_merchandises.size());
+                    List<Order> orders=  Model.getInstance().getReorderController().allocationOrdersToSites(order_merchandises);
+                    System.out.println(orders.size());
+                    loader.setController(confirmReorderController);
+                    Parent root = loader.load();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    confirmReorderController.setData(orders);
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+//                Model.getInstance().getDatabaseDriver().deleteCancelOrder(selectedOrder.getOrderID());
                 canceledOrders.remove(selectedOrder);
                 order_listview.refresh();
                 list_merchan_site_acd.getPanes().clear();
@@ -130,6 +154,7 @@ public class CanceledOrderListController implements Initializable {
                     TitlePaneReOrderController controller = new TitlePaneReOrderController(merchandise);
                     loader.setController(controller);
                     try {
+                        controller.setSiteCanceled(selectedOrder.getSiteID());
                         list_merchan_site_acd.getPanes().add(loader.load());
                         titlePaneReOrderControllers.add(controller);
                     } catch (IOException e) {

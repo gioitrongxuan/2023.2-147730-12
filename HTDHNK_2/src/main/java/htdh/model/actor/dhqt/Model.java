@@ -1,5 +1,6 @@
 package htdh.model.actor.dhqt;
 
+import htdh.controller.actor.dhqt.reorder.ReorderController;
 import htdh.subsystem.connectionManagementSubsystem.SQLServerConnector;
 import htdh.view.dhqt.AccountType;
 import htdh.view.dhqt.ViewFactory;
@@ -10,6 +11,8 @@ public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     private final SQLServerConnector databaseDriver;
+
+    private final ReorderController reorderController = new ReorderController();
 
     private AccountType loginAccountType = AccountType.BPDHQT;
     //BPDHQT Data section
@@ -71,6 +74,10 @@ public class Model {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public ReorderController getReorderController() {
+        return reorderController;
     }
 
     /*
